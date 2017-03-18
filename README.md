@@ -1,0 +1,80 @@
+Nodejs based container to summarise weather conditions at multiple Australian locations. Initially built for Hang Gliding sites, but can be used for any wind dependent activity.  It retrieves the wind and weather information from the BOM MetEye site.
+
+**Note:** the container does not get or store any information from users. All the filtering, sorting and location awareness is performed in the browser.
+
+# Configuration
+The container requires a TLS key and certificate and takes a JSON file containing an array of site details. TLS is required for the location awareness to work and free certificates can be obtained from [Let’s Encrypt](https://letsencrypt.org).
+
+The values for each entry in the `sites.json` file are:
+
+**Required:**
+* `name` - Unique entry name. Used for filtering.
+* `title` - Name shown on the forecast.
+* `lat` - site's latitude in decimal to two significant figures.
+* `lon` - site's longitude in decimal to two significant figures.
+* `minSpeed` - minimum favourable speed.
+* `maxSpeed` - maximum favourable speed.
+
+**Optional:**
+* `url` - Link to a description of the site.
+* `weather_url` - link to a specific forecast for the site.
+* `obs_url` - link to the site's current weather observations.
+* `minDir` - minimum favourable direction. See note [1].
+* `minDir` - maximum favourable direction. Must be clockwise from minDir. See note [2].
+
+Notes:
+1. Directions must be one of  "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW".
+2. If no directions are specified all directions are considered favourable.
+
+**Example `sites.json` file:**
+
+```json
+{
+"sites":
+  [
+    {
+      "name":"gearys_gap",
+      "title":"Lake George (Geary's Gap)",
+      "url":"http://www.vhpa.org.au/Sites/Lake%20George%20(Geary's%20Gap).html",
+      "weather_url":"http://wind.willyweather.com.au/nsw/southern-tablelands/lake-george.html",
+      "obs_url":"http://www.acthpa.org/newwind/lakegeorge/index.php",
+      "lat":-35.09,
+      "lon":149.37,
+      "minDir": "NE",
+      "maxDir": "SE",
+      "minSpeed": 5,
+      "maxSpeed": 10
+    },
+    {
+      "name":"spring_hill",
+      "title":"Spring Hill",
+      "url":"http://www.vhpa.org.au/Sites/Spring%20Hill.html",
+      "weather_url":"http://wind.willyweather.com.au/nsw/southern-tablelands/nanima.html",
+      "obs_url":"http://www.acthpa.org/newwind/springhill/index.php",
+      "lat":-35.09,
+      "lon":149.08,
+      "minDir": "SW",
+      "maxDir": "NW",
+      "minSpeed": 5,
+      "maxSpeed": 10
+    },
+  ]
+}
+```
+
+# Container configuration
+
+The container expects two shares:
+* /usr/src/app/run - read only - must contain `sites.json`, `key.pem` and `cert.pem`. See Note [1].
+* /usr/src/app/public/run - read/write - stores the forecast history files.
+
+The container exposes two ports:
+* 8080 - http
+* 8443 - https
+
+Notes:
+1. If using [Let’s Encrypt](https://letsencrypt.org) certificates, include the cross signed CA certificate in the `cert.pem` file to ensure it's accepted by all browsers.
+
+# Current Limitations - TODO:
+* Wind speeds are in knots
+* The container timezone is fixed to AEDT.

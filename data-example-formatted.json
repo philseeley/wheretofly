@@ -1,0 +1,286 @@
+[
+    {
+        "forecast": [
+            {
+                "conditions": [
+                    {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "12"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "12"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "10"
+                    },
+                    {
+                        "dir": "WNW",
+                        "kts": "5"
+                    },
+                    {
+                        "dir": "W",
+                        "kts": "6"
+                    },
+                    {
+                        "dir": "WNW",
+                        "kts": "8"
+                    }
+                ],
+                "date": "2016-06-06",
+                "icon": "/images/meteye/weather_icons/large/showers.png"
+            },
+            {
+                "conditions": [
+                    {
+                        "dir": "WNW",
+                        "kts": "10"
+                    },
+                    {
+                        "dir": "WNW",
+                        "kts": "13"
+                    },
+                    {
+                        "dir": "WSW",
+                        "kts": "19"
+                    },
+                    {
+                        "dir": "WSW",
+                        "kts": "18"
+                    },
+                    {
+                        "dir": "WSW",
+                        "kts": "14"
+                    },
+                    {
+                        "dir": "W",
+                        "kts": "15"
+                    },
+                    {
+                        "dir": "W",
+                        "kts": "13"
+                    },
+                    {
+                        "dir": "WNW",
+                        "kts": "12"
+                    }
+                ],
+                "date": "2016-06-07",
+                "icon": "/images/meteye/weather_icons/large/showers.png"
+            },
+            {
+                "conditions": [
+                    {
+                        "dir": "WNW",
+                        "kts": "13"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "14"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "12"
+                    },
+                    {
+                        "dir": "NNW",
+                        "kts": "11"
+                    },
+                    {
+                        "dir": "N",
+                        "kts": "11"
+                    },
+                    {
+                        "dir": "NNE",
+                        "kts": "13"
+                    },
+                    {
+                        "dir": "N",
+                        "kts": "15"
+                    },
+                    {
+                        "dir": "NNW",
+                        "kts": "14"
+                    }
+                ],
+                "date": "2016-06-08",
+                "icon": "/images/meteye/weather_icons/large/showers.png"
+            },
+            {
+                "conditions": [
+                    {
+                        "dir": "NNW",
+                        "kts": "16"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "13"
+                    },
+                    {
+                        "dir": "NNW",
+                        "kts": "12"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "16"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "20"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "12"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "12"
+                    },
+                    {
+                        "dir": "WNW",
+                        "kts": "15"
+                    }
+                ],
+                "date": "2016-06-09",
+                "icon": "/images/meteye/weather_icons/large/showers.png"
+            },
+            {
+                "conditions": [
+                    {
+                        "dir": "WSW",
+                        "kts": "14"
+                    },
+                    {
+                        "dir": "W",
+                        "kts": "13"
+                    },
+                    {
+                        "dir": "WNW",
+                        "kts": "11"
+                    },
+                    {
+                        "dir": "WNW",
+                        "kts": "14"
+                    },
+                    {
+                        "dir": "WNW",
+                        "kts": "13"
+                    },
+                    {
+                        "dir": "W",
+                        "kts": "11"
+                    },
+                    {
+                        "colour": "Orange",
+                        "dir": "SSW",
+                        "kts": "16"
+                    },
+                    {
+                        "colour": "LightGreen",
+                        "dir": "SSW",
+                        "kts": "11"
+                    }
+                ],
+                "date": "2016-06-10",
+                "icon": "/images/meteye/weather_icons/large/showers.png"
+            },
+            {
+                "conditions": [
+                    {
+                        "dir": "SW",
+                        "kts": "8"
+                    },
+                    {
+                        "dir": "WSW",
+                        "kts": "6"
+                    },
+                    {
+                        "dir": "WSW",
+                        "kts": "5"
+                    },
+                    {
+                        "dir": "W",
+                        "kts": "5"
+                    },
+                    {
+                        "colour": "LightGreen",
+                        "dir": "SSW",
+                        "kts": "5"
+                    },
+                    {
+                        "colour": "LightGreen",
+                        "dir": "SSE",
+                        "kts": "5"
+                    },
+                    {
+                        "dir": "WSW",
+                        "kts": "5"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "5"
+                    }
+                ],
+                "date": "2016-06-11",
+                "icon": "/images/meteye/weather_icons/large/showers.png"
+            },
+            {
+                "conditions": [
+                    {
+                        "dir": "NNW",
+                        "kts": "7"
+                    },
+                    {
+                        "dir": "NNW",
+                        "kts": "7"
+                    },
+                    {
+                        "dir": "NNW",
+                        "kts": "7"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "7"
+                    },
+                    {
+                        "dir": "NW",
+                        "kts": "7"
+                    },
+                    {
+                        "dir": "NNW",
+                        "kts": "7"
+                    },
+                    {
+                        "dir": "NNW",
+                        "kts": "9"
+                    },
+                    {
+                        "dir": "NNW",
+                        "kts": "10"
+                    }
+                ],
+                "date": "2016-06-12",
+                "icon": "/images/meteye/weather_icons/large/partly-cloudy.png"
+            }
+        ],
+        "lat": -38.46,
+        "lon": 144.06,
+        "maxDir": "SSW",
+        "maxSpeed": 15,
+        "minDir": "SSE",
+        "minSpeed": 5,
+        "name": "spion_kop",
+        "title": "Spion Kop (Fairhaven, Aireys, Moggs)",
+        "url": "http://www.vhpa.org.au/Sites/Spion%20Kop%20(Fairhaven,%20Aireys,%20Moggs).html",
+        "weather_url": "http://wind.willyweather.com.au/vic/barwon/moggs-creek.html"
+    }
+]

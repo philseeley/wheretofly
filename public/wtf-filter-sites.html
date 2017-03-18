@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<script src="common.js" type="text/javascript"></script>
+
+<script language="javascript">
+
+function onLoad()
+{
+  parseFilters();
+
+  getData(showFilter);
+}
+
+function addRow(filterForm, site)
+{
+  var input = document.createElement("input");
+  input.type = "checkbox";
+  input.name = site.name;
+  input.value = site.title;
+  input.checked = sitesFilter.indexOf(site.name) > -1;
+  var title = document.createElement("text");
+  title.innerHTML = site.title;
+
+  filterForm.appendChild(input);
+  filterForm.appendChild(title);
+  filterForm.appendChild(document.createElement("br"));
+}
+
+function setSiteFilter()
+{
+  var filterForm = document.getElementById("filterForm");
+
+  var inputs = filterForm.getElementsByTagName("input");
+
+  var siteFilter = "";
+
+  for(i=0; i<inputs.length; ++i)
+  {
+    input = inputs[i];
+
+    if(input.type == "checkbox")
+    {
+      if(input.checked)
+      {
+        siteFilter = siteFilter + input.name+"+";
+      }
+    }
+  }
+
+  filters['sites'] = siteFilter;
+
+  setFilters("wtf.html");
+}
+
+function showFilter()
+{
+  var filterForm = document.getElementById("filterForm");
+  var range = document.createRange();
+  range.selectNodeContents(filterForm);
+  range.deleteContents();
+
+  data.sites.sort(function(a, b){return a.title.localeCompare(b.title)});
+  
+  for(s in data.sites)
+  {
+    var site = data.sites[s];
+
+    addRow(filterForm, site);
+  }
+
+  var button = document.createElement("input");
+  button.type = "button";
+  button.value = "Set Filter";
+  button.onclick = setSiteFilter;
+  filterForm.appendChild(button);
+}
+
+</script>
+
+<head>
+<title>Where To Fly</title>
+</head>
+<body onload="onLoad()">
+<b>Use bookmarks to save your selections</b>
+<font face="Helvetica">
+<form id="filterForm">
+</form>
+</font>
+</body>
+</html>

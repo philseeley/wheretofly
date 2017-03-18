@@ -1,0 +1,10 @@
+To renew the TLS certificate; all as root:
+
+systemctl stop firewalld
+Update the port forwarding to laptop port 443.
+cd to letsencrypt folder and run get-cert.
+Return port forwarding to marmite 8443.
+systemctl start firewalld
+cat letsencrypt/live/wheretofly.info/fullchain.pem > cert.pem
+cat letsencrypt/live/wheretofly.info/privkey.pem > key.pem
+

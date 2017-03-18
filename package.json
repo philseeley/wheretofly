@@ -1,0 +1,15 @@
+{
+  "name": "WhereToFly",
+  "version": "1.0.0",
+  "description": "Where to Fly on Docker",
+  "author": "Phil Seeley",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "jsdom":       "^9.8",
+    "node-cron":   "^1.1",
+    "http-server": "^0.9"
+  }
+}

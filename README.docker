@@ -1,0 +1,11 @@
+docker build -t philseeley/wheretofly:v7 . && docker save -o wheretofly.image philseeley/wheretofly:v7 && chmod a+r wheretofly.image
+scp -P 191 wheretofly.image marmite:
+docker run -it -p 8080:8080 -p 8443:8443 --name wheretofly philseeley/wheretofly:v7
+docker run -it -p 8080:8080 -p 8443:8443 \
+  -v /home/phil/projects/wtf/public-run:/usr/src/app/public/run \
+  -v /home/phil/projects/wtf/sites-run:/usr/src/app/run \
+  --name wheretofly philseeley/wheretofly:v7
+docker exec -ti wheretofly bash
+docker rm wheretofly
+docker rmi $(docker images --filter dangling=true -q)
+docker push philseeley/wheretofly:v7
