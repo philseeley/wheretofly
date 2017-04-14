@@ -8,6 +8,7 @@ var request = require("request");
 
 var jquery = fs.readFileSync("jquery.js", "utf-8");
 
+var title;
 var sites;
 var times;
 
@@ -90,7 +91,7 @@ function forecast(site, entry, window)
 
     var d = new Date();
     var filename=new Date(d - d.getTimezoneOffset()*60*1000).toISOString().substr(0, 13)+".json";
-    var data = {"times":times, "sites":sites};
+    var data = {"title":title, "times":times, "sites":sites};
     var run = "public/run/";
     try
     {
@@ -319,7 +320,12 @@ We hit the main site once first to get the authentication information for subsiq
 
 function retrieveForecast()
 {
-  sites = JSON.parse(fs.readFileSync('run/sites.json')).sites;
+  var data = JSON.parse(fs.readFileSync('run/sites.json'));
+
+  title = "Where To Fly";
+  if(data.title) title = data.title;
+
+  sites = data.sites;
 
   jsdom.env
   ({

@@ -5,7 +5,6 @@
 
 <script language="javascript">
 
-var data;
 var locationTimeout;
 var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 var sortBySite;
@@ -42,6 +41,8 @@ function onLoad()
 
 function processData()
 {
+  document.getElementById("title").innerHTML = data.title;
+
   applySiteFilters();
 
   if (navigator.geolocation)
@@ -264,7 +265,7 @@ function showForecast()
 <font face="Helvetica">
 <div style="position: fixed; background-color: white; width:100%; top: 0px;">
 <table>
-<tr><td bgcolor="Yellow">Too Light</td><td bgcolor="LightGreen"><b>Where To Fly</b></td><td bgcolor="Orange">Too Strong</td>
+<tr><td bgcolor="Yellow">Too Light</td><td bgcolor="LightGreen"><b><span id="title"></span></b></td><td bgcolor="Orange">Too Strong</td>
 <td>Email feedback to <a href="mailto:feedback@wheretofly.info?subject=WTF%20Feedback">Phil</a></td></tr>
 </table>
 <form>

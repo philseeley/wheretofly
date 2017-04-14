@@ -1,3 +1,4 @@
+var data;
 var filters = {};
 var sitesFilter = [];
 
