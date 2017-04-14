@@ -10,6 +10,7 @@
   "dependencies": {
     "jsdom":       "^9.8",
     "node-cron":   "^1.1",
-    "http-server": "^0.9"
+    "http-server": "^0.9",
+    "access-log": "^0.3"
   }
 }
