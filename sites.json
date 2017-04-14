@@ -561,6 +561,18 @@
       "maxDir": "SSW",
       "minSpeed": 10,
       "maxSpeed": 20
+    },
+    {
+      "name":"landscape",
+      "title":"Landscape",
+      "lat":-37.10,
+      "lon":145.17,
+      "url":"http://www.vhpa.org.au/Sites/Landscape.html",
+      "weather_url":"http://wind.willyweather.com.au/vic/goulburn/trawool.html",
+      "minDir": "W",
+      "maxDir": "N",
+      "minSpeed": 5,
+      "maxSpeed": 10
     }
   ]
 }
