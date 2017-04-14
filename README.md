@@ -5,7 +5,15 @@ Nodejs based container to summarise weather conditions at multiple Australian lo
 # Configuration
 The container requires a TLS key and certificate and takes a JSON file containing an array of site details. TLS is required for the location awareness to work and free certificates can be obtained from [Let’s Encrypt](https://letsencrypt.org).
 
-The values for each entry in the `sites.json` file are:
+The values in the `sites.json` file are:
+
+**Required:**
+* `sites` - Array of sites.
+
+**Optional:**
+* `title` - Used to override the default title of "Where To Fly".
+
+The values for each `sites` entry are:
 
 **Required:**
 * `name` - Unique entry name. Used for filtering.
@@ -30,6 +38,7 @@ Notes:
 
 ```json
 {
+"title": "Where To Fly",
 "sites":
   [
     {
@@ -65,7 +74,7 @@ Notes:
 # Container configuration
 
 The container expects two shares:
-* /usr/src/app/run - read only - must contain `sites.json`, `key.pem` and `cert.pem`. See Note [1].
+* /usr/src/app/run - read/write - must contain `sites.json`, `key.pem` and `cert.pem`. See Note [1]. An access.log is written here.
 * /usr/src/app/public/run - read/write - stores the forecast history files.
 
 The container exposes two ports:
