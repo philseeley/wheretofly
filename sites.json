@@ -573,6 +573,30 @@
       "maxDir": "N",
       "minSpeed": 5,
       "maxSpeed": 10
+    },
+    {
+      "name":"tongarra",
+      "title":"Tongarra",
+      "lat":-34.60,
+      "lon":150.68,
+      "url":"http://www.vhpa.org.au/Sites/Tongarra.html",
+      "weather_url":"http://wind.willyweather.com.au/nsw/illawarra/tongarra.html",
+      "minDir": "NE",
+      "maxDir": "NE",
+      "minSpeed": 5,
+      "maxSpeed": 10
+    },
+    {
+      "name":"cambewarra",
+      "title":"Cambewarra",
+      "lat":-34.80,
+      "lon":150.58,
+      "url":"http://www.vhpa.org.au/Sites/Cambewarra.html",
+      "weather_url":"http://wind.willyweather.com.au/nsw/illawarra/cambewarra.html",
+      "minDir": "E",
+      "maxDir": "S",
+      "minSpeed": 5,
+      "maxSpeed": 10
     }
   ]
 }
