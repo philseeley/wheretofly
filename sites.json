@@ -597,6 +597,54 @@
       "maxDir": "S",
       "minSpeed": 5,
       "maxSpeed": 10
+    },
+    {
+      "name":"potters_road",
+      "title":"Potters Road",
+      "lat":-38.53,
+      "lon":145.39,
+      "url":"http://siteguide.org.au/Sites/Potters%20Road,%20San%20Remo.html",
+      "weather_url":"http://wind.willyweather.com.au/vic/gippsland/san-remo.html",
+      "minDir": "S",
+      "maxDir": "S",
+      "minSpeed": 10,
+      "maxSpeed": 20
+    },
+    {
+      "name":"fisher_street",
+      "title":"Fisher Street",
+      "lat":-38.46,
+      "lon":145.19,
+      "url":"http://siteguide.org.au/Sites/Fisher%20Street,%20Phillip%20Island.html",
+      "weather_url":"http://wind.willyweather.com.au/vic/gippsland/ventnor.html",
+      "minDir": "NW",
+      "maxDir": "NNW",
+      "minSpeed": 10,
+      "maxSpeed": 20
+    },
+    {
+      "name":"grossard_point",
+      "title":"Grossard Point",
+      "lat":-38.47,
+      "lon":145.17,
+      "url":"http://siteguide.org.au/Sites/Grossard%20Point,%20Phillip%20Island.html",
+      "weather_url":"http://wind.willyweather.com.au/vic/gippsland/ventnor.html",
+      "minDir": "NW",
+      "maxDir": "NW",
+      "minSpeed": 10,
+      "maxSpeed": 20
+    },
+    {
+      "name":"rhyll",
+      "title":"Rhyll",
+      "lat":-38.46,
+      "lon":145.31,
+      "url":"http://siteguide.org.au/Sites/Rhyll,%20Phillip%20Island.html",
+      "weather_url":"http://wind.willyweather.com.au/vic/gippsland/rhyll.html",
+      "minDir": "NNW",
+      "maxDir": "E",
+      "minSpeed": 10,
+      "maxSpeed": 20
     }
   ]
 }
