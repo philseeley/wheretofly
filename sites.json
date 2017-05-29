@@ -30,6 +30,7 @@
       "title":"Ben Nevis",
       "url":"http://www.vhpa.org.au/Sites/Ben%20Nevis.html",
       "weather_url":"http://wind.willyweather.com.au/vic/central-highlands/warrak.html",
+      "obs_url":"http://www.bom.gov.au/products/IDV60801/IDV60801.94835.shtml",
       "lat":-37.23,
       "lon":143.19,
       "minDir": "W",
