@@ -458,6 +458,7 @@
       "lat":-33.64,
       "lon":150.24,
       "weather_url":"http://wind.willyweather.com.au/nsw/greater-western-sydney/blackheath.html",
+      "obs_url":"http://holfuy.com/en/data/180",
       "minDir": "W",
       "maxDir": "WNW",
       "minSpeed": 5,
