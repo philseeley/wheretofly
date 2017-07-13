@@ -647,6 +647,18 @@
       "maxDir": "E",
       "minSpeed": 10,
       "maxSpeed": 20
+    },
+    {
+      "name":"tarrengower",
+      "title":"Mt Tarrengower",
+      "lat":-37.00,
+      "lon":144.05,
+      "url":"https://siteguide.org.au/Sites/Mt%20Tarrengower.html",
+      "weather_url":"http://wind.willyweather.com.au/vic/loddon/maldon.html",
+      "minDir": "W",
+      "maxDir": "WNW",
+      "minSpeed": 10,
+      "maxSpeed": 15
     }
   ]
 }
