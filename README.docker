@@ -1,3 +1,4 @@
+docker pull docker.io/node:6-alpine
 docker build -t philseeley/wheretofly:v8 . && docker save -o wheretofly.image philseeley/wheretofly:v8 && chmod a+r wheretofly.image
 scp -P 191 wheretofly.image marmite:
 docker run -it -p 8080:8080 -p 8443:8443 --name wheretofly philseeley/wheretofly:v8
