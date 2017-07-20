@@ -659,6 +659,31 @@
       "maxDir": "WNW",
       "minSpeed": 10,
       "maxSpeed": 15
+    },
+    {
+      "name":"donnabuang_s",
+      "title":"Mt Donna Buang S",
+      "lat":-37.71,
+      "lon":145.66,
+      "url":"https://siteguide.org.au/Sites/Mt%20Donna%20Buang.html",
+      "weather_url":"http://wind.willyweather.com.au/vic/yarra-valley-and-dandenong-ranges/wesburn.html",
+      "minDir": "SSE",
+      "maxDir": "SSW",
+      "minSpeed": 5,
+      "maxSpeed": 10
+    },
+    {
+      "name":"donnabuang_n",
+      "title":"Mt Donna Buang N",
+      "lat":-37.71,
+      "lon":145.66,
+      "url":"https://siteguide.org.au/Sites/Mt%20Donna%20Buang.html",
+      "weather_url":"http://wind.willyweather.com.au/vic/yarra-valley-and-dandenong-ranges/wesburn.html",
+      "obs_url":"http://www.britanniacreek.com/index.php",
+      "minDir": "NNW",
+      "maxDir": "NNE",
+      "minSpeed": 1,
+      "maxSpeed": 5
     }
   ]
 }
