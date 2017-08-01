@@ -97,8 +97,8 @@
       "lon":145.29,
       "minDir": "NW",
       "maxDir": "N",
-      "minSpeed": 10,
-      "maxSpeed": 15
+      "minSpeed": 8,
+      "maxSpeed": 13
     },
     {
       "name":"flowerdale_s",
@@ -110,8 +110,8 @@
       "lon":145.29,
       "minDir": "SE",
       "maxDir": "S",
-      "minSpeed": 10,
-      "maxSpeed": 15
+      "minSpeed": 8,
+      "maxSpeed": 13
     },
     {
       "name":"yarragon",
