@@ -80,6 +80,7 @@
       "title":"Portsea",
       "url":"http://www.vhpa.org.au/Sites/Portsea.html",
       "weather_url":"http://wind.willyweather.com.au/vic/mornington-peninsula/portsea-surf-beach.html",
+      "obs_url":"http://www.bom.gov.au/products/IDV60801/IDV60801.94853.shtml",
       "lat":-38.33,
       "lon":144.69,
       "minDir": "S",
