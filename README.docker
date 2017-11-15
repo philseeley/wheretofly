@@ -10,3 +10,6 @@ docker exec -ti wheretofly bash
 docker rm wheretofly
 docker rmi $(docker images --filter dangling=true -q)
 docker push philseeley/wheretofly:v8
+
+# On Synology
+docker run -d -p 8080:8080 -p 8443:8443 -v /var/services/homes/phil/wtf-public-run:/usr/src/app/public/run -v /var/services/homes/phil/wtf-run:/usr/src/app/run --name wheretofly philseeley/wheretofly:v8
