@@ -11,7 +11,9 @@
       "minDir": "SSE",
       "maxDir": "SSW",
       "minSpeed": 9,
-      "maxSpeed": 15
+      "maxSpeed": 15,
+      "minPGSpeed": 17,
+      "maxPGSpeed": 22
     },
     {
       "name":"ben_more",
@@ -23,7 +25,9 @@
       "minDir": "SSW",
       "maxDir": "WSW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 7,
+      "maxPGSpeed": 15
     },
     {
       "name":"ben_nevis",
@@ -36,7 +40,9 @@
       "minDir": "W",
       "maxDir": "NW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 7,
+      "maxPGSpeed": 15
     },
     {
       "name":"gordon_s",
@@ -48,7 +54,9 @@
       "minDir": "SSE",
       "maxDir": "SSW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"gordon_se",
@@ -60,7 +68,9 @@
       "minDir": "ESE",
       "maxDir": "SSE",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"flinders_golf_club",
@@ -73,7 +83,9 @@
       "minDir": "SSE",
       "maxDir": "S",
       "minSpeed": 12,
-      "maxSpeed": 18
+      "maxSpeed": 18,
+      "minPGSpeed": 22,
+      "maxPGSpeed": 25
     },
     {
       "name":"portsea",
@@ -86,7 +98,9 @@
       "minDir": "S",
       "maxDir": "SW",
       "minSpeed": 10,
-      "maxSpeed": 20
+      "maxSpeed": 20,
+      "minPGSpeed": 19,
+      "maxPGSpeed": 25
     },
     {
       "name":"flowerdale_n",
@@ -99,7 +113,9 @@
       "minDir": "NW",
       "maxDir": "N",
       "minSpeed": 8,
-      "maxSpeed": 13
+      "maxSpeed": 13,
+      "minPGSpeed": 15,
+      "maxPGSpeed": 19
     },
     {
       "name":"flowerdale_s",
@@ -112,7 +128,9 @@
       "minDir": "SE",
       "maxDir": "S",
       "minSpeed": 8,
-      "maxSpeed": 13
+      "maxSpeed": 13,
+      "minPGSpeed": 15,
+      "maxPGSpeed": 19
     },
     {
       "name":"yarragon",
@@ -124,7 +142,9 @@
       "minDir": "N",
       "maxDir": "N",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"marriners",
@@ -136,7 +156,9 @@
       "minDir": "ESE",
       "maxDir": "SSE",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"hollowback",
@@ -148,7 +170,9 @@
       "minDir": "SSE",
       "maxDir": "SW",
       "minSpeed": 12,
-      "maxSpeed": 20
+      "maxSpeed": 20,
+      "minPGSpeed": 22,
+      "maxPGSpeed": 25
     },
     {
       "name":"kilcunda",
@@ -161,7 +185,9 @@
       "minDir": "S",
       "maxDir": "SW",
       "minSpeed": 10,
-      "maxSpeed": 20
+      "maxSpeed": 20,
+      "minPGSpeed": 19,
+      "maxPGSpeed": 25
     },
     {
       "name":"gearys_gap",
@@ -174,7 +200,9 @@
       "minDir": "NE",
       "maxDir": "SE",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"collector",
@@ -187,7 +215,9 @@
       "minDir": "NE",
       "maxDir": "ESE",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"spring_hill",
@@ -200,7 +230,9 @@
       "minDir": "SW",
       "maxDir": "NW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"pig_hill_n",
@@ -213,7 +245,9 @@
       "minDir": "N",
       "maxDir": "N",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"pig_hill_e",
@@ -226,7 +260,9 @@
       "minDir": "E",
       "maxDir": "E",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"binalong",
@@ -237,7 +273,9 @@
       "minDir": "SSW",
       "maxDir": "WSW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"lake_connewarre",
@@ -248,7 +286,9 @@
       "minDir": "ESE",
       "maxDir": "S",
       "minSpeed": 15,
-      "maxSpeed": 25
+      "maxSpeed": 25,
+      "minPGSpeed": 28,
+      "maxPGSpeed": 25
     },
     {
       "name":"locksley_north",
@@ -259,7 +299,9 @@
       "minDir": "N",
       "maxDir": "NE",
       "minSpeed": 0,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 0,
+      "maxPGSpeed": 15
     },
     {
       "name":"locksley_south",
@@ -270,7 +312,9 @@
       "minDir": "S",
       "maxDir": "SW",
       "minSpeed": 0,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 0,
+      "maxPGSpeed": 15
     },
     {
       "name":"locksley_east",
@@ -281,7 +325,9 @@
       "minDir": "ENE",
       "maxDir": "SSE",
       "minSpeed": 0,
-      "maxSpeed": 4
+      "maxSpeed": 4,
+      "minPGSpeed": 0,
+      "maxPGSpeed": 6
     },
     {
       "name":"locksley_west",
@@ -292,7 +338,9 @@
       "minDir": "WSW",
       "maxDir": "NNW",
       "minSpeed": 0,
-      "maxSpeed": 4
+      "maxSpeed": 4,
+      "minPGSpeed": 0,
+      "maxPGSpeed": 6
     },
     {
       "name":"gundowring_savhill",
@@ -305,7 +353,9 @@
       "minDir": "NW",
       "maxDir": "N",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"flaxmans_hill",
@@ -317,7 +367,9 @@
       "minDir": "SSW",
       "maxDir": "WSW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"mystic",
@@ -330,7 +382,9 @@
       "minDir": "NNW",
       "maxDir": "NNE",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"tawonga_gap",
@@ -342,7 +396,9 @@
       "minDir": "NE",
       "maxDir": "NE",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"mt_emu_sw",
@@ -354,7 +410,9 @@
       "minDir": "SW",
       "maxDir": "SW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"mt_emu_nw",
@@ -366,7 +424,9 @@
       "minDir": "NW",
       "maxDir": "NW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"mt_buffalo",
@@ -378,7 +438,9 @@
       "minDir": "NE",
       "maxDir": "NE",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"bells_beach_southside",
@@ -390,7 +452,9 @@
       "minDir": "SE",
       "maxDir": "SSW",
       "minSpeed": 5,
-      "maxSpeed": 15
+      "maxSpeed": 15,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 22
     },
     {
       "name":"honeysuckle",
@@ -402,7 +466,9 @@
       "minDir": "WSW",
       "maxDir": "WNW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"thistle_hill",
@@ -414,7 +480,9 @@
       "minDir": "SSE",
       "maxDir": "WSW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"cairns_bay",
@@ -426,7 +494,9 @@
       "minDir": "S",
       "maxDir": "SW",
       "minSpeed": 8,
-      "maxSpeed": 15
+      "maxSpeed": 15,
+      "minPGSpeed": 15,
+      "maxPGSpeed": 22
     },
     {
       "name":"shoreham",
@@ -438,7 +508,9 @@
       "minDir": "E",
       "maxDir": "ESE",
       "minSpeed": 8,
-      "maxSpeed": 15
+      "maxSpeed": 15,
+      "minPGSpeed": 15,
+      "maxPGSpeed": 22
     },
     {
       "name":"stanwell",
@@ -451,7 +523,9 @@
       "minDir": "E",
       "maxDir": "S",
       "minSpeed": 8,
-      "maxSpeed": 15
+      "maxSpeed": 15,
+      "minPGSpeed": 15,
+      "maxPGSpeed": 22
     },
     {
       "name":"blackheath",
@@ -463,7 +537,9 @@
       "minDir": "W",
       "maxDir": "WNW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"manilla_w",
@@ -476,7 +552,9 @@
       "minDir": "SW",
       "maxDir": "NNW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"manilla_s",
@@ -489,7 +567,9 @@
       "minDir": "SSE",
       "maxDir": "S",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"manilla_e",
@@ -502,7 +582,9 @@
       "minDir": "NE",
       "maxDir": "SE",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"manilla_ne",
@@ -515,7 +597,9 @@
       "minDir": "NNE",
       "maxDir": "E",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"conargo",
@@ -527,7 +611,9 @@
       "minDir": "SSE",
       "maxDir": "SSW",
       "minSpeed": 6,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 11,
+      "maxPGSpeed": 15
     },
     {
       "name":"eagle_rise",
@@ -539,7 +625,9 @@
       "minDir": "SE",
       "maxDir": "SSW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"13th_beach",
@@ -551,7 +639,9 @@
       "minDir": "S",
       "maxDir": "SW",
       "minSpeed": 10,
-      "maxSpeed": 20
+      "maxSpeed": 20,
+      "minPGSpeed": 19,
+      "maxPGSpeed": 25
     },
     {
       "name":"ocean_grove",
@@ -563,7 +653,9 @@
       "minDir": "S",
       "maxDir": "SSW",
       "minSpeed": 10,
-      "maxSpeed": 20
+      "maxSpeed": 20,
+      "minPGSpeed": 19,
+      "maxPGSpeed": 25
     },
     {
       "name":"landscape",
@@ -575,7 +667,9 @@
       "minDir": "W",
       "maxDir": "N",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"tongarra",
@@ -587,7 +681,9 @@
       "minDir": "NE",
       "maxDir": "NE",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"cambewarra",
@@ -599,7 +695,9 @@
       "minDir": "E",
       "maxDir": "S",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"potters_road",
@@ -611,7 +709,9 @@
       "minDir": "S",
       "maxDir": "S",
       "minSpeed": 10,
-      "maxSpeed": 20
+      "maxSpeed": 20,
+      "minPGSpeed": 19,
+      "maxPGSpeed": 25
     },
     {
       "name":"fisher_street",
@@ -623,7 +723,9 @@
       "minDir": "NW",
       "maxDir": "NNW",
       "minSpeed": 10,
-      "maxSpeed": 20
+      "maxSpeed": 20,
+      "minPGSpeed": 19,
+      "maxPGSpeed": 25
     },
     {
       "name":"grossard_point",
@@ -635,7 +737,9 @@
       "minDir": "NW",
       "maxDir": "NW",
       "minSpeed": 10,
-      "maxSpeed": 20
+      "maxSpeed": 20,
+      "minPGSpeed": 19,
+      "maxPGSpeed": 25
     },
     {
       "name":"rhyll",
@@ -647,7 +751,9 @@
       "minDir": "NNW",
       "maxDir": "E",
       "minSpeed": 10,
-      "maxSpeed": 20
+      "maxSpeed": 20,
+      "minPGSpeed": 19,
+      "maxPGSpeed": 25
     },
     {
       "name":"tarrengower",
@@ -659,7 +765,9 @@
       "minDir": "W",
       "maxDir": "WNW",
       "minSpeed": 10,
-      "maxSpeed": 15
+      "maxSpeed": 15,
+      "minPGSpeed": 19,
+      "maxPGSpeed": 22
     },
     {
       "name":"donnabuang_s",
@@ -671,7 +779,9 @@
       "minDir": "SSE",
       "maxDir": "SSW",
       "minSpeed": 5,
-      "maxSpeed": 10
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     },
     {
       "name":"donnabuang_n",
@@ -684,7 +794,10 @@
       "minDir": "NNW",
       "maxDir": "NNE",
       "minSpeed": 1,
-      "maxSpeed": 5
+      "maxSpeed": 5,
+      "minPGSpeed": 2,
+      "maxPGSpeed": 7
+    },
     }
   ]
 }

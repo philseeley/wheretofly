@@ -11,6 +11,7 @@ var sortBySite;
 var showAllSites;
 var showAllConditions;
 var showTextForecast;
+var showPGValues;
 
 function applySiteFilters()
 {
@@ -129,16 +130,21 @@ function addRow(forecastTable, title, entry)
     var condElement = document.createElement("td");
 
     var dirStr = cond.dir;
-    var kts = cond.kts;
     var colour = cond.colour;
 
     if(colour)
     {
-      condElement.setAttribute("bgcolor", colour);
+      if(filters['showpgvalues'])
+        condElement.setAttribute("bgcolor", cond.PGColour);
+      else
+        condElement.setAttribute("bgcolor", colour);
       wtf = true;
     }
     
-    condElement.innerHTML = dirStr+":"+kts;
+    if(filters['showpgvalues'])
+      condElement.innerHTML = dirStr+":"+cond.kmh;
+    else
+      condElement.innerHTML = dirStr+":"+cond.kts;
     
     entryElement.appendChild(condElement);
   }
@@ -161,8 +167,11 @@ function siteTitle(site)
   var conditions = "";
   
   if(site.minDir && site.maxDir) conditions = site.minDir+"-"+site.maxDir+" ";
-  
-  conditions += site.minSpeed+"-"+site.maxSpeed+" kts";
+
+  if(filters['showpgvalues'])
+    conditions += site.minPGSpeed+"-"+site.maxPGSpeed+" kmh";
+  else
+    conditions += site.minSpeed+"-"+site.maxSpeed+" kts";
     
   if(site.weather_url)
     title += '<a href="'+site.weather_url+'"><font color="ForestGreen">'+conditions+'</font></a>';
@@ -189,11 +198,13 @@ function setView()
   showAllSites = (filters['showallsites'] == "true");
   showAllConditions = (filters['showallconditions'] == "true");
   showTextForecast = (filters['showtextforecast'] == "true");
+  showPGValues = (filters['showpgvalues'] == "true");
 
   document.getElementById("sortBySite").checked = sortBySite;
   document.getElementById("showAllSites").checked = showAllSites;
   document.getElementById("showAllConditions").checked = showAllConditions;
   document.getElementById("showTextForecast").checked = showTextForecast;
+  document.getElementById("showPGValues").checked = showPGValues;
 }
 
 function showForecast()
@@ -202,6 +213,7 @@ function showForecast()
   showAllSites = filters['showallsites'] = document.getElementById("showAllSites").checked;
   showAllConditions = filters['showallconditions'] = document.getElementById("showAllConditions").checked;
   showTextForecast = filters['showtextforecast'] = document.getElementById("showTextForecast").checked;
+  showPGValues = filters['showpgvalues'] = document.getElementById("showPGValues").checked;
 
   window.history.replaceState(null, "", "?"+getFilters());
 
@@ -273,6 +285,7 @@ function showForecast()
 <input type="checkbox" id="showAllSites"      onchange="showForecast()"/>Show all sites
 <input type="checkbox" id="showAllConditions" onchange="showForecast()"/>Show all conditions
 <input type="checkbox" id="showTextForecast"  onchange="showForecast()"/>Show forecast
+<input type="checkbox" id="showPGValues"      onchange="showForecast()"/>Show Paraglider values
 <input type="button"   value="Filter Sites"   onclick="setFilters('wtf-filter-sites.html')"/>
 </form>
 Hover mouse over weather icon for forecast. Showing: <span id="data"></span> <a href="#" onclick="setFilters('wtf-history.html')">Forecast History</a>
