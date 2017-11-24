@@ -798,6 +798,47 @@
       "minPGSpeed": 2,
       "maxPGSpeed": 7
     },
+    {
+      "name":"paps_n",
+      "title":"The Paps N",
+      "lat":-37.04,
+      "lon":145.99,
+      "url":"https://siteguide.org.au/Sites/The%20Paps.html",
+      "weather_url":"https://wind.willyweather.com.au/vic/goulburn/maindample.html",
+      "minDir": "NNW",
+      "maxDir": "NNE",
+      "minSpeed": 5,
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
+    },
+    {
+      "name":"paps_S",
+      "title":"The Paps S",
+      "lat":-37.04,
+      "lon":145.99,
+      "url":"https://siteguide.org.au/Sites/The%20Paps.html",
+      "weather_url":"https://wind.willyweather.com.au/vic/goulburn/maindample.html",
+      "minDir": "ENE",
+      "maxDir": "WNW",
+      "minSpeed": 5,
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
+    },
+    {
+      "name":"lonarch",
+      "title":"Mt Lonarch",
+      "lat":-37.26,
+      "lon":143.34,
+      "url":"https://siteguide.org.au/Sites/Mt%20Lonarch.html",
+      "weather_url":"https://wind.willyweather.com.au/vic/central-highlands/mount-lonarch.html",
+      "minDir": "NE",
+      "maxDir": "E",
+      "minSpeed": 5,
+      "maxSpeed": 10,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     }
   ]
 }
