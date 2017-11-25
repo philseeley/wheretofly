@@ -366,8 +366,8 @@
       "weather_url":"http://wind.willyweather.com.au/vic/western-district/nirranda.html",
       "minDir": "SSW",
       "maxDir": "WSW",
-      "minSpeed": 5,
-      "maxSpeed": 10,
+      "minSpeed": 8,
+      "maxSpeed": 20,
       "minPGSpeed": 9,
       "maxPGSpeed": 15
     },
