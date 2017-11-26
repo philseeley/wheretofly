@@ -6,6 +6,7 @@
       "title":"Spion Kop (Fairhaven, Aireys, Moggs)",
       "url":"http://www.vhpa.org.au/Sites/Spion%20Kop%20(Fairhaven,%20Aireys,%20Moggs).html",
       "weather_url":"http://wind.willyweather.com.au/vic/barwon/moggs-creek.html",
+      "obs_url":"http://www.bom.gov.au/products/IDV60801/IDV60801.94846.shtml",
       "lat":-38.46,
       "lon":144.06,
       "minDir": "SSE",
