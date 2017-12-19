@@ -840,6 +840,20 @@
       "maxSpeed": 10,
       "minPGSpeed": 9,
       "maxPGSpeed": 15
+    },
+    {
+      "name":"cape_liptrap",
+      "title":"Cape Liptrap",
+      "lat":-38.90,
+      "lon":145.92,
+      "url":"http://siteguide.org.au/Sites/Cape%20Liptrap.html",
+      "weather_url":"https://www.willyweather.com.au/vic/gippsland/cape-liptrap.html",
+      "minDir": "SW",
+      "maxDir": "W",
+      "minSpeed": 8,
+      "maxSpeed": 20,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     }
   ]
 }
