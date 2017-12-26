@@ -777,6 +777,7 @@
       "lon":145.66,
       "url":"https://siteguide.org.au/Sites/Mt%20Donna%20Buang.html",
       "weather_url":"http://wind.willyweather.com.au/vic/yarra-valley-and-dandenong-ranges/wesburn.html",
+      "obs_url":"http://www.britanniacreek.com/index.php",
       "minDir": "SSE",
       "maxDir": "SSW",
       "minSpeed": 5,
