@@ -12,6 +12,7 @@ var showAllSites;
 var showAllConditions;
 var showTextForecast;
 var showPGValues;
+var hideExtremes;
 
 function applySiteFilters()
 {
@@ -87,9 +88,12 @@ function addTitleRow(forecastTable, title)
 
   for(t in data.times)
   {
-    element = document.createElement("td");
-    element.innerHTML = data.times[t];
-    titleElement.appendChild(element);
+    if(!hideExtremes || (t>1 && t<7))
+    {
+      element = document.createElement("td");
+      element.innerHTML = data.times[t];
+      titleElement.appendChild(element);
+    }
   }
 
   forecastTable.appendChild(titleElement);
@@ -125,32 +129,35 @@ function addRow(forecastTable, title, entry)
 
   for(c in entry.conditions)
   {
-    var cond = entry.conditions[c];
-
-    var condElement = document.createElement("td");
-
-    var dirStr = cond.dir;
-    var colour = cond.colour;
-
-    if(colour)
+    if(!hideExtremes || (c>1 && c<7))
     {
+      var cond = entry.conditions[c];
+
+      var condElement = document.createElement("td");
+
+      var dirStr = cond.dir;
+      var colour = cond.colour;
+
+      if(colour)
+      {
+        if(filters['showpgvalues'])
+          condElement.setAttribute("bgcolor", cond.PGColour);
+        else
+          condElement.setAttribute("bgcolor", colour);
+        wtf = true;
+      }
+
       if(filters['showpgvalues'])
-        condElement.setAttribute("bgcolor", cond.PGColour);
+        condElement.innerHTML = dirStr+":"+cond.kmh;
       else
-        condElement.setAttribute("bgcolor", colour);
-      wtf = true;
+        condElement.innerHTML = dirStr+":"+cond.kts;
+    
+      entryElement.appendChild(condElement);
     }
-    
-    if(filters['showpgvalues'])
-      condElement.innerHTML = dirStr+":"+cond.kmh;
-    else
-      condElement.innerHTML = dirStr+":"+cond.kts;
-    
-    entryElement.appendChild(condElement);
-  }
   
-  if(showAllConditions || wtf)
-    forecastTable.appendChild(entryElement);
+    if(showAllConditions || wtf)
+      forecastTable.appendChild(entryElement);
+  }
 }
 
 function siteTitle(site)
@@ -199,12 +206,14 @@ function setView()
   showAllConditions = (filters['showallconditions'] == "true");
   showTextForecast = (filters['showtextforecast'] == "true");
   showPGValues = (filters['showpgvalues'] == "true");
+  hideExtremes = (filters['hideextremes'] == "true");
 
   document.getElementById("sortBySite").checked = sortBySite;
   document.getElementById("showAllSites").checked = showAllSites;
   document.getElementById("showAllConditions").checked = showAllConditions;
   document.getElementById("showTextForecast").checked = showTextForecast;
   document.getElementById("showPGValues").checked = showPGValues;
+  document.getElementById("hideExtremes").checked = hideExtremes;
 }
 
 function showForecast()
@@ -214,6 +223,7 @@ function showForecast()
   showAllConditions = filters['showallconditions'] = document.getElementById("showAllConditions").checked;
   showTextForecast = filters['showtextforecast'] = document.getElementById("showTextForecast").checked;
   showPGValues = filters['showpgvalues'] = document.getElementById("showPGValues").checked;
+  hideExtremes = filters['hideextremes'] = document.getElementById("hideExtremes").checked;
 
   window.history.replaceState(null, "", "?"+getFilters());
 
@@ -286,6 +296,7 @@ function showForecast()
 <input type="checkbox" id="showAllConditions" onchange="showForecast()"/>Show all conditions
 <input type="checkbox" id="showTextForecast"  onchange="showForecast()"/>Show forecast
 <input type="checkbox" id="showPGValues"      onchange="showForecast()"/>Show Paraglider values
+<input type="checkbox" id="hideExtremes"      onchange="showForecast()"/>Hide Early/Late values
 <input type="button"   value="Filter Sites"   onclick="setFilters('wtf-filter-sites.html')"/>
 </form>
 Hover mouse over weather icon for forecast. Showing: <span id="data"></span> <a href="#" onclick="setFilters('wtf-history.html')">Forecast History</a>
