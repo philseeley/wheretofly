@@ -855,6 +855,19 @@
       "maxSpeed": 20,
       "minPGSpeed": 9,
       "maxPGSpeed": 15
+    },
+    {
+      "name":"venus_bay",
+      "title":"Venus Bay",
+      "lat":-38.69,
+      "lon":145.80,
+      "weather_url":"https://wind.willyweather.com.au/vic/gippsland/venus-bay.html",
+      "minDir": "SSW",
+      "maxDir": "WSW",
+      "minSpeed": 15,
+      "maxSpeed": 25,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     }
   ]
 }
