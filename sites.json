@@ -89,6 +89,21 @@
       "maxPGSpeed": 25
     },
     {
+      "name":"flinders_monument",
+      "title":"Flinders Monument",
+      "url":"https://siteguide.org.au/Sites/Flinders%20Monument.html",
+      "weather_url":"http://wind.willyweather.com.au/vic/mornington-peninsula/flinders.html",
+      "obs_url":"https://www.wunderground.com/personal-weather-station/dashboard?ID=IFLINDER3#history",
+      "lat":-38.48,
+      "lon":145.02,
+      "minDir": "E",
+      "maxDir": "ESE",
+      "minSpeed": 12,
+      "maxSpeed": 18,
+      "minPGSpeed": 22,
+      "maxPGSpeed": 25
+    },
+    {
       "name":"portsea",
       "title":"Portsea",
       "url":"http://www.vhpa.org.au/Sites/Portsea.html",
