@@ -13,6 +13,7 @@ var showAllConditions;
 var showTextForecast;
 var showPGValues;
 var hideExtremes;
+var showDistance;
 
 function applySiteFilters()
 {
@@ -66,12 +67,33 @@ function sortSites(position)
   {
     var site = data.sites[s];
 
-    site.dist = Math.pow(site.lat - pos.latitude, 2) + Math.pow(site.lon - pos.longitude, 2);
+    site.dist = getDistanceInKm(pos.latitude, pos.longitude, site.lat, site.lon);
   }
 
   data.sites.sort(function(a, b){return a.dist-b.dist});
   
   showForecast();
+}
+
+
+function getDistanceInKm(lat1,lon1,lat2,lon2)
+{
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1);
+  var a =
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ;
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  var d = R * c; // Distance in km
+  return d;
+}
+
+function deg2rad(deg)
+{
+  return deg * (Math.PI/180)
 }
 
 function addTitleRow(forecastTable, title)
@@ -171,6 +193,9 @@ function siteTitle(site)
   
   title += " ";
   
+  if(showDistance)
+    title += parseInt(site.dist)+" km ";
+
   var conditions = "";
   
   if(site.minDir && site.maxDir) conditions = site.minDir+"-"+site.maxDir+" ";
@@ -207,6 +232,7 @@ function setView()
   showTextForecast = (filters['showtextforecast'] == "true");
   showPGValues = (filters['showpgvalues'] == "true");
   hideExtremes = (filters['hideextremes'] == "true");
+  showDistance = (filters['showdistance'] == "true");
 
   document.getElementById("sortBySite").checked = sortBySite;
   document.getElementById("showAllSites").checked = showAllSites;
@@ -214,6 +240,7 @@ function setView()
   document.getElementById("showTextForecast").checked = showTextForecast;
   document.getElementById("showPGValues").checked = showPGValues;
   document.getElementById("hideExtremes").checked = hideExtremes;
+  document.getElementById("showDistance").checked = showDistance;
 }
 
 function showForecast()
@@ -224,6 +251,7 @@ function showForecast()
   showTextForecast = filters['showtextforecast'] = document.getElementById("showTextForecast").checked;
   showPGValues = filters['showpgvalues'] = document.getElementById("showPGValues").checked;
   hideExtremes = filters['hideextremes'] = document.getElementById("hideExtremes").checked;
+  showDistance = filters['showdistance'] = document.getElementById("showDistance").checked;
 
   window.history.replaceState(null, "", "?"+getFilters());
 
@@ -297,6 +325,7 @@ function showForecast()
 <input type="checkbox" id="showTextForecast"  onchange="showForecast()"/>Show forecast
 <input type="checkbox" id="showPGValues"      onchange="showForecast()"/>Show Paraglider values
 <input type="checkbox" id="hideExtremes"      onchange="showForecast()"/>Hide Early/Late values
+<input type="checkbox" id="showDistance"      onchange="showForecast()"/>Show Distance
 <input type="button"   value="Filter Sites"   onclick="setFilters('wtf-filter-sites.html')"/>
 </form>
 Hover mouse over weather icon for forecast. Showing: <span id="data"></span> <a href="#" onclick="setFilters('wtf-history.html')">Forecast History</a>
