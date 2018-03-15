@@ -370,7 +370,7 @@
       "lat":-36.40,
       "lon":147.09,
       "url":"http://vhpa.org.au/Sites/Gundowring%20(Savhill).html",
-      "weather_url":"http://freeflightwx.com/gundowring",
+      "weather_url":"https://wind.willyweather.com.au/vic/ovens--murray/gundowring.html",
       "obs_url":"http://freeflightwx.com/gundowring/index.php",
       "minDir": "NW",
       "maxDir": "N",
