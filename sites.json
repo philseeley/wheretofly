@@ -892,6 +892,34 @@
       "maxSpeed": 25,
       "minPGSpeed": 9,
       "maxPGSpeed": 15
+    },
+    {
+      "name":"portland_murrells",
+      "title":"Portland - Murrells Beach",
+      "lat":-38.40,
+      "lon":141.53,
+      "url":"https://siteguide.org.au/Sites/Portland.html",
+      "weather_url":"https://wind.willyweather.com.au/vic/western-district/portland.html",
+      "minDir": "SW",
+      "maxDir": "NW",
+      "minSpeed": 9,
+      "maxSpeed": 15,
+      "minPGSpeed": 17,
+      "maxPGSpeed": 22
+    },
+    {
+      "name":"mt_dandenong",
+      "title":"Mt Dandenong",
+      "lat":-37.84,
+      "lon":145.35,
+      "url":"https://siteguide.org.au/Sites/Mt%20Dandenong.html",
+      "weather_url":"https://wind.willyweather.com.au/vic/yarra-valley-and-dandenong-ranges/mount-dandenong.html",
+      "minDir": "W",
+      "maxDir": "NW",
+      "minSpeed": 5,
+      "maxSpeed": 10,
+      "minPGSpeed": 7,
+      "maxPGSpeed": 15
     }
   ]
 }
