@@ -26,11 +26,13 @@ function forecast(site, entry, window)
 
   var offset=time.length-1-kts.length;
 
-  times = new Array();
+  if (!times)
+    times = new Array();
 
   for (i = 0; i<time.length-1; ++i)
   {
-    times.push(time[i+1].innerHTML);
+    if (times.length < i+1)
+      times.push(time[i+1].innerHTML);
     
     if(i-offset >=0)
       entry.conditions.push({"dir":dir[i-offset].innerHTML, "kts":kts[i-offset].attributes["data-kts"].nodeValue, "kmh":kmh[i-offset].attributes["data-kmh"].nodeValue});
