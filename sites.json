@@ -3,7 +3,7 @@
   [
     {
       "name":"spion_kop",
-      "title":"Spion Kop (Fairhaven, Aireys, Moggs)",
+      "title":"Spion Kop",
       "url":"http://www.vhpa.org.au/Sites/Spion%20Kop%20(Fairhaven,%20Aireys,%20Moggs).html",
       "weather_url":"http://wind.willyweather.com.au/vic/barwon/moggs-creek.html",
       "obs_url":"http://www.bom.gov.au/products/IDV60801/IDV60801.94846.shtml",
@@ -494,7 +494,7 @@
     },
     {
       "name":"thistle_hill",
-      "title":"Mt Broughton (Thistle Hill)",
+      "title":"Thistle Hill",
       "lat":-37.12,
       "lon":145.41,
       "url":"http://www.vhpa.org.au/Sites/Mt%20Broughton%20(Thistle%20Hill).html",
