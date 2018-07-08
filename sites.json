@@ -3,7 +3,7 @@
   [
     {
       "name":"spion_kop",
-      "title":"Spion Kop (Fairhaven, Aireys, Moggs)",
+      "title":"Spion Kop",
       "url":"http://www.vhpa.org.au/Sites/Spion%20Kop%20(Fairhaven,%20Aireys,%20Moggs).html",
       "weather_url":"http://wind.willyweather.com.au/vic/barwon/moggs-creek.html",
       "obs_url":"http://www.bom.gov.au/products/IDV60801/IDV60801.94846.shtml",
@@ -207,7 +207,7 @@
     },
     {
       "name":"gearys_gap",
-      "title":"Lake George (Geary's Gap)",
+      "title":"Lake George (Geary's)",
       "url":"http://www.vhpa.org.au/Sites/Lake%20George%20(Geary's%20Gap).html",
       "weather_url":"http://wind.willyweather.com.au/nsw/southern-tablelands/lake-george.html",
       "obs_url":"http://www.freeflightwx.com/acthpa/lakegeorge/index.php",
@@ -494,7 +494,7 @@
     },
     {
       "name":"thistle_hill",
-      "title":"Mt Broughton (Thistle Hill)",
+      "title":"Thistle Hill",
       "lat":-37.12,
       "lon":145.41,
       "url":"http://www.vhpa.org.au/Sites/Mt%20Broughton%20(Thistle%20Hill).html",
@@ -655,7 +655,7 @@
     },
     {
       "name":"13th_beach",
-      "title":"Barwon Heads (13th Beach)",
+      "title":"13th Beach",
       "lat":-38.28,
       "lon":144.44,
       "url":"http://www.vhpa.org.au/Sites/Barwon%20Heads%20(13th%20Beach).html",
@@ -895,7 +895,7 @@
     },
     {
       "name":"portland_murrells",
-      "title":"Portland - Murrells Beach",
+      "title":"Murrells Beach",
       "lat":-38.40,
       "lon":141.53,
       "url":"https://siteguide.org.au/Sites/Portland.html",
