@@ -1,15 +1,15 @@
 docker pull docker.io/node:6-alpine
-docker build -t philseeley/wheretofly:v11 . && docker save -o wheretofly.image philseeley/wheretofly:v11 && chmod a+r wheretofly.image
+docker build -t philseeley/wheretofly:v12 . && docker save -o wheretofly.image philseeley/wheretofly:v12 && chmod a+r wheretofly.image
 scp -P 191 wheretofly.image marmite:
-docker run -it -p 8080:8080 -p 8443:8443 --name wheretofly philseeley/wheretofly:v11
+docker run -it -p 8080:8080 -p 8443:8443 --name wheretofly philseeley/wheretofly:v12
 docker run -it -p 8080:8080 -p 8443:8443 \
   -v /home/phil/projects/wtf/public-run:/usr/src/app/public/run \
   -v /home/phil/projects/wtf/run:/usr/src/app/run \
-  --name wheretofly philseeley/wheretofly:v11
+  --name wheretofly philseeley/wheretofly:v12
 docker exec -ti wheretofly bash
 docker rm wheretofly
 docker rmi $(docker images --filter dangling=true -q)
-docker push philseeley/wheretofly:v11
+docker push philseeley/wheretofly:v12
 
 # On Synology
-docker run -d -p 8080:8080 -p 8443:8443 -v /var/services/homes/phil/wtf-public-run:/usr/src/app/public/run -v /var/services/homes/phil/wtf-run:/usr/src/app/run --name wheretofly philseeley/wheretofly:v11
+docker run -d -p 8080:8080 -p 8443:8443 -v /var/services/homes/phil/wtf-public-run:/usr/src/app/public/run -v /var/services/homes/phil/wtf-run:/usr/src/app/run --name wheretofly philseeley/wheretofly:v12
