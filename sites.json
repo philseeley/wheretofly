@@ -989,10 +989,10 @@
       "obs_url":"http://freeflywindstation.com/test-station",
       "minDir": "N",
       "maxDir": "SE",
-      "minSpeed": 8,
-      "maxSpeed": 18,
-      "minPGSpeed": 8,
-      "maxPGSpeed": 18
+      "minSpeed": 4,
+      "maxSpeed": 10,
+      "minPGSpeed": 4,
+      "maxPGSpeed": 10
     },
     {
       "name":"mt_storey",
