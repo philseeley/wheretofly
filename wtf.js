@@ -22,7 +22,6 @@ function forecast(site, entry, window)
   var time = window.$("th");
   var dir = window.$("td[class^='wind_dir']");
   var kts = window.$("td[data-kts]");
-  var kmh = window.$("td[data-kmh]");
 
   var offset=time.length-1-kts.length;
 
@@ -35,9 +34,9 @@ function forecast(site, entry, window)
       times.push(time[i+1].innerHTML);
     
     if(i-offset >=0)
-      entry.conditions.push({"dir":dir[i-offset].innerHTML, "kts":kts[i-offset].attributes["data-kts"].nodeValue, "kmh":kmh[i-offset].attributes["data-kmh"].nodeValue});
+      entry.conditions.push({"dir":dir[i-offset].innerHTML, "kts":kts[i-offset].attributes["data-kts"].nodeValue});
     else
-      entry.conditions.push({"dir":"", "kts":"", "kmh":""});
+      entry.conditions.push({"dir":"", "kts":""});
   }
 
   // When all the forecast callbacks have returned we process all the data.
@@ -69,7 +68,6 @@ function forecast(site, entry, window)
           
           var dirStr = cond.dir;
           var kts = cond.kts;
-          var kmh = cond.kmh;
 
           var dir = dirMap[dirStr];
 
@@ -89,10 +87,10 @@ function forecast(site, entry, window)
             if(kts > maxSpeed)
               cond.colour = "Orange";
 
-            if(kmh >= minPGSpeed)
+            if(kts >= minPGSpeed)
               cond.PGColour = "LightGreen";
 
-            if(kmh > maxPGSpeed)
+            if(kts > maxPGSpeed)
               cond.PGColour = "Orange";
           }
         }

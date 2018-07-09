@@ -14,6 +14,7 @@ var showTextForecast;
 var showPGValues;
 var hideExtremes;
 var showDistance;
+var showMetric;
 
 function applySiteFilters()
 {
@@ -162,17 +163,23 @@ function addRow(forecastTable, title, entry)
 
       if(colour)
       {
-        if(filters['showpgvalues'])
+        if(showPGValues)
           condElement.setAttribute("bgcolor", cond.PGColour);
         else
           condElement.setAttribute("bgcolor", colour);
         wtf = true;
       }
 
-      if(filters['showpgvalues'])
-        condElement.innerHTML = dirStr+":"+cond.kmh;
-      else
-        condElement.innerHTML = dirStr+":"+cond.kts;
+      speed = "";
+
+      if(cond.kts)
+      {
+        speed = cond.kts;
+        if(showMetric)
+          speed = Math.round(speed*1.85);
+      }
+
+      condElement.innerHTML = dirStr+":"+speed;
     
       entryElement.appendChild(condElement);
     }
@@ -200,10 +207,27 @@ function siteTitle(site)
   
   if(site.minDir && site.maxDir) conditions = site.minDir+"-"+site.maxDir+" ";
 
-  if(filters['showpgvalues'])
-    conditions += site.minPGSpeed+"-"+site.maxPGSpeed+" kmh";
+  minSpeed = site.minSpeed;
+  maxSpeed = site.maxSpeed;
+
+  if(showPGValues)
+  {
+    minSpeed = site.minPGSpeed;
+    maxSpeed = site.maxPGSpeed;
+  }
+
+  if(showMetric)
+  {
+    minSpeed = Math.round(minSpeed*1.85);
+    maxSpeed = Math.round(maxSpeed*1.85);
+  }
+
+  conditions += minSpeed+"-"+maxSpeed;
+
+  if(showMetric)
+    conditions += " kmh";
   else
-    conditions += site.minSpeed+"-"+site.maxSpeed+" kts";
+    conditions += " kts";
     
   if(site.weather_url)
     title += '<a href="'+site.weather_url+'"><font color="ForestGreen">'+conditions+'</font></a>';
@@ -233,6 +257,7 @@ function setView()
   showPGValues = (filters['showpgvalues'] == "true");
   hideExtremes = (filters['hideextremes'] == "true");
   showDistance = (filters['showdistance'] == "true");
+  showMetric = (filters['showmetric'] == "true");
 
   document.getElementById("sortBySite").checked = sortBySite;
   document.getElementById("showAllSites").checked = showAllSites;
@@ -241,6 +266,7 @@ function setView()
   document.getElementById("showPGValues").checked = showPGValues;
   document.getElementById("hideExtremes").checked = hideExtremes;
   document.getElementById("showDistance").checked = showDistance;
+  document.getElementById("showMetric").checked = showMetric;
 }
 
 function showForecast()
@@ -252,6 +278,7 @@ function showForecast()
   showPGValues = filters['showpgvalues'] = document.getElementById("showPGValues").checked;
   hideExtremes = filters['hideextremes'] = document.getElementById("hideExtremes").checked;
   showDistance = filters['showdistance'] = document.getElementById("showDistance").checked;
+  showMetric = filters['showmetric'] = document.getElementById("showMetric").checked;
 
   window.history.replaceState(null, "", "?"+getFilters());
 
@@ -320,12 +347,13 @@ function showForecast()
 </table>
 <form>
 <input type="checkbox" id="sortBySite"        onchange="showForecast()"/>Sort by site
-<input type="checkbox" id="showAllSites"      onchange="showForecast()"/>Show all sites
-<input type="checkbox" id="showAllConditions" onchange="showForecast()"/>Show all conditions
-<input type="checkbox" id="showTextForecast"  onchange="showForecast()"/>Show forecast
-<input type="checkbox" id="showPGValues"      onchange="showForecast()"/>Show Paraglider values
+<input type="checkbox" id="showAllSites"      onchange="showForecast()"/>All sites
+<input type="checkbox" id="showAllConditions" onchange="showForecast()"/>All conditions
+<input type="checkbox" id="showTextForecast"  onchange="showForecast()"/>Forecast
+<input type="checkbox" id="showPGValues"      onchange="showForecast()"/>Paraglider values
+<input type="checkbox" id="showMetric"        onchange="showForecast()"/>Metric values
 <input type="checkbox" id="hideExtremes"      onchange="showForecast()"/>Hide Early/Late values
-<input type="checkbox" id="showDistance"      onchange="showForecast()"/>Show Distance
+<input type="checkbox" id="showDistance"      onchange="showForecast()"/>Distance
 <input type="button"   value="Filter Sites"   onclick="setFilters('wtf-filter-sites.html')"/>
 </form>
 Hover mouse over weather icon for forecast. Showing: <span id="data"></span> <a href="#" onclick="setFilters('wtf-history.html')">Forecast History</a>
