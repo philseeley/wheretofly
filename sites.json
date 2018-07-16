@@ -306,7 +306,7 @@
       "minSpeed": 15,
       "maxSpeed": 25,
       "minPGSpeed": 10,
-      "maxPGSpeed": 15
+      "maxPGSpeed": 16
     },
     {
       "name":"locksley_north",
@@ -996,7 +996,7 @@
     },
     {
       "name":"mt_storey",
-      "title":"Mt Storey (Toowoomba)",
+      "title":"Mt Storey",
       "lat":-27.46,
       "lon":151.85,
       "url":"http://www.wickedwings.com.au/",
@@ -1069,12 +1069,12 @@
       "lon":152.36,
       "url":"https://siteguide.org.au/Sites/Mt.%20Widgee.html",
       "weather_url":"https://wind.willyweather.com.au/qld/sunshine-coast/widgee.html",
-      "minDir": "SE",
-      "maxDir": "SE",
-      "minSpeed": 0,
-      "maxSpeed": 18,
-      "minPGSpeed": 0,
-      "maxPGSpeed": 18
+      "minDir": "ENE",
+      "maxDir": "ESE",
+      "minSpeed": 4,
+      "maxSpeed": 10,
+      "minPGSpeed": 4,
+      "maxPGSpeed": 10
     },
     {
       "name":"mt_nardi",
