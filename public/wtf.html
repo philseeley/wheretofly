@@ -341,11 +341,17 @@ function showForecast()
 <body onload="onLoad()">
 <font face="Helvetica">
 <div style="position: fixed; background-color: white; width:100%; top: 0px;">
-<table>
-<tr><td bgcolor="Yellow">Too Light</td><td bgcolor="LightGreen"><b><span id="title"></span></b></td><td bgcolor="Orange">Too Strong</td>
-<td>Email feedback to <a href="mailto:feedback@wheretofly.info?subject=WTF%20Feedback">Phil</a></td><td> or see the <a href="#" onclick="setFilters('wtf-info.html')">info</a> page</td></tr>
-</table>
-<form>
+<table border="0">
+<tr>
+<td bgcolor="Yellow">Too Light</td><td bgcolor="LightGreen"><b><span id="title"></span></b></td><td bgcolor="Orange">Too Strong</td>
+<td rowspan="3"><a href='https://play.google.com/store/apps/details?id=name.seeley.phil.wheretoflyapp&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img height="60" alt='Get it on Google Play' src='google-play-badge.png'/></a></td>
+</tr>
+<tr>
+<td colspan="3">Email feedback to <a href="mailto:feedback@wheretofly.info?subject=WTF%20Feedback">Phil</a> or see the <a href="#" onclick="setFilters('wtf-info.html')">info</a> page.
+Hover mouse over weather icon for forecast. Showing: <span id="data"></span> <a href="#" onclick="setFilters('wtf-history.html')">Forecast History</a></td>
+</tr>
+<tr>
+<td colspan="3"><form>
 <input type="checkbox" id="sortBySite"        onchange="showForecast()"/>Sort by site
 <input type="checkbox" id="showAllSites"      onchange="showForecast()"/>All sites
 <input type="checkbox" id="showAllConditions" onchange="showForecast()"/>All conditions
@@ -355,8 +361,9 @@ function showForecast()
 <input type="checkbox" id="hideExtremes"      onchange="showForecast()"/>Hide Early/Late values
 <input type="checkbox" id="showDistance"      onchange="showForecast()"/>Distance
 <input type="button"   value="Filter Sites"   onclick="setFilters('wtf-filter-sites.html')"/>
-</form>
-Hover mouse over weather icon for forecast. Showing: <span id="data"></span> <a href="#" onclick="setFilters('wtf-history.html')">Forecast History</a>
+</form></td>
+</tr>
+</table>
 </div>
 <div>
 <br>
