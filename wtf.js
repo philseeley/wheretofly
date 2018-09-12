@@ -180,9 +180,12 @@ function mkForecastCB(site, entry)
   // We count the number of forecast callback so that we know when we've got all the data.
   ++cbCount;
 
-  request.post({
-  url: "http://www.bom.gov.au/australia/meteye/forecast.php?&lat="+site.lat+"&lon="+site.lon+"&date="+entry.date,
-  body: '{"adate":"'+adate+'","auth":"'+auth+'"}'},
+  request.post(
+  {
+    url: "http://www.bom.gov.au/australia/meteye/forecast.php?&lat="+site.lat+"&lon="+site.lon+"&date="+entry.date,
+    headers: {'User-Agent': "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"},
+    body: '{"adate":"'+adate+'","auth":"'+auth+'"}'
+  },
   function (err, response, body)
   {
     forecastCB(site, entry, body);
@@ -276,8 +279,9 @@ function mkOverviewCB(site)
 {
   request.post(
     {
-      url: "http://www.bom.gov.au/australia/meteye/forecast.php?&lat="+site.lat+"&lon="+site.lon,
-      body: '{"adate":"'+adate+'","auth":"'+auth+'"}'
+      url: "http://www.bom.gov.au/australia/meteye/forecast.php?",
+      headers: {'User-Agent': "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"},
+      form: {lat:site.lat, lon:site.lon, adate:adate, auth:auth}
     },
     function (err, response, body)
     {
