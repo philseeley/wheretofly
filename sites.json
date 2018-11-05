@@ -1030,7 +1030,7 @@
       "url":"https://siteguide.org.au/Sites/Rainbow%20Beach%20-%20Carlo%20Sand%20Blow.html",
       "weather_url":"https://wind.willyweather.com.au/qld/sunshine-coast/rainbow-beach.html",
       "minDir": "NNE",
-      "maxDir": "NE",
+      "maxDir": "E",
       "minSpeed": 8,
       "maxSpeed": 18,
       "minPGSpeed": 8,
