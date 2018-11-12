@@ -1114,6 +1114,19 @@
       "maxSpeed": 10,
       "minPGSpeed": 4,
       "maxPGSpeed": 10
+    },
+    {
+      "name":"forbes",
+      "title":"Forbes",
+      "lat":-33.36,
+      "lon":147.93,
+      "weather_url":"https://www.willyweather.com.au/nsw/central-west/forbes.html",
+      "minDir": "N",
+      "maxDir": "N",
+      "minSpeed": 0,
+      "maxSpeed": 10,
+      "minPGSpeed": 0,
+      "maxPGSpeed": 10
     }
   ]
 }
