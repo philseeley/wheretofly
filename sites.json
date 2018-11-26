@@ -471,6 +471,7 @@
       "lon":144.28,
       "url":"http://www.vhpa.org.au/Sites/Bells%20Beach.html",
       "weather_url":"http://wind.willyweather.com.au/vic/barwon/bells-beach.html",
+      "obs_url":"https://www.wunderground.com/personal-weather-station/dashboard?ID=IVICTORI308",
       "minDir": "SE",
       "maxDir": "SSW",
       "minSpeed": 5,
