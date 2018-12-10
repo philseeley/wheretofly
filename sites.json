@@ -295,20 +295,6 @@
       "maxPGSpeed": 8
     },
     {
-      "name":"lake_connewarre",
-      "title":"Lake Connewarre",
-      "lat":-38.22,
-      "lon":144.44,
-      "url":"https://maps.google.com.au/maps?q=-38.224100,144.435953",
-      "weather_url":"http://wind.willyweather.com.au/vic/barwon/leopold.html",
-      "minDir": "ESE",
-      "maxDir": "S",
-      "minSpeed": 15,
-      "maxSpeed": 25,
-      "minPGSpeed": 10,
-      "maxPGSpeed": 16
-    },
-    {
       "name":"locksley_north",
       "title":"Locksley North",
       "lat":-36.81,
