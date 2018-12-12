@@ -466,6 +466,21 @@
       "maxPGSpeed": 12
     },
     {
+      "name":"bells_beach_winkipop",
+      "title":"Bells Beach (Winkipop)",
+      "lat":-38.37,
+      "lon":144.29,
+      "url":"http://siteguide.org.au/Sites/Bells%20Beach%20-%20Winkipop.html",
+      "weather_url":"http://wind.willyweather.com.au/vic/barwon/bells-beach.html",
+      "obs_url":"https://www.wunderground.com/personal-weather-station/dashboard?ID=IVICTORI308",
+      "minDir": "E",
+      "maxDir": "SE",
+      "minSpeed": 12,
+      "maxSpeed": 18,
+      "minPGSpeed": 12,
+      "maxPGSpeed": 18
+    },
+    {
       "name":"honeysuckle",
       "title":"Honeysuckle",
       "lat":-35.13,
