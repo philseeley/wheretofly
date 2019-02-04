@@ -358,7 +358,7 @@
       "url":"http://vhpa.org.au/Sites/Gundowring%20(Savhill).html",
       "weather_url":"https://wind.willyweather.com.au/vic/ovens--murray/gundowring.html",
       "obs_url":"http://freeflightwx.com/gundowring/index.php",
-      "minDir": "NW",
+      "minDir": "WNW",
       "maxDir": "N",
       "minSpeed": 5,
       "maxSpeed": 10,
