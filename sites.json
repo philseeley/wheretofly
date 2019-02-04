@@ -1056,19 +1056,6 @@
       "maxPGSpeed": 18
     },
     {
-      "name":"playgrounds",
-      "title":"Playgrounds",
-      "lat":-26.79,
-      "lon":152.92,
-      "weather_url":"https://wind.willyweather.com.au/qld/sunshine-coast/bald-knob.html",
-      "minDir": "ENE",
-      "maxDir": "ESE",
-      "minSpeed": 4,
-      "maxSpeed": 16,
-      "minPGSpeed": 4,
-      "maxPGSpeed": 16
-    },
-    {
       "name":"mt_widgee",
       "title":"Mt Widgee",
       "lat":-26.25,
