@@ -649,6 +649,7 @@
       "lon":146.65,
       "url":"http://www.vhpa.org.au/Sites/Eagle%20Rise.html",
       "weather_url":"http://wind.willyweather.com.au/vic/ovens--murray/beechworth.html",
+      "obs_url":"http://www.freeflightwx.com/buckland/",
       "minDir": "SE",
       "maxDir": "SSW",
       "minSpeed": 5,
