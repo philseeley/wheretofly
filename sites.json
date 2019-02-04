@@ -502,7 +502,7 @@
       "lon":145.41,
       "url":"http://www.vhpa.org.au/Sites/Mt%20Broughton%20(Thistle%20Hill).html",
       "weather_url":"http://wind.willyweather.com.au/vic/goulburn/ghin-ghin.html",
-      "obs_url":"http://www.granitehillsweather.id.au/Cumulus/trends.php",
+      "obs_url":"http://www.freeflightwx.com/mtbroughton/",
       "minDir": "SSE",
       "maxDir": "WSW",
       "minSpeed": 5,
