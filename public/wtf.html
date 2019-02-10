@@ -15,6 +15,7 @@ var showPGValues;
 var hideExtremes;
 var showDistance;
 var showMetric;
+var showRASP;
 
 function applySiteFilters()
 {
@@ -109,20 +110,35 @@ function addTitleRow(forecastTable, title)
   var element = document.createElement("td");
   titleElement.appendChild(element);
 
-  for(t in data.times)
+  if(showRASP)
   {
-    if(!hideExtremes || (t>1 && t<7))
+    for(t in data.rasptimes)
     {
-      element = document.createElement("td");
-      element.innerHTML = data.times[t];
-      titleElement.appendChild(element);
+      if(!hideExtremes || (t>1 && t<7))
+      {
+        element = document.createElement("td");
+        element.innerHTML = data.rasptimes[t]+":00";
+        titleElement.appendChild(element);
+      }
+    }
+  }
+  else
+  {
+    for(t in data.times)
+    {
+      if(!hideExtremes || (t>1 && t<7))
+      {
+        element = document.createElement("td");
+        element.innerHTML = data.times[t]+":00";
+        titleElement.appendChild(element);
+      }
     }
   }
 
   forecastTable.appendChild(titleElement);
 }
 
-function addRow(forecastTable, title, entry)
+function addRowLeader(forecastTable, title)
 {
   var entryElement = document.createElement("tr");
         
@@ -130,7 +146,15 @@ function addRow(forecastTable, title, entry)
   titleElement.innerHTML = title;
   entryElement.appendChild(titleElement);
 
+  return entryElement;
+}
+
+function addEntryRow(forecastTable, title, entry)
+{
+  var entryElement = addRowLeader(forecastTable, title);
+
   var forecastElement = document.createElement("td");
+
   if(entry.img)
   {
     if(showTextForecast)
@@ -150,11 +174,12 @@ function addRow(forecastTable, title, entry)
 
   var wtf = false;
 
-  for(c in entry.conditions)
+  for(t in data.times)
   {
-    if(!hideExtremes || (c>1 && c<7))
+    var time = data.times[t];
+    if(!hideExtremes || (t>1 && t<7))
     {
-      var cond = entry.conditions[c];
+      var cond = entry[time];
 
       var condElement = document.createElement("td");
 
@@ -186,6 +211,35 @@ function addRow(forecastTable, title, entry)
   
     if(showAllConditions || wtf)
       forecastTable.appendChild(entryElement);
+  }
+}
+
+function addRASPRow(forecastTable, title, rasp)
+{
+  var entryElement = addRowLeader(forecastTable, title);
+
+  var forecastElement = document.createElement("td");
+  entryElement.appendChild(forecastElement);
+
+  var wtf = false;
+
+  for(t in data.rasptimes)
+  {
+    var time = data.rasptimes[t];
+
+    if(!hideExtremes || (t>1 && t<7))
+    {
+      var colour = rasp[time];
+
+      var condElement = document.createElement("td");
+
+      condElement.setAttribute("bgcolor", colour);
+      condElement.innerHTML = ":";
+
+      entryElement.appendChild(condElement);
+    }
+
+    forecastTable.appendChild(entryElement);
   }
 }
 
@@ -244,7 +298,6 @@ function siteTitle(site)
 
 function dateTitle(dateStr)
 {
-  
   return dateStr+" "+days[new Date(dateStr).getDay()];
 }
 
@@ -258,6 +311,7 @@ function setView()
   hideExtremes = (filters['hideextremes'] == "true");
   showDistance = (filters['showdistance'] == "true");
   showMetric = (filters['showmetric'] == "true");
+  showRASP = (filters['showrasp'] == "true");
 
   document.getElementById("sortBySite").checked = sortBySite;
   document.getElementById("showAllSites").checked = showAllSites;
@@ -267,6 +321,7 @@ function setView()
   document.getElementById("hideExtremes").checked = hideExtremes;
   document.getElementById("showDistance").checked = showDistance;
   document.getElementById("showMetric").checked = showMetric;
+  document.getElementById("showRASP").checked = showRASP;
 }
 
 function showForecast()
@@ -279,6 +334,7 @@ function showForecast()
   hideExtremes = filters['hideextremes'] = document.getElementById("hideExtremes").checked;
   showDistance = filters['showdistance'] = document.getElementById("showDistance").checked;
   showMetric = filters['showmetric'] = document.getElementById("showMetric").checked;
+  showRASP = filters['showrasp'] = document.getElementById("showRASP").checked;
 
   window.history.replaceState(null, "", "?"+getFilters());
 
@@ -301,7 +357,7 @@ function showForecast()
         {
           var entry = site.forecast[e];
 
-          addRow(forecastTable, dateTitle(entry.date), entry);
+          addEntryRow(forecastTable, dateTitle(entry.date), entry);
         }
       }
     }
@@ -320,12 +376,25 @@ function showForecast()
 
         if(showAllSites || site.show)
         {
-          for(e in site.forecast)
+          if(showRASP)
           {
-            var entry = site.forecast[e];
+            for(r in site.rasp)
+            {
+              var rasp = site.rasp[r];
+
+              //if(date == entry.date)
+                addRASPRow(forecastTable, siteTitle(site), rasp);
+            }
+          }
+          else
+          {
+            for(e in site.forecast)
+            {
+              var entry = site.forecast[e];
             
-            if(date == entry.date)
-              addRow(forecastTable, siteTitle(site), entry);
+              if(date == entry.date)
+                addEntryRow(forecastTable, siteTitle(site), entry);
+            }
           }
         }
       }
@@ -359,6 +428,7 @@ Hover mouse over weather icon for forecast. Showing: <span id="data"></span> <a 
 <input type="checkbox" id="showTextForecast"  onchange="showForecast()"/>Forecast
 <input type="checkbox" id="showPGValues"      onchange="showForecast()"/>Paraglider values
 <input type="checkbox" id="showMetric"        onchange="showForecast()"/>Metric values
+<input type="checkbox" id="showRASP"          onchange="showForecast()"/>RASP
 <input type="checkbox" id="hideExtremes"      onchange="showForecast()"/>Hide Early/Late values
 <input type="checkbox" id="showDistance"      onchange="showForecast()"/>Distance
 <input type="button"   value="Filter Sites"   onclick="setFilters('wtf-filter-sites.html')"/>

@@ -1,21 +1,284 @@
 var dirMap = {"N":  0.0, "NNE": 22.5, "NE": 45.0, "ENE": 67.5, "E": 90.0, "ESE":112.5, "SE":135.0, "SSE":157.5,
               "S":180.0, "SSW":202.5, "SW":225.0, "WSW":247.5, "W":270.0, "WNW":292.5, "NW":315.0, "NNW":337.5};
 
+var raspCOORDs =
+{
+  VIC:
+  {
+    tlat: -32.24, tlon: 140.60, ty: 183, tx: 92,
+    blat: -38.58, blon: 150.02, by: 880, bx: 930
+  },
+  NSW:
+  {
+    tlat: -32.24, tlon: 140.60, ty: 183, tx: 92,
+    blat: -38.58, blon: 150.02, by: 880, bx: 930
+  },
+  QLD:
+  {
+    tlat: -32.24, tlon: 140.60, ty: 183, tx: 92,
+    blat: -38.58, blon: 150.02, by: 880, bx: 930
+  }
+}
+
 var fs = require("fs");
 var path = require("path");
 var jsdom = require("jsdom");
 var request = require("request");
+var request = require("request");
+var jimp = require('jimp');
 
 var jquery = fs.readFileSync("jquery.js", "utf-8");
 
 var title;
 var sites;
-var times;
+var times = [];
+var raspTimes;
+var raspImages;
 
 var adate;
 var auth;
 
 var cbCount = 0;
+var raspCBCount = 0;
+
+function formatYYYYMMDD(date)
+{
+  return new Date(date - date.getTimezoneOffset()*60*1000).toISOString().substr(0, 10);
+  //return date.getFullYear()+"-"+(date.getMonth()+1).toString().padStart(2, '0')+"-"+date.getDate().toString().padStart(2, '0');
+}
+
+function saveForecast()
+{
+  var d = new Date();
+  var filename=new Date(d - d.getTimezoneOffset()*60*1000).toISOString().substr(0, 13)+".json";
+  var data = {"title":title, "times":times, "rasptimes":raspTimes, "sites":sites};
+  var run = "public/run/";
+  try
+  {
+    fs.unlinkSync(run+filename);
+  }
+  catch (err) {}
+  fs.writeFileSync(run+filename, JSON.stringify(data));
+  try
+   {
+    fs.unlinkSync(run+"current.json");
+  }
+  catch (err) {}
+  fs.symlinkSync(filename, run+"current.json");
+
+  var history = [];
+  var files = fs.readdirSync(run);
+  for(var i=0; i<files.length; ++i)
+  {
+    if(files[i].endsWith(".json"))
+      history.push(files[i].substr(0, files[i].length-5));
+  }
+
+  history.sort();
+  history.reverse();
+
+  var histFD = fs.openSync("public/wtf-history.html", "w");
+
+  var histStart = fs.readFileSync("history.html.start");
+  fs.writeSync(histFD, histStart.toString());
+
+  for(var i=0; i<history.length; ++i)
+  {
+    fs.writeSync(histFD, '<a href="#" onclick="showDate(\''+history[i]+'\')">'+history[i]+'</a><p>\n');
+  }
+  fs.writeSync(histFD, "</font></body></html>");
+
+  fs.closeSync(histFD);
+
+  console.log(new Date().toString()+" Forecast written to "+filename);
+
+  // Format with:
+  // python -m json.tool data-example.json >data-example-formatted.json
+  // fs.writeFileSync("data-example.json", JSON.stringify(sites));
+}
+
+function processForecast()
+{
+  for(s in sites)
+  {
+    var site = sites[s];
+
+    var minDir =   0.0;
+    var maxDir = 360.0;
+
+    if(site.minDir) minDir = dirMap[site.minDir];
+    if(site.maxDir) maxDir = dirMap[site.maxDir];
+    var minSpeed = site.minSpeed;
+    var maxSpeed = site.maxSpeed;
+    var minPGSpeed = site.minPGSpeed;
+    var maxPGSpeed = site.maxPGSpeed;
+
+    for(e in site.forecast)
+    {
+      var entry = site.forecast[e];
+        
+      for(t in times)
+      {
+        var time = times[t];
+
+        var cond = entry[time];
+          
+        var dirStr = cond.dir;
+        var kts = cond.kts;
+
+        var dir = dirMap[dirStr];
+
+        if(minDir > maxDir)
+        {
+          if(dir <= maxDir || dir >= minDir)
+            cond.colour = cond.PGColour = "Yellow";
+        }
+        else if (minDir <= dir && dir <= maxDir)
+          cond.colour = cond.PGColour = "Yellow";
+
+        if(cond.colour)
+        {
+          if(kts >= minSpeed)
+            cond.colour = "LightGreen";
+
+          if(kts > maxSpeed)
+            cond.colour = "Orange";
+
+          if(kts >= minPGSpeed)
+            cond.PGColour = "LightGreen";
+
+          if(kts > maxPGSpeed)
+            cond.PGColour = "Orange";
+        }
+      }
+    }
+
+    site.rasp = [];
+
+    for(day=0; day<1; ++day)
+    {
+      var cond = {};
+      var date = new Date();
+      date.setDate(date.getDate() + day);
+      cond.date = formatYYYYMMDD(date);
+      site.rasp.push(cond);
+
+      for(t in raspTimes)
+      {
+        var time = raspTimes[t];
+
+        var coords = raspCOORDs[site.state];
+
+        var dlat = coords.blat - coords.tlat;
+        var dy = coords.by - coords.ty;
+        var step = dy/dlat;
+
+        var y = coords.ty + ((site.lat - coords.tlat) * step);
+
+        var dlon = coords.blon - coords.tlon;
+        var dx = coords.bx - coords.tx;
+        step = dx/dlon;
+
+        var x = coords.tx + ((site.lon - coords.tlon) * step);
+
+        var red   = 0;
+        var green = 0;
+        var blue  = 0;
+
+        raspImages[site.state][day][time].scan(x+15,y-15,10,10, function(x, y, idx)
+        {
+          var r = this.bitmap.data[idx + 0];
+          var g = this.bitmap.data[idx + 1];
+          var b = this.bitmap.data[idx + 2];
+          if(r ==   0 && g ==   0 && b ==   0) return; // Gridline
+          if(r == 255 && g == 255 && b == 255) return; // Text
+
+          red   += r;
+          green += g;
+          blue  += b;
+          //this.bitmap.data[idx + 0] = 255;
+          //this.bitmap.data[idx + 1] = 255;
+          //this.bitmap.data[idx + 2] = 255;
+        });
+
+        cond[time] = "#"+
+                                Math.round(red/100).toString(16).padStart(2, '0')+
+                                Math.round(green/100).toString(16).padStart(2, '0')+
+                                Math.round(blue/100).toString(16).padStart(2, '0');
+      }
+    }
+  }
+}
+
+function raspImageCB(state, day, time, image)
+{
+  console.log(state, day, time, image.bitmap.width, image.bitmap.height);
+
+  if(raspImages[state][day] === undefined)
+    raspImages[state][day] = {};
+
+  raspImages[state][day][time] = image;
+
+  --raspCBCount;
+
+  if(raspCBCount == 0)
+  {
+    console.log("RASP DONE");
+
+    processForecast();
+
+    saveForecast();
+  }
+}
+
+function mkRASPImageCB(state, day, time)
+{
+  var d = "";
+  if(day>0) d = "+"+day;
+
+  ++raspCBCount;
+
+  jimp.read("http://glidingforecast.on.net/RASP/"+state+d+"/FCST/wstar.curr"+d+"."+time+"00lst.d2.png", function(err, image)
+  {
+    if (err) throw err;
+    raspImageCB(state, day, time, image);
+  });
+}
+
+function getRASPImages()
+{
+  raspImages = [];
+
+  if(!raspTimes)
+  {
+    raspTimes = [];
+    for(t=8; t<=19; ++t)
+    {
+      var time = t.toString().padStart(2, "0");
+      raspTimes.push(time);
+    }
+  }
+
+  for(s in sites)
+  {
+    var state = sites[s].state;
+
+    if(raspImages[state] === undefined)
+    {
+      raspImages[state] = {};
+
+      for(day=0; day<1; ++day)
+      {
+        for(t in raspTimes)
+        {
+          var time = raspTimes[t];
+
+          mkRASPImageCB(state, day, time);
+        }
+      }
+    }
+  }
+}
 
 function forecast(site, entry, window)
 {
@@ -25,18 +288,25 @@ function forecast(site, entry, window)
 
   var offset=time.length-1-kts.length;
 
-  if (!times)
-    times = new Array();
-
   for (i = 0; i<time.length-1; ++i)
   {
     if (times.length < i+1)
-      times.push(time[i+1].innerHTML);
-    
+    {
+      var s = time[i+1].innerHTML;
+      var t = parseFloat(s.substring(0, s.length-3));
+
+      if(s.substring(s.length-2) === "PM")
+        t += 12.0;
+
+      times.push(t.toString().padStart(2, "0"));
+    }
+
+    var cond = times[i];
+
     if(i-offset >=0)
-      entry.conditions.push({"dir":dir[i-offset].innerHTML, "kts":kts[i-offset].attributes["data-kts"].nodeValue});
+      entry[cond] = {"dir":dir[i-offset].innerHTML, "kts":kts[i-offset].attributes["data-kts"].nodeValue};
     else
-      entry.conditions.push({"dir":"", "kts":""});
+      entry[cond] = {"dir":"", "kts":""};
   }
 
   // When all the forecast callbacks have returned we process all the data.
@@ -44,105 +314,7 @@ function forecast(site, entry, window)
 
   if (cbCount == 0)
   {
-    for(s in sites)
-    {
-      var site = sites[s];
-      
-      var minDir =   0.0;
-      var maxDir = 360.0;
-
-      if(site.minDir) minDir = dirMap[site.minDir];
-      if(site.maxDir) maxDir = dirMap[site.maxDir];
-      var minSpeed = site.minSpeed;
-      var maxSpeed = site.maxSpeed;
-      var minPGSpeed = site.minPGSpeed;
-      var maxPGSpeed = site.maxPGSpeed;
-
-      for(e in site.forecast)
-      {
-        var entry = site.forecast[e];
-        
-        for(c in entry.conditions)
-        {
-          var cond = entry.conditions[c];
-          
-          var dirStr = cond.dir;
-          var kts = cond.kts;
-
-          var dir = dirMap[dirStr];
-
-          if(minDir > maxDir)
-          {
-            if(dir <= maxDir || dir >= minDir)
-              cond.colour = cond.PGColour = "Yellow";
-          }
-          else if (minDir <= dir && dir <= maxDir)
-            cond.colour = cond.PGColour = "Yellow";
-
-          if(cond.colour)
-          {
-            if(kts >= minSpeed)
-              cond.colour = "LightGreen";
-
-            if(kts > maxSpeed)
-              cond.colour = "Orange";
-
-            if(kts >= minPGSpeed)
-              cond.PGColour = "LightGreen";
-
-            if(kts > maxPGSpeed)
-              cond.PGColour = "Orange";
-          }
-        }
-      }
-    }
-
-    var d = new Date();
-    var filename=new Date(d - d.getTimezoneOffset()*60*1000).toISOString().substr(0, 13)+".json";
-    var data = {"title":title, "times":times, "sites":sites};
-    var run = "public/run/";
-    try
-    {
-      fs.unlinkSync(run+filename);
-    }
-    catch (err) {}
-    fs.writeFileSync(run+filename, JSON.stringify(data));
-    try
-    {
-      fs.unlinkSync(run+"current.json");
-    }
-    catch (err) {}
-    fs.symlinkSync(filename, run+"current.json");
-
-    var history = [];
-    var files = fs.readdirSync(run);
-    for(var i=0; i<files.length; ++i)
-    {
-      if(files[i].endsWith(".json"))
-        history.push(files[i].substr(0, files[i].length-5));
-    }
-
-    history.sort();
-    history.reverse();
-
-    var histFD = fs.openSync("public/wtf-history.html", "w");
-
-    var histStart = fs.readFileSync("history.html.start");
-    fs.writeSync(histFD, histStart.toString());
-
-    for(var i=0; i<history.length; ++i)
-    {
-      fs.writeSync(histFD, '<a href="#" onclick="showDate(\''+history[i]+'\')">'+history[i]+'</a><p>\n');
-    }
-    fs.writeSync(histFD, "</font></body></html>");
-
-    fs.closeSync(histFD);
-
-    console.log(new Date().toString()+" Forecast written to "+filename);
-
-    // Format with:
-    // python -m json.tool data-example.json >data-example-formatted.json
-    // fs.writeFileSync("data-example.json", JSON.stringify(sites));
+    getRASPImages();
   }
 }
 
@@ -252,7 +424,7 @@ function overview(site, window)
       mkImageCB(uri, filename);
     }
 
-    var entry = {"date": date[i].attributes["datetime"].nodeValue, "img": imgFilename, "imgTitle": imgTitle, "conditions": new Array()};
+    var entry = {"date": date[i].attributes["datetime"].nodeValue, "img": imgFilename, "imgTitle": imgTitle, "conditions": []};
     site.forecast.push(entry);
 
     mkForecastCB(site, entry);
@@ -314,12 +486,10 @@ function authCB(err, window)
     adate = window.$("meta[name='DC.Date']")[0].content;
     auth  = window.$("meta[name='BoM.Token']")[0].content;
 
-    var today = new Date();
-
     for(s in sites)
     {
       var site = sites[s];
-      site.forecast = new Array();
+      site.forecast = [];
 
       mkOverviewCB(site);
     }

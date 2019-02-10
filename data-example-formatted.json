@@ -1,286 +1,1014 @@
-[
-    {
-        "forecast": [
-            {
-                "conditions": [
-                    {
+{
+    "rasptimes": [
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19"
+    ],
+    "sites": [
+        {
+            "forecast": [
+                {
+                    "02": {
                         "dir": "",
                         "kts": ""
                     },
-                    {
+                    "05": {
                         "dir": "",
                         "kts": ""
                     },
-                    {
-                        "dir": "NW",
-                        "kts": "12"
+                    "08": {
+                        "dir": "",
+                        "kts": ""
                     },
-                    {
-                        "dir": "NW",
-                        "kts": "12"
+                    "11": {
+                        "dir": "",
+                        "kts": ""
                     },
-                    {
-                        "dir": "NW",
-                        "kts": "10"
+                    "14": {
+                        "dir": "",
+                        "kts": ""
                     },
-                    {
-                        "dir": "WNW",
-                        "kts": "5"
+                    "17": {
+                        "dir": "",
+                        "kts": ""
                     },
-                    {
-                        "dir": "W",
+                    "20": {
+                        "dir": "E",
                         "kts": "6"
                     },
-                    {
-                        "dir": "WNW",
+                    "23": {
+                        "dir": "ENE",
+                        "kts": "5"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-10",
+                    "img": "run/images/partly-cloudy.png",
+                    "imgTitle": "Mostly clear."
+                },
+                {
+                    "02": {
+                        "dir": "NW",
                         "kts": "8"
-                    }
-                ],
-                "date": "2016-06-06",
-                "icon": "/images/meteye/weather_icons/large/showers.png"
-            },
-            {
-                "conditions": [
-                    {
-                        "dir": "WNW",
+                    },
+                    "05": {
+                        "dir": "NNW",
+                        "kts": "7"
+                    },
+                    "08": {
+                        "dir": "NW",
                         "kts": "10"
                     },
-                    {
-                        "dir": "WNW",
+                    "11": {
+                        "dir": "NW",
+                        "kts": "12"
+                    },
+                    "14": {
+                        "dir": "NW",
                         "kts": "13"
                     },
-                    {
-                        "dir": "WSW",
+                    "17": {
+                        "dir": "WNW",
+                        "kts": "14"
+                    },
+                    "20": {
+                        "dir": "WNW",
+                        "kts": "9"
+                    },
+                    "23": {
+                        "dir": "NW",
+                        "kts": "9"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-11",
+                    "img": "run/images/partly-cloudy.png",
+                    "imgTitle": "Partly cloudy."
+                },
+                {
+                    "02": {
+                        "dir": "NNW",
+                        "kts": "11"
+                    },
+                    "05": {
+                        "dir": "NNW",
+                        "kts": "16"
+                    },
+                    "08": {
+                        "dir": "NW",
                         "kts": "19"
                     },
-                    {
-                        "dir": "WSW",
+                    "11": {
+                        "dir": "W",
+                        "kts": "17"
+                    },
+                    "14": {
+                        "dir": "W",
+                        "kts": "17"
+                    },
+                    "17": {
+                        "dir": "W",
+                        "kts": "17"
+                    },
+                    "20": {
+                        "dir": "W",
+                        "kts": "17"
+                    },
+                    "23": {
+                        "dir": "WNW",
+                        "kts": "17"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-12",
+                    "img": "run/images/showers.png",
+                    "imgTitle": "Showers."
+                },
+                {
+                    "02": {
+                        "dir": "WNW",
                         "kts": "18"
                     },
-                    {
+                    "05": {
+                        "dir": "WNW",
+                        "kts": "15"
+                    },
+                    "08": {
+                        "dir": "WNW",
+                        "kts": "15"
+                    },
+                    "11": {
+                        "dir": "W",
+                        "kts": "14"
+                    },
+                    "14": {
                         "dir": "WSW",
-                        "kts": "14"
-                    },
-                    {
-                        "dir": "W",
-                        "kts": "15"
-                    },
-                    {
-                        "dir": "W",
-                        "kts": "13"
-                    },
-                    {
-                        "dir": "WNW",
-                        "kts": "12"
-                    }
-                ],
-                "date": "2016-06-07",
-                "icon": "/images/meteye/weather_icons/large/showers.png"
-            },
-            {
-                "conditions": [
-                    {
-                        "dir": "WNW",
-                        "kts": "13"
-                    },
-                    {
-                        "dir": "NW",
-                        "kts": "14"
-                    },
-                    {
-                        "dir": "NW",
-                        "kts": "12"
-                    },
-                    {
-                        "dir": "NNW",
-                        "kts": "11"
-                    },
-                    {
-                        "dir": "N",
-                        "kts": "11"
-                    },
-                    {
-                        "dir": "NNE",
-                        "kts": "13"
-                    },
-                    {
-                        "dir": "N",
-                        "kts": "15"
-                    },
-                    {
-                        "dir": "NNW",
-                        "kts": "14"
-                    }
-                ],
-                "date": "2016-06-08",
-                "icon": "/images/meteye/weather_icons/large/showers.png"
-            },
-            {
-                "conditions": [
-                    {
-                        "dir": "NNW",
                         "kts": "16"
                     },
-                    {
-                        "dir": "NW",
-                        "kts": "13"
-                    },
-                    {
-                        "dir": "NNW",
-                        "kts": "12"
-                    },
-                    {
-                        "dir": "NW",
+                    "17": {
+                        "dir": "WSW",
                         "kts": "16"
                     },
-                    {
-                        "dir": "NW",
-                        "kts": "20"
-                    },
-                    {
-                        "dir": "NW",
-                        "kts": "12"
-                    },
-                    {
-                        "dir": "NW",
-                        "kts": "12"
-                    },
-                    {
-                        "dir": "WNW",
-                        "kts": "15"
-                    }
-                ],
-                "date": "2016-06-09",
-                "icon": "/images/meteye/weather_icons/large/showers.png"
-            },
-            {
-                "conditions": [
-                    {
+                    "20": {
                         "dir": "WSW",
-                        "kts": "14"
+                        "kts": "12"
                     },
-                    {
+                    "23": {
                         "dir": "W",
-                        "kts": "13"
+                        "kts": "9"
                     },
-                    {
+                    "conditions": [],
+                    "date": "2019-02-13",
+                    "img": "run/images/showers.png",
+                    "imgTitle": "Shower or two."
+                },
+                {
+                    "02": {
+                        "dir": "NW",
+                        "kts": "9"
+                    },
+                    "05": {
                         "dir": "WNW",
                         "kts": "11"
                     },
-                    {
-                        "dir": "WNW",
-                        "kts": "14"
+                    "08": {
+                        "dir": "NW",
+                        "kts": "12"
                     },
-                    {
-                        "dir": "WNW",
+                    "11": {
+                        "dir": "W",
+                        "kts": "12"
+                    },
+                    "14": {
+                        "dir": "WSW",
                         "kts": "13"
                     },
-                    {
-                        "dir": "W",
-                        "kts": "11"
+                    "17": {
+                        "dir": "WSW",
+                        "kts": "15"
                     },
-                    {
-                        "colour": "Orange",
+                    "20": {
+                        "dir": "WSW",
+                        "kts": "12"
+                    },
+                    "23": {
+                        "dir": "W",
+                        "kts": "9"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-14",
+                    "img": "run/images/partly-cloudy.png",
+                    "imgTitle": "Partly cloudy."
+                },
+                {
+                    "02": {
+                        "dir": "WSW",
+                        "kts": "8"
+                    },
+                    "05": {
+                        "dir": "WSW",
+                        "kts": "7"
+                    },
+                    "08": {
+                        "dir": "WSW",
+                        "kts": "5"
+                    },
+                    "11": {
+                        "PGColour": "Yellow",
+                        "colour": "Yellow",
                         "dir": "SSW",
-                        "kts": "16"
+                        "kts": "5"
                     },
-                    {
+                    "14": {
+                        "PGColour": "Yellow",
+                        "colour": "Yellow",
+                        "dir": "SSE",
+                        "kts": "8"
+                    },
+                    "17": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "S",
+                        "kts": "11"
+                    },
+                    "20": {
+                        "PGColour": "Yellow",
+                        "colour": "LightGreen",
+                        "dir": "SSE",
+                        "kts": "9"
+                    },
+                    "23": {
+                        "dir": "ESE",
+                        "kts": "7"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-15",
+                    "img": "run/images/partly-cloudy.png",
+                    "imgTitle": "Partly cloudy."
+                },
+                {
+                    "02": {
+                        "dir": "ESE",
+                        "kts": "8"
+                    },
+                    "05": {
+                        "dir": "ESE",
+                        "kts": "10"
+                    },
+                    "08": {
+                        "dir": "ESE",
+                        "kts": "9"
+                    },
+                    "11": {
+                        "dir": "ESE",
+                        "kts": "7"
+                    },
+                    "14": {
+                        "dir": "ESE",
+                        "kts": "9"
+                    },
+                    "17": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "SSE",
+                        "kts": "11"
+                    },
+                    "20": {
+                        "dir": "ESE",
+                        "kts": "10"
+                    },
+                    "23": {
+                        "dir": "ESE",
+                        "kts": "8"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-16",
+                    "img": "run/images/partly-cloudy.png",
+                    "imgTitle": "Becoming sunny."
+                }
+            ],
+            "lat": -38.46,
+            "lon": 144.06,
+            "maxDir": "SSW",
+            "maxPGSpeed": 15,
+            "maxSpeed": 15,
+            "minDir": "SSE",
+            "minPGSpeed": 10,
+            "minSpeed": 9,
+            "name": "spion_kop",
+            "rasp": [
+                {
+                    "08": "#669bad",
+                    "09": "#91a8ad",
+                    "10": "#9da973",
+                    "11": "#97a889",
+                    "12": "#9ea23f",
+                    "13": "#a2a13e",
+                    "14": "#a2a035",
+                    "15": "#a0a93c",
+                    "16": "#9ba99c",
+                    "17": "#87a6ad",
+                    "18": "#4b86ad",
+                    "19": "#1b35ab",
+                    "date": "2019-02-10"
+                }
+            ],
+            "state": "VIC",
+            "title": "Spion Kop (Fairhaven, Aireys, Moggs)",
+            "url": "http://www.vhpa.org.au/Sites/Spion%20Kop%20(Fairhaven,%20Aireys,%20Moggs).html",
+            "weather_url": "http://wind.willyweather.com.au/vic/barwon/moggs-creek.html"
+        },
+        {
+            "forecast": [
+                {
+                    "02": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "05": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "08": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "11": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "14": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "17": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "20": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "WSW",
+                        "kts": "6"
+                    },
+                    "23": {
+                        "PGColour": "Yellow",
+                        "colour": "Yellow",
+                        "dir": "SSW",
+                        "kts": "4"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-10",
+                    "img": "run/images/partly-cloudy.png",
+                    "imgTitle": "Partly cloudy. Winds westerly 15 to 20 km/h becoming light in the evening."
+                },
+                {
+                    "02": {
+                        "PGColour": "LightGreen",
                         "colour": "LightGreen",
                         "dir": "SSW",
+                        "kts": "5"
+                    },
+                    "05": {
+                        "dir": "NNE",
+                        "kts": "5"
+                    },
+                    "08": {
+                        "dir": "N",
+                        "kts": "8"
+                    },
+                    "11": {
+                        "dir": "NW",
                         "kts": "11"
-                    }
-                ],
-                "date": "2016-06-10",
-                "icon": "/images/meteye/weather_icons/large/showers.png"
-            },
-            {
-                "conditions": [
-                    {
+                    },
+                    "14": {
+                        "dir": "NW",
+                        "kts": "13"
+                    },
+                    "17": {
+                        "dir": "WNW",
+                        "kts": "13"
+                    },
+                    "20": {
+                        "dir": "WNW",
+                        "kts": "9"
+                    },
+                    "23": {
+                        "dir": "WNW",
+                        "kts": "11"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-11",
+                    "img": "run/images/cloudy.png",
+                    "imgTitle": "Cloudy. Medium (50%) chance of showers, most likely in the afternoon and early evening. Winds northwesterly 20 to 30 km/h. Overnight temperatures falling to between 11 and 14 with daytime temperatures reaching the low to mid 20s."
+                },
+                {
+                    "02": {
+                        "dir": "NW",
+                        "kts": "13"
+                    },
+                    "05": {
+                        "dir": "NNW",
+                        "kts": "15"
+                    },
+                    "08": {
+                        "dir": "NW",
+                        "kts": "16"
+                    },
+                    "11": {
+                        "dir": "WNW",
+                        "kts": "16"
+                    },
+                    "14": {
+                        "dir": "W",
+                        "kts": "14"
+                    },
+                    "17": {
+                        "dir": "W",
+                        "kts": "15"
+                    },
+                    "20": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "WSW",
+                        "kts": "13"
+                    },
+                    "23": {
+                        "dir": "W",
+                        "kts": "10"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-12",
+                    "img": "run/images/showers.png",
+                    "imgTitle": "Cloudy. High (80%) chance of showers, most likely in the morning. The chance of a thunderstorm near the coast in the afternoon and evening. Winds northwesterly 25 to 35 km/h turning westerly 25 to 40 km/h in the morning. Overnight temperatures falling to around 11 with daytime temperatures reaching around 18."
+                },
+                {
+                    "02": {
+                        "dir": "W",
+                        "kts": "7"
+                    },
+                    "05": {
+                        "dir": "W",
+                        "kts": "7"
+                    },
+                    "08": {
+                        "dir": "W",
+                        "kts": "8"
+                    },
+                    "11": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "WSW",
+                        "kts": "13"
+                    },
+                    "14": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "WSW",
+                        "kts": "11"
+                    },
+                    "17": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "WSW",
+                        "kts": "10"
+                    },
+                    "20": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
                         "dir": "SW",
                         "kts": "8"
                     },
-                    {
-                        "dir": "WSW",
-                        "kts": "6"
+                    "23": {
+                        "PGColour": "Yellow",
+                        "colour": "Yellow",
+                        "dir": "SSW",
+                        "kts": "4"
                     },
-                    {
-                        "dir": "WSW",
-                        "kts": "5"
+                    "conditions": [],
+                    "date": "2019-02-13",
+                    "img": "run/images/cloudy.png",
+                    "imgTitle": "Cloudy. Medium (40%) chance of showers, most likely in the morning and afternoon. Winds westerly 15 to 25 km/h tending southwesterly 20 to 30 km/h during the day then becoming light during the evening. Overnight temperatures falling to between 5 and 10 with daytime temperatures reaching around 18."
+                },
+                {
+                    "02": {
+                        "PGColour": "Yellow",
+                        "colour": "Yellow",
+                        "dir": "SW",
+                        "kts": "3"
                     },
-                    {
+                    "05": {
+                        "PGColour": "Yellow",
+                        "colour": "Yellow",
+                        "dir": "WSW",
+                        "kts": "4"
+                    },
+                    "08": {
                         "dir": "W",
-                        "kts": "5"
+                        "kts": "7"
                     },
-                    {
+                    "11": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "WSW",
+                        "kts": "7"
+                    },
+                    "14": {
+                        "dir": "W",
+                        "kts": "7"
+                    },
+                    "17": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "SSW",
+                        "kts": "12"
+                    },
+                    "20": {
+                        "PGColour": "LightGreen",
                         "colour": "LightGreen",
                         "dir": "SSW",
-                        "kts": "5"
-                    },
-                    {
-                        "colour": "LightGreen",
-                        "dir": "SSE",
-                        "kts": "5"
-                    },
-                    {
-                        "dir": "WSW",
-                        "kts": "5"
-                    },
-                    {
-                        "dir": "NW",
-                        "kts": "5"
-                    }
-                ],
-                "date": "2016-06-11",
-                "icon": "/images/meteye/weather_icons/large/showers.png"
-            },
-            {
-                "conditions": [
-                    {
-                        "dir": "NNW",
-                        "kts": "7"
-                    },
-                    {
-                        "dir": "NNW",
-                        "kts": "7"
-                    },
-                    {
-                        "dir": "NNW",
-                        "kts": "7"
-                    },
-                    {
-                        "dir": "NW",
-                        "kts": "7"
-                    },
-                    {
-                        "dir": "NW",
-                        "kts": "7"
-                    },
-                    {
-                        "dir": "NNW",
-                        "kts": "7"
-                    },
-                    {
-                        "dir": "NNW",
                         "kts": "9"
                     },
-                    {
+                    "23": {
+                        "dir": "S",
+                        "kts": "9"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-14",
+                    "img": "run/images/partly-cloudy.png",
+                    "imgTitle": "Cloudy. Slight (30%) chance of a shower. Winds west to northwesterly 15 to 25 km/h turning southwesterly 15 to 20 km/h during the afternoon. Overnight temperatures falling to between 5 and 11 with daytime temperatures reaching the low 20s."
+                },
+                {
+                    "02": {
+                        "dir": "S",
+                        "kts": "7"
+                    },
+                    "05": {
+                        "dir": "S",
+                        "kts": "7"
+                    },
+                    "08": {
+                        "dir": "S",
+                        "kts": "8"
+                    },
+                    "11": {
+                        "dir": "S",
+                        "kts": "6"
+                    },
+                    "14": {
+                        "dir": "S",
+                        "kts": "7"
+                    },
+                    "17": {
+                        "dir": "S",
+                        "kts": "8"
+                    },
+                    "20": {
+                        "dir": "S",
+                        "kts": "9"
+                    },
+                    "23": {
+                        "dir": "SSE",
+                        "kts": "9"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-15",
+                    "img": "run/images/cloudy.png",
+                    "imgTitle": ""
+                },
+                {
+                    "02": {
+                        "dir": "SSE",
+                        "kts": "10"
+                    },
+                    "05": {
+                        "dir": "SSE",
+                        "kts": "10"
+                    },
+                    "08": {
+                        "dir": "SSE",
+                        "kts": "7"
+                    },
+                    "11": {
+                        "dir": "SSE",
+                        "kts": "3"
+                    },
+                    "14": {
+                        "dir": "SSE",
+                        "kts": "3"
+                    },
+                    "17": {
+                        "dir": "S",
+                        "kts": "4"
+                    },
+                    "20": {
+                        "dir": "S",
+                        "kts": "6"
+                    },
+                    "23": {
+                        "dir": "SSE",
+                        "kts": "7"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-16",
+                    "img": "run/images/partly-cloudy.png",
+                    "imgTitle": ""
+                }
+            ],
+            "lat": -37.22,
+            "lon": 143.43,
+            "maxDir": "WSW",
+            "maxPGSpeed": 10,
+            "maxSpeed": 10,
+            "minDir": "SSW",
+            "minPGSpeed": 5,
+            "minSpeed": 5,
+            "name": "ben_more",
+            "rasp": [
+                {
+                    "08": "#a7f0ff",
+                    "09": "#eefefe",
+                    "10": "#fcfcd8",
+                    "11": "#fcfa00",
+                    "12": "#fce100",
+                    "13": "#fce100",
+                    "14": "#fce100",
+                    "15": "#fafc9d",
+                    "16": "#abf1ff",
+                    "17": "#67c3ff",
+                    "18": "#4189fe",
+                    "19": "#274efb",
+                    "date": "2019-02-10"
+                }
+            ],
+            "state": "VIC",
+            "title": "Ben More",
+            "url": "http://www.vhpa.org.au/Sites/Ben%20More.html",
+            "weather_url": "http://wind.willyweather.com.au/vic/central-highlands/amphitheatre.html"
+        },
+        {
+            "forecast": [
+                {
+                    "02": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "05": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "08": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "11": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "14": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "17": {
+                        "dir": "",
+                        "kts": ""
+                    },
+                    "20": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "NW",
+                        "kts": "8"
+                    },
+                    "23": {
+                        "dir": "NNW",
+                        "kts": "5"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-10",
+                    "img": "run/images/clear.png",
+                    "imgTitle": "Clear. Winds northwest to southwesterly 15 to 20 km/h becoming light in the evening."
+                },
+                {
+                    "02": {
+                        "dir": "ESE",
+                        "kts": "4"
+                    },
+                    "05": {
+                        "dir": "SSE",
+                        "kts": "3"
+                    },
+                    "08": {
+                        "dir": "NNW",
+                        "kts": "2"
+                    },
+                    "11": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "NW",
+                        "kts": "9"
+                    },
+                    "14": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "WNW",
+                        "kts": "12"
+                    },
+                    "17": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "WNW",
+                        "kts": "12"
+                    },
+                    "20": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "NW",
+                        "kts": "9"
+                    },
+                    "23": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "NW",
+                        "kts": "8"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-11",
+                    "img": "run/images/sunny.png",
+                    "imgTitle": "Sunny. Light winds becoming northwesterly 15 to 25 km/h in the morning. Overnight temperatures falling to around 9 with daytime temperatures reaching around 30."
+                },
+                {
+                    "02": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "NW",
+                        "kts": "7"
+                    },
+                    "05": {
+                        "dir": "NNW",
+                        "kts": "8"
+                    },
+                    "08": {
                         "dir": "NNW",
                         "kts": "10"
-                    }
-                ],
-                "date": "2016-06-12",
-                "icon": "/images/meteye/weather_icons/large/partly-cloudy.png"
-            }
-        ],
-        "lat": -38.46,
-        "lon": 144.06,
-        "maxDir": "SSW",
-        "maxSpeed": 15,
-        "minDir": "SSE",
-        "minSpeed": 5,
-        "name": "spion_kop",
-        "title": "Spion Kop (Fairhaven, Aireys, Moggs)",
-        "url": "http://www.vhpa.org.au/Sites/Spion%20Kop%20(Fairhaven,%20Aireys,%20Moggs).html",
-        "weather_url": "http://wind.willyweather.com.au/vic/barwon/moggs-creek.html"
-    }
-]
+                    },
+                    "11": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "NW",
+                        "kts": "27"
+                    },
+                    "14": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "WNW",
+                        "kts": "28"
+                    },
+                    "17": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "WNW",
+                        "kts": "30"
+                    },
+                    "20": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "W",
+                        "kts": "18"
+                    },
+                    "23": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "W",
+                        "kts": "19"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-12",
+                    "img": "run/images/wind.png",
+                    "imgTitle": "Sunny. Winds northwesterly 15 to 20 km/h increasing to 35 to 55 km/h in the morning then increasing to 60 km/h before turning westerly 30 to 40 km/h during the afternoon and evening. Overnight temperatures falling to around 14 with daytime temperatures reaching around 30."
+                },
+                {
+                    "02": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "W",
+                        "kts": "17"
+                    },
+                    "05": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "W",
+                        "kts": "9"
+                    },
+                    "08": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "WNW",
+                        "kts": "8"
+                    },
+                    "11": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "W",
+                        "kts": "7"
+                    },
+                    "14": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "W",
+                        "kts": "11"
+                    },
+                    "17": {
+                        "PGColour": "Orange",
+                        "colour": "Orange",
+                        "dir": "W",
+                        "kts": "12"
+                    },
+                    "20": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "WNW",
+                        "kts": "7"
+                    },
+                    "23": {
+                        "dir": "ESE",
+                        "kts": "8"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-13",
+                    "img": "run/images/sunny.png",
+                    "imgTitle": "Sunny. Winds westerly 25 to 40 km/h decreasing to 20 to 30 km/h during the morning then becoming light during the evening. Overnight temperatures falling to between 8 and 11 with daytime temperatures reaching the low to mid 20s."
+                },
+                {
+                    "02": {
+                        "dir": "ESE",
+                        "kts": "6"
+                    },
+                    "05": {
+                        "dir": "ESE",
+                        "kts": "4"
+                    },
+                    "08": {
+                        "dir": "ESE",
+                        "kts": "3"
+                    },
+                    "11": {
+                        "dir": "NNW",
+                        "kts": "6"
+                    },
+                    "14": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "WNW",
+                        "kts": "8"
+                    },
+                    "17": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "NW",
+                        "kts": "8"
+                    },
+                    "20": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "NW",
+                        "kts": "6"
+                    },
+                    "23": {
+                        "PGColour": "LightGreen",
+                        "colour": "LightGreen",
+                        "dir": "WNW",
+                        "kts": "5"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-14",
+                    "img": "run/images/sunny.png",
+                    "imgTitle": "Sunny. Light winds. Overnight temperatures falling to between 6 and 9 with daytime temperatures reaching the mid to high 20s."
+                },
+                {
+                    "02": {
+                        "dir": "ESE",
+                        "kts": "7"
+                    },
+                    "05": {
+                        "dir": "ESE",
+                        "kts": "7"
+                    },
+                    "08": {
+                        "dir": "ESE",
+                        "kts": "7"
+                    },
+                    "11": {
+                        "dir": "E",
+                        "kts": "8"
+                    },
+                    "14": {
+                        "dir": "ENE",
+                        "kts": "7"
+                    },
+                    "17": {
+                        "dir": "ENE",
+                        "kts": "10"
+                    },
+                    "20": {
+                        "dir": "E",
+                        "kts": "13"
+                    },
+                    "23": {
+                        "dir": "ESE",
+                        "kts": "12"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-15",
+                    "img": "run/images/partly-cloudy.png",
+                    "imgTitle": ""
+                },
+                {
+                    "02": {
+                        "dir": "ESE",
+                        "kts": "10"
+                    },
+                    "05": {
+                        "dir": "ESE",
+                        "kts": "9"
+                    },
+                    "08": {
+                        "dir": "E",
+                        "kts": "9"
+                    },
+                    "11": {
+                        "dir": "E",
+                        "kts": "10"
+                    },
+                    "14": {
+                        "dir": "ENE",
+                        "kts": "10"
+                    },
+                    "17": {
+                        "dir": "ENE",
+                        "kts": "11"
+                    },
+                    "20": {
+                        "dir": "E",
+                        "kts": "10"
+                    },
+                    "23": {
+                        "dir": "E",
+                        "kts": "9"
+                    },
+                    "conditions": [],
+                    "date": "2019-02-16",
+                    "img": "run/images/partly-cloudy.png",
+                    "imgTitle": ""
+                }
+            ],
+            "lat": -35.09,
+            "lon": 149.08,
+            "maxDir": "NW",
+            "maxPGSpeed": 10,
+            "maxSpeed": 10,
+            "minDir": "SW",
+            "minPGSpeed": 5,
+            "minSpeed": 5,
+            "name": "spring_hill",
+            "obs_url": "http://www.freeflightwx.com/acthpa/springhill/index.php",
+            "rasp": [
+                {
+                    "08": "#86c0cc",
+                    "09": "#becbcb",
+                    "10": "#cacaad",
+                    "11": "#cac800",
+                    "12": "#cab400",
+                    "13": "#cab400",
+                    "14": "#cab400",
+                    "15": "#cac800",
+                    "16": "#becbcb",
+                    "17": "#86c0cc",
+                    "18": "#1f3ec9",
+                    "19": "#1f3ec9",
+                    "date": "2019-02-10"
+                }
+            ],
+            "state": "VIC",
+            "title": "Spring Hill",
+            "url": "http://www.vhpa.org.au/Sites/Spring%20Hill.html",
+            "weather_url": "http://wind.willyweather.com.au/nsw/southern-tablelands/nanima.html"
+        }
+    ],
+    "times": [
+        "02",
+        "05",
+        "08",
+        "11",
+        "14",
+        "17",
+        "20",
+        "23"
+    ],
+    "title": "Yey"
+}

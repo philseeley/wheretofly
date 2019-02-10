@@ -27,7 +27,7 @@ var logFD = fs.openSync("run/access.log", "a");
 function logRequest(request, response)
 {
   accesslog(request, response, null, function(s) {
-    fs.write(logFD, s+'\n');
+    fs.writeSync(logFD, s+'\n');
   });
 }
 
