@@ -20,6 +20,8 @@ var raspCOORDs =
   }
 }
 
+var RASP_DAYS = 3;
+
 var fs = require("fs");
 var path = require("path");
 var jsdom = require("jsdom");
@@ -33,6 +35,7 @@ var title;
 var sites;
 var times = [];
 var raspTimes;
+var raspDates;
 var raspImages;
 
 var adate;
@@ -44,14 +47,13 @@ var raspCBCount = 0;
 function formatYYYYMMDD(date)
 {
   return new Date(date - date.getTimezoneOffset()*60*1000).toISOString().substr(0, 10);
-  //return date.getFullYear()+"-"+(date.getMonth()+1).toString().padStart(2, '0')+"-"+date.getDate().toString().padStart(2, '0');
 }
 
 function saveForecast()
 {
   var d = new Date();
   var filename=new Date(d - d.getTimezoneOffset()*60*1000).toISOString().substr(0, 13)+".json";
-  var data = {"title":title, "times":times, "rasptimes":raspTimes, "sites":sites};
+  var data = {"title":title, "times":times, "raspDates":raspDates, "raspTimes":raspTimes, "sites":sites};
   var run = "public/run/";
   try
   {
@@ -113,15 +115,15 @@ function processForecast()
     var minPGSpeed = site.minPGSpeed;
     var maxPGSpeed = site.maxPGSpeed;
 
-    for(e in site.forecast)
+    for(d in site.forecast)
     {
-      var entry = site.forecast[e];
+      var date = site.forecast[d];
         
       for(t in times)
       {
         var time = times[t];
 
-        var cond = entry[time];
+        var cond = date[time];
           
         var dirStr = cond.dir;
         var kts = cond.kts;
@@ -155,13 +157,11 @@ function processForecast()
 
     site.rasp = [];
 
-    for(day=0; day<1; ++day)
+    for(day=0; day<RASP_DAYS; ++day)
     {
-      var cond = {};
       var date = new Date();
       date.setDate(date.getDate() + day);
-      cond.date = formatYYYYMMDD(date);
-      site.rasp.push(cond);
+      cond = site.forecast[formatYYYYMMDD(date)];
 
       for(t in raspTimes)
       {
@@ -201,7 +201,10 @@ function processForecast()
           //this.bitmap.data[idx + 2] = 255;
         });
 
-        cond[time] = "#"+
+        if(!cond[time])
+          cond[time] = {};
+
+        cond[time].raspColour = "#"+
                                 Math.round(red/100).toString(16).padStart(2, '0')+
                                 Math.round(green/100).toString(16).padStart(2, '0')+
                                 Math.round(blue/100).toString(16).padStart(2, '0');
@@ -212,8 +215,6 @@ function processForecast()
 
 function raspImageCB(state, day, time, image)
 {
-  console.log(state, day, time, image.bitmap.width, image.bitmap.height);
-
   if(raspImages[state][day] === undefined)
     raspImages[state][day] = {};
 
@@ -223,8 +224,6 @@ function raspImageCB(state, day, time, image)
 
   if(raspCBCount == 0)
   {
-    console.log("RASP DONE");
-
     processForecast();
 
     saveForecast();
@@ -240,8 +239,13 @@ function mkRASPImageCB(state, day, time)
 
   jimp.read("http://glidingforecast.on.net/RASP/"+state+d+"/FCST/wstar.curr"+d+"."+time+"00lst.d2.png", function(err, image)
   {
-    if (err) throw err;
-    raspImageCB(state, day, time, image);
+    if (err)
+    {
+      --raspCBCount;// TODO need to process forcaset on 0;
+      console.log("ERROR mkRASPImageCB:"+err);
+    }
+    else
+      raspImageCB(state, day, time, image);
   });
 }
 
@@ -259,6 +263,17 @@ function getRASPImages()
     }
   }
 
+  if(!raspDates)
+  {
+    raspDates = {};
+    for(day=0; day<RASP_DAYS; ++day)
+    {
+      var date = new Date();
+      date.setDate(date.getDate() + day);
+      raspDates[formatYYYYMMDD(date)] = {};
+    }
+  }
+
   for(s in sites)
   {
     var state = sites[s].state;
@@ -267,7 +282,7 @@ function getRASPImages()
     {
       raspImages[state] = {};
 
-      for(day=0; day<1; ++day)
+      for(day=0; day<RASP_DAYS; ++day)
       {
         for(t in raspTimes)
         {
@@ -280,7 +295,7 @@ function getRASPImages()
   }
 }
 
-function forecast(site, entry, window)
+function forecast(site, cond, window)
 {
   var time = window.$("th");
   var dir = window.$("td[class^='wind_dir']");
@@ -301,12 +316,12 @@ function forecast(site, entry, window)
       times.push(t.toString().padStart(2, "0"));
     }
 
-    var cond = times[i];
+    var t = times[i];
 
     if(i-offset >=0)
-      entry[cond] = {"dir":dir[i-offset].innerHTML, "kts":kts[i-offset].attributes["data-kts"].nodeValue};
+      cond[t] = {"dir":dir[i-offset].innerHTML, "kts":kts[i-offset].attributes["data-kts"].nodeValue};
     else
-      entry[cond] = {"dir":"", "kts":""};
+      cond[t] = {"dir":"", "kts":""};
   }
 
   // When all the forecast callbacks have returned we process all the data.
@@ -318,7 +333,7 @@ function forecast(site, entry, window)
   }
 }
 
-function forecastCB(site, entry, body)
+function forecastCB(site, cond, body)
 {
   try
   {
@@ -328,13 +343,13 @@ function forecastCB(site, entry, body)
       src: [jquery],
       done: function (err, window)
       {
-        forecast(site, entry, window);
+        forecast(site, cond, window);
       }
     });
   }
   catch (err)
   {
-    --cbCount;
+    --cbCount;// TODO need to process on count 0;
     console.log("ERROR forecastCB:"+err);
   }
 }
@@ -347,20 +362,20 @@ This produces forecast-example.html
 Note that we need to do this call in sub-function to get the closure to work.
 */
 
-function mkForecastCB(site, entry)
+function mkForecastCB(site, date, cond)
 {
   // We count the number of forecast callback so that we know when we've got all the data.
   ++cbCount;
 
   request.post(
   {
-    url: "http://www.bom.gov.au/australia/meteye/forecast.php?&lat="+site.lat+"&lon="+site.lon+"&date="+entry.date,
+    url: "http://www.bom.gov.au/australia/meteye/forecast.php?&lat="+site.lat+"&lon="+site.lon+"&date="+date,
     headers: {'User-Agent': "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"},
     body: '{"adate":"'+adate+'","auth":"'+auth+'"}'
   },
   function (err, response, body)
   {
-    forecastCB(site, entry, body);
+    forecastCB(site, cond, body);
   });
 }
 
@@ -399,10 +414,10 @@ function mkImageCB(uri, filename)
 
 function overview(site, window)
 {
-  var date = window.$("th[datetime]");
+  var datetime = window.$("th[datetime]");
   var img = window.$("img");
 
-  for (i = 0; i<date.length; ++i)
+  for (i = 0; i<datetime.length; ++i)
   {
     // Sometimes the image links are missing. This may result in a wrong forcast
     // as we assume there are the same number of images as dates. So if it's not
@@ -424,10 +439,13 @@ function overview(site, window)
       mkImageCB(uri, filename);
     }
 
-    var entry = {"date": date[i].attributes["datetime"].nodeValue, "img": imgFilename, "imgTitle": imgTitle, "conditions": []};
-    site.forecast.push(entry);
+    var date = datetime[i].attributes["datetime"].nodeValue;
 
-    mkForecastCB(site, entry);
+    site.forecast[date] = {};
+    site.forecast[date].img = imgFilename;
+    site.forecast[date].imgTitle = imgTitle;
+
+    mkForecastCB(site, date, site.forecast[date]);
   }
 }
 
@@ -489,7 +507,7 @@ function authCB(err, window)
     for(s in sites)
     {
       var site = sites[s];
-      site.forecast = [];
+      site.forecast = {};
 
       mkOverviewCB(site);
     }

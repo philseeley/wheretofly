@@ -112,12 +112,12 @@ function addTitleRow(forecastTable, title)
 
   if(showRASP)
   {
-    for(t in data.rasptimes)
+    for(t in data.raspTimes)
     {
-      if(!hideExtremes || (t>1 && t<7))
+      if(!hideExtremes || (t>1 && t<10))
       {
         element = document.createElement("td");
-        element.innerHTML = data.rasptimes[t]+":00";
+        element.innerHTML = data.raspTimes[t]+":00";
         titleElement.appendChild(element);
       }
     }
@@ -138,20 +138,13 @@ function addTitleRow(forecastTable, title)
   forecastTable.appendChild(titleElement);
 }
 
-function addRowLeader(forecastTable, title)
+function addRowLeader(forecastTable, title, entry)
 {
   var entryElement = document.createElement("tr");
         
   var titleElement = document.createElement("td");
   titleElement.innerHTML = title;
   entryElement.appendChild(titleElement);
-
-  return entryElement;
-}
-
-function addEntryRow(forecastTable, title, entry)
-{
-  var entryElement = addRowLeader(forecastTable, title);
 
   var forecastElement = document.createElement("td");
 
@@ -170,7 +163,32 @@ function addEntryRow(forecastTable, title, entry)
       forecastElement.appendChild(imageElement);
     }
   }
+
   entryElement.appendChild(forecastElement);
+
+  return entryElement;
+}
+
+function condStr(cond)
+{
+  var dirStr = "";
+  if(cond.dir) dirStr = cond.dir;
+
+  speed = "";
+
+  if(cond.kts)
+  {
+    speed = cond.kts;
+    if(showMetric)
+      speed = Math.round(speed*1.85);
+  }
+
+  return dirStr+":"+speed;
+}
+
+function addEntryRow(forecastTable, title, entry)
+{
+  var entryElement = addRowLeader(forecastTable, title, entry);
 
   var wtf = false;
 
@@ -183,7 +201,6 @@ function addEntryRow(forecastTable, title, entry)
 
       var condElement = document.createElement("td");
 
-      var dirStr = cond.dir;
       var colour = cond.colour;
 
       if(colour)
@@ -195,52 +212,44 @@ function addEntryRow(forecastTable, title, entry)
         wtf = true;
       }
 
-      speed = "";
-
-      if(cond.kts)
-      {
-        speed = cond.kts;
-        if(showMetric)
-          speed = Math.round(speed*1.85);
-      }
-
-      condElement.innerHTML = dirStr+":"+speed;
+      condElement.innerHTML = condStr(cond);
     
       entryElement.appendChild(condElement);
     }
   
-    if(showAllConditions || wtf)
-      forecastTable.appendChild(entryElement);
   }
+
+  if(showAllConditions || wtf)
+    forecastTable.appendChild(entryElement);
 }
 
-function addRASPRow(forecastTable, title, rasp)
+function addRASPRow(forecastTable, title, entry)
 {
-  var entryElement = addRowLeader(forecastTable, title);
-
-  var forecastElement = document.createElement("td");
-  entryElement.appendChild(forecastElement);
+  var entryElement = addRowLeader(forecastTable, title, entry);
 
   var wtf = false;
 
-  for(t in data.rasptimes)
+  for(t in data.raspTimes)
   {
-    var time = data.rasptimes[t];
+    var time = data.raspTimes[t];
+    var cond = entry[time];
 
-    if(!hideExtremes || (t>1 && t<7))
+    if(cond.colour)
+      wtf = true;
+
+    if(!hideExtremes || (t>1 && t<10))
     {
-      var colour = rasp[time];
-
       var condElement = document.createElement("td");
 
-      condElement.setAttribute("bgcolor", colour);
-      condElement.innerHTML = ":";
+      condElement.setAttribute("bgcolor", cond.raspColour);
+      condElement.innerHTML = condStr(cond);
 
       entryElement.appendChild(condElement);
     }
-
-    forecastTable.appendChild(entryElement);
   }
+
+  if(showAllConditions || wtf)
+    forecastTable.appendChild(entryElement);
 }
 
 function siteTitle(site)
@@ -353,48 +362,41 @@ function showForecast()
       {
         addTitleRow(forecastTable, siteTitle(site));
 
-        for(e in site.forecast)
-        {
-          var entry = site.forecast[e];
+        var dates = site.forecast;
+        if(showRASP) dates = data.raspDates;
 
-          addEntryRow(forecastTable, dateTitle(entry.date), entry);
+        for(date in dates)
+        {
+          var entry = site.forecast[date];
+
+          addEntryRow(forecastTable, dateTitle(date), entry);
         }
       }
     }
   }
   else
   {
-    for(e in data.sites[0].forecast)
+    var dates = data.sites[0].forecast;
+    if(showRASP) dates = data.raspDates;
+
+    for(date in dates)
     {
-      var date = data.sites[0].forecast[e].date;
-      
       addTitleRow(forecastTable, dateTitle(date));
 
       for(s in data.sites)
       {
         var site = data.sites[s];
+        var entry = site.forecast[date];
 
         if(showAllSites || site.show)
         {
           if(showRASP)
           {
-            for(r in site.rasp)
-            {
-              var rasp = site.rasp[r];
-
-              //if(date == entry.date)
-                addRASPRow(forecastTable, siteTitle(site), rasp);
-            }
+            addRASPRow(forecastTable, siteTitle(site), entry);
           }
           else
           {
-            for(e in site.forecast)
-            {
-              var entry = site.forecast[e];
-            
-              if(date == entry.date)
-                addEntryRow(forecastTable, siteTitle(site), entry);
-            }
+            addEntryRow(forecastTable, siteTitle(site), entry);
           }
         }
       }

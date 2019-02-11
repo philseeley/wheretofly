@@ -4,6 +4,7 @@
     {
       "name":"spion_kop",
       "title":"Spion Kop",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Spion%20Kop%20(Fairhaven,%20Aireys,%20Moggs).html",
       "weather_url":"http://wind.willyweather.com.au/vic/barwon/moggs-creek.html",
       "obs_url":"http://www.bom.gov.au/products/IDV60801/IDV60801.94846.shtml",
@@ -19,6 +20,7 @@
     {
       "name":"ben_more",
       "title":"Ben More",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Ben%20More.html",
       "weather_url":"http://wind.willyweather.com.au/vic/central-highlands/amphitheatre.html",
       "lat":-37.22,
@@ -33,6 +35,7 @@
     {
       "name":"ben_nevis",
       "title":"Ben Nevis",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Ben%20Nevis.html",
       "weather_url":"http://wind.willyweather.com.au/vic/central-highlands/warrak.html",
       "obs_url":"http://www.bom.gov.au/products/IDV60801/IDV60801.94835.shtml",
@@ -48,6 +51,7 @@
     {
       "name":"gordon_s",
       "title":"Gordon South Launch",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Gordon.html",
       "weather_url":"http://wind.willyweather.com.au/vic/central-highlands/gordon.html",
       "lat":-37.59,
@@ -62,6 +66,7 @@
     {
       "name":"gordon_se",
       "title":"Gordon SE Launch",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Gordon.html",
       "weather_url":"http://wind.willyweather.com.au/vic/central-highlands/gordon.html",
       "lat":-37.59,
@@ -76,6 +81,7 @@
     {
       "name":"flinders_golf_club",
       "title":"Flinders Golf Club",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Flinders%20Golf%20Club.html",
       "weather_url":"http://wind.willyweather.com.au/vic/mornington-peninsula/flinders.html",
       "obs_url":"https://www.wunderground.com/personal-weather-station/dashboard?ID=IFLINDER3#history",
@@ -91,6 +97,7 @@
     {
       "name":"flinders_monument",
       "title":"Flinders Monument",
+      "state": "VIC",
       "url":"https://siteguide.org.au/Sites/Flinders%20Monument.html",
       "weather_url":"http://wind.willyweather.com.au/vic/mornington-peninsula/flinders.html",
       "obs_url":"https://www.wunderground.com/personal-weather-station/dashboard?ID=IFLINDER3#history",
@@ -106,6 +113,7 @@
     {
       "name":"portsea",
       "title":"Portsea",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Portsea.html",
       "weather_url":"http://wind.willyweather.com.au/vic/mornington-peninsula/portsea-surf-beach.html",
       "obs_url":"http://www.bom.gov.au/products/IDV60801/IDV60801.94853.shtml",
@@ -121,6 +129,7 @@
     {
       "name":"flowerdale_n",
       "title":"Flowerdale North",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Three%20Sisters%20(Flowerdale).html",
       "weather_url":"http://wind.willyweather.com.au/vic/goulburn/flowerdale.html",
       "obs_url":"http://freeflightwx.com/flowerdale/index.php",
@@ -136,6 +145,7 @@
     {
       "name":"flowerdale_s",
       "title":"Flowerdale South",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Three%20Sisters%20(Flowerdale).html",
       "weather_url":"http://wind.willyweather.com.au/vic/goulburn/flowerdale.html",
       "obs_url":"http://freeflightwx.com/flowerdale/index.php",
@@ -151,6 +161,7 @@
     {
       "name":"yarragon",
       "title":"Yarragon",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Yarragon.html",
       "weather_url":"http://wind.willyweather.com.au/vic/gippsland/yarragon.html",
       "lat":-38.25,
@@ -165,6 +176,7 @@
     {
       "name":"marriners",
       "title":"Marriners Lookout",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Marriners%20Lookout.html",
       "weather_url":"http://wind.willyweather.com.au/vic/barwon/apollo-bay.html",
       "lat":-38.74,
@@ -179,6 +191,7 @@
     {
       "name":"hollowback",
       "title":"Mt Hollowback",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Mt%20Hollowback.html",
       "weather_url":"http://wind.willyweather.com.au/vic/central-highlands/creswick.html",
       "lat":-37.44,
@@ -193,6 +206,7 @@
     {
       "name":"kilcunda",
       "title":"Kilcunda",
+      "state": "VIC",
       "url":"http://www.vhpa.org.au/Sites/Kilcunda.html",
       "weather_url":"http://wind.willyweather.com.au/vic/gippsland/kilcunda.html",
       "obs_url":"https://www.wunderground.com/personal-weather-station/dashboard?ID=IVICTORI121#history",
@@ -208,6 +222,7 @@
     {
       "name":"gearys_gap",
       "title":"Lake George (Geary's)",
+      "state": "NSW",
       "url":"http://www.vhpa.org.au/Sites/Lake%20George%20(Geary's%20Gap).html",
       "weather_url":"http://wind.willyweather.com.au/nsw/southern-tablelands/lake-george.html",
       "obs_url":"http://www.freeflightwx.com/acthpa/lakegeorge/index.php",
@@ -223,6 +238,7 @@
     {
       "name":"collector",
       "title":"Lake George (Collector)",
+      "state": "NSW",
       "url":"http://www.vhpa.org.au/Sites/Lake%20George%20(Collector).html",
       "weather_url":"http://wind.willyweather.com.au/nsw/southern-tablelands/collector.html",
       "obs_url":"http://www.freeflightwx.com/acthpa/lakegeorge/index.php",
@@ -238,6 +254,7 @@
     {
       "name":"spring_hill",
       "title":"Spring Hill",
+      "state": "NSW",
       "url":"http://www.vhpa.org.au/Sites/Spring%20Hill.html",
       "weather_url":"http://wind.willyweather.com.au/nsw/southern-tablelands/nanima.html",
       "obs_url":"http://www.freeflightwx.com/acthpa/springhill/index.php",
@@ -253,6 +270,7 @@
     {
       "name":"pig_hill_n",
       "title":"Pig Hill North",
+      "state": "NSW",
       "url":"http://www.vhpa.org.au/Sites/Pig%20Hill.html",
       "weather_url":"http://wind.willyweather.com.au/act/canberra/uriarra.html",
       "obs_url":"http://www.freeflightwx.com/acthpa/pighill/index.php",
@@ -268,6 +286,7 @@
     {
       "name":"pig_hill_e",
       "title":"Pig Hill East",
+      "state": "NSW",
       "url":"http://www.vhpa.org.au/Sites/Pig%20Hill.html",
       "weather_url":"http://wind.willyweather.com.au/act/canberra/uriarra.html",
       "obs_url":"http://www.freeflightwx.com/acthpa/pighill/index.php",
@@ -283,6 +302,7 @@
     {
       "name":"binalong",
       "title":"Binalong",
+      "state": "NSW",
       "lat":-34.64,
       "url":"https://maps.google.com.au/maps?q=-34.640178,148.589931",
       "weather_url":"http://wind.willyweather.com.au/nsw/southern-tablelands/binalong.html",
@@ -297,6 +317,7 @@
     {
       "name":"locksley_north",
       "title":"Locksley North",
+      "state": "VIC",
       "lat":-36.81,
       "lon":145.35,
       "url":"https://maps.google.com.au/maps?q=-36.814536,145.346624",
@@ -311,6 +332,7 @@
     {
       "name":"locksley_south",
       "title":"Locksley South",
+      "state": "VIC",
       "lat":-36.81,
       "lon":145.35,
       "url":"https://maps.google.com.au/maps?q=-36.814536,145.346624",
@@ -325,6 +347,7 @@
     {
       "name":"locksley_east",
       "title":"Locksley East",
+      "state": "VIC",
       "lat":-36.81,
       "lon":145.35,
       "url":"https://maps.google.com.au/maps?q=-36.814536,145.346624",
@@ -339,6 +362,7 @@
     {
       "name":"locksley_west",
       "title":"Locksley West",
+      "state": "VIC",
       "lat":-36.81,
       "lon":145.35,
       "url":"https://maps.google.com.au/maps?q=-36.814536,145.346624",
@@ -353,6 +377,7 @@
     {
       "name":"gundowring_savhill",
       "title":"Gundowring (Savhill)",
+      "state": "VIC",
       "lat":-36.40,
       "lon":147.09,
       "url":"http://vhpa.org.au/Sites/Gundowring%20(Savhill).html",
@@ -368,6 +393,7 @@
     {
       "name":"flaxmans_hill",
       "title":"Flaxmans Hill",
+      "state": "VIC",
       "lat":-38.53,
       "lon":142.73,
       "url":"http://www.vhpa.org.au/Sites/Flaxmans%20Hill.html",
@@ -382,6 +408,7 @@
     {
       "name":"mystic",
       "title":"Mystic",
+      "state": "VIC",
       "lat":-36.76,
       "lon":146.97,
       "url":"http://www.vhpa.org.au/Sites/Mystic.html",
@@ -397,6 +424,7 @@
     {
       "name":"tawonga_gap",
       "title":"Tawonga Gap",
+      "state": "VIC",
       "lat":-36.72,
       "lon":147.12,
       "url":"http://www.vhpa.org.au/Sites/Tawonga%20Gap.html",
@@ -411,6 +439,7 @@
     {
       "name":"mt_emu_sw",
       "title":"Mt Emu SW",
+      "state": "VIC",
       "lat":-36.67,
       "lon":147.22,
       "url":"http://www.vhpa.org.au/Sites/Mt%20Emu.html",
@@ -426,6 +455,7 @@
     {
       "name":"mt_emu_nw",
       "title":"Mt Emu NW",
+      "state": "VIC",
       "lat":-36.66,
       "lon":147.21,
       "url":"http://www.vhpa.org.au/Sites/Mt%20Emu.html",
@@ -440,6 +470,7 @@
     {
       "name":"mt_buffalo",
       "title":"Mt Buffalo",
+      "state": "VIC",
       "lat":-36.72,
       "lon":146.82,
       "url":"http://www.vhpa.org.au/Sites/Mt%20Buffalo.html",
@@ -454,6 +485,7 @@
     {
       "name":"bells_beach_southside",
       "title":"Bells Beach (Southside)",
+      "state": "VIC",
       "lat":-38.37,
       "lon":144.28,
       "url":"http://www.vhpa.org.au/Sites/Bells%20Beach.html",
@@ -469,6 +501,7 @@
     {
       "name":"bells_beach_winkipop",
       "title":"Bells Beach (Winkipop)",
+      "state": "VIC",
       "lat":-38.37,
       "lon":144.29,
       "url":"http://siteguide.org.au/Sites/Bells%20Beach%20-%20Winkipop.html",
@@ -484,6 +517,7 @@
     {
       "name":"honeysuckle",
       "title":"Honeysuckle",
+      "state": "NSW",
       "lat":-35.13,
       "lon":148.32,
       "url":"http://www.vhpa.org.au/Sites/Honeysuckle.html",
@@ -498,6 +532,7 @@
     {
       "name":"thistle_hill",
       "title":"Thistle Hill",
+      "state": "VIC",
       "lat":-37.12,
       "lon":145.41,
       "url":"http://www.vhpa.org.au/Sites/Mt%20Broughton%20(Thistle%20Hill).html",
@@ -513,6 +548,7 @@
     {
       "name":"cairns_bay",
       "title":"Cairns Bay",
+      "state": "VIC",
       "lat":-38.49,
       "lon":144.97,
       "url":"http://www.vhpa.org.au/Sites/Cairns%20Bay.html",
@@ -527,6 +563,7 @@
     {
       "name":"shoreham",
       "title":"Shoreham",
+      "state": "VIC",
       "lat":-38.44,
       "lon":145.04,
       "url":"http://www.vhpa.org.au/Sites/Shoreham.html",
@@ -541,6 +578,7 @@
     {
       "name":"stanwell",
       "title":"Stanwell",
+      "state": "NSW",
       "lat":-34.22,
       "lon":151.00,
       "url":"http://www.vhpa.org.au/Sites/Stanwell%20Park%20-%20Bald%20Hill.html",
@@ -556,6 +594,7 @@
     {
       "name":"blackheath",
       "title":"Blackheath",
+      "state": "NSW",
       "lat":-33.64,
       "lon":150.24,
       "url":"https://siteguide.org.au/Sites/Mt%20Blackheath.html",
@@ -571,6 +610,7 @@
     {
       "name":"manilla_w",
       "title":"Manilla West",
+      "state": "NSW",
       "lat":-30.68,
       "lon":150.61,
       "url":"http://www.vhpa.org.au/Sites/Manilla%20-%20Mt%20Borah.html",
@@ -586,6 +626,7 @@
     {
       "name":"manilla_s",
       "title":"Manilla South",
+      "state": "NSW",
       "lat":-30.68,
       "lon":150.61,
       "url":"http://www.vhpa.org.au/Sites/Manilla%20-%20Mt%20Borah.html",
@@ -601,6 +642,7 @@
     {
       "name":"manilla_e",
       "title":"Manilla East",
+      "state": "NSW",
       "lat":-30.68,
       "lon":150.61,
       "url":"http://www.vhpa.org.au/Sites/Manilla%20-%20Mt%20Borah.html",
@@ -616,6 +658,7 @@
     {
       "name":"manilla_ne",
       "title":"Manilla North East",
+      "state": "NSW",
       "lat":-30.68,
       "lon":150.61,
       "url":"http://www.vhpa.org.au/Sites/Manilla%20-%20Mt%20Borah.html",
@@ -631,6 +674,7 @@
     {
       "name":"conargo",
       "title":"Conargo (Deniliquin)",
+      "state": "VIC",
       "lat":-35.32,
       "lon":145.16,
       "url":"http://www.vhpa.org.au/Sites/Conargo%20(Deniliquin).html",
@@ -645,6 +689,7 @@
     {
       "name":"eagle_rise",
       "title":"Eagle Rise",
+      "state": "VIC",
       "lat":-36.41,
       "lon":146.65,
       "url":"http://www.vhpa.org.au/Sites/Eagle%20Rise.html",
@@ -660,6 +705,7 @@
     {
       "name":"13th_beach",
       "title":"13th Beach",
+      "state": "VIC",
       "lat":-38.28,
       "lon":144.44,
       "url":"http://www.vhpa.org.au/Sites/Barwon%20Heads%20(13th%20Beach).html",
@@ -674,6 +720,7 @@
     {
       "name":"ocean_grove",
       "title":"Ocean Grove",
+      "state": "VIC",
       "lat":-38.27,
       "lon":144.52,
       "url":"https://siteguide.org.au/Sites/Ocean%20Grove.html",
@@ -688,6 +735,7 @@
     {
       "name":"landscape",
       "title":"Landscape",
+      "state": "VIC",
       "lat":-37.10,
       "lon":145.17,
       "url":"http://www.vhpa.org.au/Sites/Landscape.html",
@@ -702,6 +750,7 @@
     {
       "name":"tongarra",
       "title":"Tongarra",
+      "state": "NSW",
       "lat":-34.60,
       "lon":150.68,
       "url":"http://www.vhpa.org.au/Sites/Tongarra.html",
@@ -716,6 +765,7 @@
     {
       "name":"cambewarra",
       "title":"Cambewarra",
+      "state": "NSW",
       "lat":-34.80,
       "lon":150.58,
       "url":"http://www.vhpa.org.au/Sites/Cambewarra.html",
@@ -730,6 +780,7 @@
     {
       "name":"potters_road",
       "title":"Potters Road",
+      "state": "VIC",
       "lat":-38.53,
       "lon":145.39,
       "url":"http://siteguide.org.au/Sites/Potters%20Road,%20San%20Remo.html",
@@ -744,6 +795,7 @@
     {
       "name":"fisher_street",
       "title":"Fisher Street",
+      "state": "VIC",
       "lat":-38.46,
       "lon":145.19,
       "url":"http://siteguide.org.au/Sites/Fisher%20Street,%20Phillip%20Island.html",
@@ -758,6 +810,7 @@
     {
       "name":"grossard_point",
       "title":"Grossard Point",
+      "state": "VIC",
       "lat":-38.47,
       "lon":145.17,
       "url":"http://siteguide.org.au/Sites/Grossard%20Point,%20Phillip%20Island.html",
@@ -772,6 +825,7 @@
     {
       "name":"rhyll",
       "title":"Rhyll",
+      "state": "VIC",
       "lat":-38.46,
       "lon":145.31,
       "url":"http://siteguide.org.au/Sites/Rhyll,%20Phillip%20Island.html",
@@ -786,6 +840,7 @@
     {
       "name":"tarrengower",
       "title":"Mt Tarrengower",
+      "state": "VIC",
       "lat":-37.00,
       "lon":144.05,
       "url":"https://siteguide.org.au/Sites/Mt%20Tarrengower.html",
@@ -800,6 +855,7 @@
     {
       "name":"donnabuang_s",
       "title":"Mt Donna Buang S",
+      "state": "VIC",
       "lat":-37.71,
       "lon":145.66,
       "url":"https://siteguide.org.au/Sites/Mt%20Donna%20Buang.html",
@@ -815,6 +871,7 @@
     {
       "name":"donnabuang_n",
       "title":"Mt Donna Buang N",
+      "state": "VIC",
       "lat":-37.71,
       "lon":145.66,
       "url":"https://siteguide.org.au/Sites/Mt%20Donna%20Buang.html",
@@ -830,6 +887,7 @@
     {
       "name":"paps_n",
       "title":"The Paps N",
+      "state": "VIC",
       "lat":-37.04,
       "lon":145.99,
       "url":"https://siteguide.org.au/Sites/The%20Paps.html",
@@ -844,6 +902,7 @@
     {
       "name":"paps_S",
       "title":"The Paps S",
+      "state": "VIC",
       "lat":-37.04,
       "lon":145.99,
       "url":"https://siteguide.org.au/Sites/The%20Paps.html",
@@ -858,6 +917,7 @@
     {
       "name":"lonarch",
       "title":"Mt Lonarch",
+      "state": "VIC",
       "lat":-37.26,
       "lon":143.34,
       "url":"https://siteguide.org.au/Sites/Mt%20Lonarch.html",
@@ -872,6 +932,7 @@
     {
       "name":"cape_liptrap",
       "title":"Cape Liptrap",
+      "state": "VIC",
       "lat":-38.90,
       "lon":145.92,
       "url":"http://siteguide.org.au/Sites/Cape%20Liptrap.html",
@@ -886,6 +947,7 @@
     {
       "name":"venus_bay",
       "title":"Venus Bay",
+      "state": "VIC",
       "lat":-38.69,
       "lon":145.80,
       "url":"https://maps.google.com.au/maps?q=-38.677284,145.781411",
@@ -900,6 +962,7 @@
     {
       "name":"portland_murrells",
       "title":"Murrells Beach",
+      "state": "VIC",
       "lat":-38.40,
       "lon":141.53,
       "url":"https://siteguide.org.au/Sites/Portland.html",
@@ -914,6 +977,7 @@
     {
       "name":"mt_dandenong",
       "title":"Mt Dandenong",
+      "state": "VIC",
       "lat":-37.84,
       "lon":145.35,
       "url":"https://siteguide.org.au/Sites/Mt%20Dandenong.html",
@@ -928,6 +992,7 @@
     {
       "name":"lennox_head",
       "title":"Lennox Head",
+      "state": "QLD",
       "lat":-28.81,
       "lon":153.60,
       "url":"https://www.google.com.au/maps/@-28.8075466,153.6013715,18.25z",
@@ -942,6 +1007,7 @@
     {
       "name":"mt_tamborine",
       "title":"Mt Tamborine",
+      "state": "QLD",
       "lat":-28.81,
       "lon":153.60,
       "url":"https://siteguide.org.au/Sites/Mt.%20Tamborine.html",
@@ -957,6 +1023,7 @@
     {
       "name":"beechmont",
       "title":"Beechmont",
+      "state": "QLD",
       "lat":-28.12,
       "lon":153.20,
       "url":"https://siteguide.org.au/Sites/Beechmont%20-%20Rosin's%20Lookout.html",
@@ -972,6 +1039,7 @@
     {
       "name":"ma_ma_creek",
       "title":"Ma Ma Creek",
+      "state": "QLD",
       "lat":-27.64,
       "lon":152.14,
       "url":"http://www.wickedwings.com.au",
@@ -987,6 +1055,7 @@
     {
       "name":"killarney",
       "title":"Killarney",
+      "state": "QLD",
       "lat":-28.33,
       "lon":152.31,
       "weather_url":"https://wind.willyweather.com.au/qld/darling-downs/killarney.html",
@@ -1001,6 +1070,7 @@
     {
       "name":"mt_storey",
       "title":"Mt Storey",
+      "state": "QLD",
       "lat":-27.46,
       "lon":151.85,
       "url":"http://www.wickedwings.com.au/",
@@ -1015,6 +1085,7 @@
     {
       "name":"teewah",
       "title":"Teewah",
+      "state": "QLD",
       "lat":-26.27,
       "lon":153.07,
       "url":"https://siteguide.org.au/Sites/Teewah%20Beach.html",
@@ -1030,6 +1101,7 @@
     {
       "name":"rainbow_beach",
       "title":"Rainbow Beach",
+      "state": "QLD",
       "lat":-25.92,
       "lon":153.10,
       "url":"https://siteguide.org.au/Sites/Rainbow%20Beach%20-%20Carlo%20Sand%20Blow.html",
@@ -1045,6 +1117,7 @@
     {
       "name":"towers",
       "title":"Towers",
+      "state": "QLD",
       "lat":-26.79,
       "lon":152.92,
       "weather_url":"https://wind.willyweather.com.au/qld/sunshine-coast/bald-knob.html",
@@ -1058,6 +1131,7 @@
     {
       "name":"mt_widgee",
       "title":"Mt Widgee",
+      "state": "QLD",
       "lat":-26.25,
       "lon":152.36,
       "url":"https://siteguide.org.au/Sites/Mt.%20Widgee.html",
@@ -1072,6 +1146,7 @@
     {
       "name":"mt_nardi",
       "title":"Mt Nardi",
+      "state": "QLD",
       "lat":-28.84,
       "lon":153.26,
       "weather_url":"https://wind.willyweather.com.au/nsw/far-north-coast/lismore-airport.html",
@@ -1085,6 +1160,7 @@
     {
       "name":"l_and_h",
       "title":"L & H",
+      "state": "QLD",
       "lat":-28.84,
       "lon":153.26,
       "weather_url":"https://wind.willyweather.com.au/nsw/far-north-coast/lismore-airport.html",
@@ -1098,6 +1174,7 @@
     {
       "name":"monties",
       "title":"Monties",
+      "state": "QLD",
       "lat":-28.59,
       "lon":153.47,
       "weather_url":"https://wind.willyweather.com.au/nsw/far-north-coast/montecollum.html",
@@ -1111,6 +1188,7 @@
     {
       "name":"forbes",
       "title":"Forbes",
+      "state": "NSW",
       "lat":-33.36,
       "lon":147.93,
       "weather_url":"https://www.willyweather.com.au/nsw/central-west/forbes.html",
