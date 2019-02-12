@@ -1,4 +1,4 @@
-FROM node:6-alpine
+FROM node:11-alpine
 
 RUN apk update && apk add tzdata
 ENV TZ=Australia/Melbourne                                                                                        
