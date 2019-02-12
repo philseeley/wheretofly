@@ -352,6 +352,9 @@ function showForecast()
   range.selectNodeContents(forecastTable);
   range.deleteContents();
 
+  var dates = data.sites[0].forecast;
+  if(showRASP) dates = data.raspDates;
+
   if(sortBySite)
   {
     for(s in data.sites)
@@ -362,23 +365,26 @@ function showForecast()
       {
         addTitleRow(forecastTable, siteTitle(site));
 
-        var dates = site.forecast;
-        if(showRASP) dates = data.raspDates;
-
         for(date in dates)
         {
           var entry = site.forecast[date];
 
-          addEntryRow(forecastTable, dateTitle(date), entry);
+
+          if(showRASP)
+          {
+            addRASPRow(forecastTable, dateTitle(date), entry);
+          }
+          else
+          {
+            addEntryRow(forecastTable, dateTitle(date), entry);
+          }
+
         }
       }
     }
   }
   else
   {
-    var dates = data.sites[0].forecast;
-    if(showRASP) dates = data.raspDates;
-
     for(date in dates)
     {
       addTitleRow(forecastTable, dateTitle(date));
