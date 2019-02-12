@@ -6,17 +6,20 @@ var raspCOORDs =
   VIC:
   {
     tlat: -32.24, tlon: 140.60, ty: 183, tx: 92,
-    blat: -38.58, blon: 150.02, by: 880, bx: 930
+    blat: -38.58, blon: 150.02, by: 880, bx: 930,
+    xoff: 15, yoff: -15
   },
   NSW:
   {
-    tlat: -32.24, tlon: 140.60, ty: 183, tx: 92,
-    blat: -38.58, blon: 150.02, by: 880, bx: 930
+    tlat: -28.40, tlon: 144.39, ty: 112, tx: 145,
+    blat: -36.06, blon: 152.32, by: 951, bx: 878,
+    xoff: 15, yoff: -15
   },
   QLD:
   {
-    tlat: -32.24, tlon: 140.60, ty: 183, tx: 92,
-    blat: -38.58, blon: 150.02, by: 880, bx: 930
+    tlat: -23.09, tlon: 146.78, ty: 111, tx: 92,
+    blat: -29.80, blon: 154.25, by: 951, bx: 930,
+    xoff: 10, yoff: -10
   }
 }
 
@@ -155,8 +158,6 @@ function processForecast()
       }
     }
 
-    site.rasp = [];
-
     for(day=0; day<RASP_DAYS; ++day)
     {
       var date = new Date();
@@ -185,7 +186,7 @@ function processForecast()
         var green = 0;
         var blue  = 0;
 
-        raspImages[site.state][day][time].scan(x+15,y-15,10,10, function(x, y, idx)
+        raspImages[site.state][day][time].scan(x+coords.xoff,y+coords.yoff,10,10, function(x, y, idx)
         {
           var r = this.bitmap.data[idx + 0];
           var g = this.bitmap.data[idx + 1];
@@ -200,6 +201,8 @@ function processForecast()
           //this.bitmap.data[idx + 1] = 255;
           //this.bitmap.data[idx + 2] = 255;
         });
+
+        //if(day == 0) raspImages[site.state][day][time].write(site.state+"-"+day+"-"+time+".png");
 
         if(!cond[time])
           cond[time] = {};
