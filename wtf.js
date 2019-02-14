@@ -36,7 +36,9 @@ var jquery = fs.readFileSync("jquery.js", "utf-8");
 
 var title;
 var sites;
+var dates;
 var times = [];
+var states;
 var raspTimes;
 var raspDates;
 var raspImages;
@@ -44,7 +46,6 @@ var raspImages;
 var adate;
 var auth;
 
-var cbCount = 0;
 var raspCBCount = 0;
 
 function formatYYYYMMDD(date)
@@ -216,39 +217,63 @@ function processForecast()
   }
 }
 
-function raspImageCB(state, day, time, image)
+function raspImageCB(s, d, t, image)
 {
-  if(raspImages[state][day] === undefined)
-    raspImages[state][day] = {};
+  var state = states[s];
+  var time = raspTimes[t];
 
-  raspImages[state][day][time] = image;
+  if(raspImages[state] === undefined)
+    raspImages[state] = {};
+  if(raspImages[state][d] === undefined)
+    raspImages[state][d] = {};
 
-  --raspCBCount;
+  raspImages[state][d][time] = image;
 
-  if(raspCBCount == 0)
+  ++t;
+  if(t >= raspTimes.length)
   {
-    processForecast();
+    t = 0;
+    ++d;
+  }
+  if(d >= RASP_DAYS)
+  {
+    d = 0;
+    ++s;
+  }
+  if(s < states.length)
+  {
+    mkRASPImageCB(s, d, t);
+  }
+  else
+  {
+    try
+    {
+      processForecast();
+    }
+    catch (err)
+    {
+      console.log(err.stack);
+      console.log("ERROR processing forcast:"+err);
+    }
 
     saveForecast();
   }
 }
 
-function mkRASPImageCB(state, day, time)
+function mkRASPImageCB(s, d, t)
 {
-  var d = "";
-  if(day>0) d = "+"+day;
+  var dd = "";
+  if(d>0) dd = "+"+d;
 
-  ++raspCBCount;
-
-  jimp.read("http://glidingforecast.on.net/RASP/"+state+d+"/FCST/wstar.curr"+d+"."+time+"00lst.d2.png", function(err, image)
+console.log("http://glidingforecast.on.net/RASP/"+states[s]+dd+"/FCST/wstar.curr"+dd+"."+raspTimes[t]+"00lst.d2.png");
+  jimp.read("http://glidingforecast.on.net/RASP/"+states[s]+dd+"/FCST/wstar.curr"+dd+"."+raspTimes[t]+"00lst.d2.png", function(err, image)
   {
     if (err)
     {
-      --raspCBCount;// TODO need to process forcaset on 0;
       console.log("ERROR mkRASPImageCB:"+err);
     }
     else
-      raspImageCB(state, day, time, image);
+      raspImageCB(s, d, t, image);
   });
 }
 
@@ -277,29 +302,24 @@ function getRASPImages()
     }
   }
 
-  for(s in sites)
+  if(!states)
   {
-    var state = sites[s].state;
-
-    if(raspImages[state] === undefined)
+    states = [];
+    for(s in sites)
     {
-      raspImages[state] = {};
-
-      for(day=0; day<RASP_DAYS; ++day)
-      {
-        for(t in raspTimes)
-        {
-          var time = raspTimes[t];
-
-          mkRASPImageCB(state, day, time);
-        }
-      }
+      var state = sites[s].state;
+      if(!states.includes(state))
+        states.push(state);
     }
   }
+
+  mkRASPImageCB(0, 0, 0);
 }
 
-function forecast(site, cond, window)
+function forecast(site, date, window)
 {
+  var cond = site.forecast[date];
+
   var time = window.$("th");
   var dir = window.$("td[class^='wind_dir']");
   var kts = window.$("td[data-kts]");
@@ -326,18 +346,11 @@ function forecast(site, cond, window)
     else
       cond[t] = {"dir":"", "kts":""};
   }
-
-  // When all the forecast callbacks have returned we process all the data.
-  --cbCount;
-
-  if (cbCount == 0)
-  {
-    getRASPImages();
-  }
 }
 
-function forecastCB(site, cond, body)
+function forecastCB(s, site, d, date, body)
 {
+console.log(site.name, date);
   try
   {
     jsdom.env
@@ -346,13 +359,24 @@ function forecastCB(site, cond, body)
       src: [jquery],
       done: function (err, window)
       {
-        forecast(site, cond, window);
+        forecast(site, date, window);
+
+        ++d;
+        if(d < dates.length)
+          mkForecastCB(s, site, d, dates[d]);
+        else
+        {
+          ++s;
+          if(s < sites.length)
+            mkOverviewCB(s, sites[s]);
+          else
+            getRASPImages();
+        }
       }
     });
   }
   catch (err)
   {
-    --cbCount;// TODO need to process on count 0;
     console.log("ERROR forecastCB:"+err);
   }
 }
@@ -365,11 +389,8 @@ This produces forecast-example.html
 Note that we need to do this call in sub-function to get the closure to work.
 */
 
-function mkForecastCB(site, date, cond)
+function mkForecastCB(s, site, d, date)
 {
-  // We count the number of forecast callback so that we know when we've got all the data.
-  ++cbCount;
-
   request.post(
   {
     url: "http://www.bom.gov.au/australia/meteye/forecast.php?&lat="+site.lat+"&lon="+site.lon+"&date="+date,
@@ -378,7 +399,7 @@ function mkForecastCB(site, date, cond)
   },
   function (err, response, body)
   {
-    forecastCB(site, cond, body);
+    forecastCB(s, site, d, date, body);
   });
 }
 
@@ -415,12 +436,23 @@ function mkImageCB(uri, filename)
   }
 }
 
-function overview(site, window)
+function overview(s, site, window)
 {
   var datetime = window.$("th[datetime]");
   var img = window.$("img");
 
-  for (i = 0; i<datetime.length; ++i)
+  if(!dates)
+  {
+    dates = [];
+
+    for (d = 0; d<datetime.length; ++d)
+    {
+      var date = datetime[d].attributes["datetime"].nodeValue;
+      dates.push(date);
+    }
+  }
+
+  for (d in dates)
   {
     // Sometimes the image links are missing. This may result in a wrong forcast
     // as we assume there are the same number of images as dates. So if it's not
@@ -431,10 +463,10 @@ function overview(site, window)
     var imgSrc = null;
     var imgTitle = null;
     var filename = null;
-    if(img[i])
+    if(img[d])
     {
-      imgSrc = img[i].attributes["src"].nodeValue;
-      imgTitle = img[i].attributes["alt"].nodeValue;
+      imgSrc = img[d].attributes["src"].nodeValue;
+      imgTitle = img[d].attributes["alt"].nodeValue;
 
       var uri = "http://www.bom.gov.au"+imgSrc;
       imgFilename = "run/images/"+path.basename(imgSrc);
@@ -442,25 +474,26 @@ function overview(site, window)
       mkImageCB(uri, filename);
     }
 
-    var date = datetime[i].attributes["datetime"].nodeValue;
+    var date = dates[d];
 
     site.forecast[date] = {};
     site.forecast[date].img = imgFilename;
     site.forecast[date].imgTitle = imgTitle;
-
-    mkForecastCB(site, date, site.forecast[date]);
   }
+
+  mkForecastCB(s, site, 0, dates[0]);
 }
 
-function overviewCB(site, body)
+function overviewCB(s, site, body)
 {
+console.log(site.name);
   jsdom.env
   ({
     html: body,
     src: [jquery],
     done: function (err, window)
     {
-      overview(site, window);
+      overview(s, site, window);
     }
   });
 }
@@ -472,8 +505,10 @@ This produces overview-example.html
 
 Note that we need to do this call in sub-function to get the closure to work.
 */
-function mkOverviewCB(site)
+function mkOverviewCB(s, site)
 {
+  site.forecast = {};
+
   request.post(
     {
       url: "http://www.bom.gov.au/australia/meteye/forecast.php?",
@@ -484,7 +519,7 @@ function mkOverviewCB(site)
     {
       try
       {
-        overviewCB(site, body);
+        overviewCB(s, site, body);
       }
       catch (err)
       {
@@ -507,13 +542,7 @@ function authCB(err, window)
     adate = window.$("meta[name='DC.Date']")[0].content;
     auth  = window.$("meta[name='BoM.Token']")[0].content;
 
-    for(s in sites)
-    {
-      var site = sites[s];
-      site.forecast = {};
-
-      mkOverviewCB(site);
-    }
+    mkOverviewCB(0, sites[0]);
   }
   catch (err)
   {
