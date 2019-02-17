@@ -187,21 +187,22 @@ function processForecast()
         var green = 0;
         var blue  = 0;
 
-        raspImages[site.state][day][time].scan(x+coords.xoff,y+coords.yoff,10,10, function(x, y, idx)
-        {
-          var r = this.bitmap.data[idx + 0];
-          var g = this.bitmap.data[idx + 1];
-          var b = this.bitmap.data[idx + 2];
-          if(r ==   0 && g ==   0 && b ==   0) return; // Gridline
-          if(r == 255 && g == 255 && b == 255) return; // Text
+        if(raspImages[site.state][day][time])
+          raspImages[site.state][day][time].scan(x+coords.xoff,y+coords.yoff,10,10, function(x, y, idx)
+          {
+            var r = this.bitmap.data[idx + 0];
+            var g = this.bitmap.data[idx + 1];
+            var b = this.bitmap.data[idx + 2];
+            if(r ==   0 && g ==   0 && b ==   0) return; // Gridline
+            if(r == 255 && g == 255 && b == 255) return; // Text
 
-          red   += r;
-          green += g;
-          blue  += b;
-          //this.bitmap.data[idx + 0] = 255;
-          //this.bitmap.data[idx + 1] = 255;
-          //this.bitmap.data[idx + 2] = 255;
-        });
+            red   += r;
+            green += g;
+            blue  += b;
+            //this.bitmap.data[idx + 0] = 255;
+            //this.bitmap.data[idx + 1] = 255;
+            //this.bitmap.data[idx + 2] = 255;
+          });
 
         //if(day == 0) raspImages[site.state][day][time].write(site.state+"-"+day+"-"+time+".png");
 
@@ -269,11 +270,9 @@ console.log("http://glidingforecast.on.net/RASP/"+states[s]+dd+"/FCST/wstar.curr
   jimp.read("http://glidingforecast.on.net/RASP/"+states[s]+dd+"/FCST/wstar.curr"+dd+"."+raspTimes[t]+"00lst.d2.png", function(err, image)
   {
     if (err)
-    {
       console.log("ERROR mkRASPImageCB:"+err);
-    }
-    else
-      raspImageCB(s, d, t, image);
+
+    raspImageCB(s, d, t, image);
   });
 }
 
