@@ -350,7 +350,6 @@ function forecast(site, date, window)
 
 function forecastCB(s, site, d, date, body)
 {
-console.log(site.name, date);
   try
   {
     jsdom.env
@@ -562,6 +561,8 @@ function retrieveForecast()
   if(data.title) title = data.title;
 
   sites = data.sites;
+
+  dates = null;
 
   jsdom.env
   ({
