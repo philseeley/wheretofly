@@ -57,7 +57,7 @@ function saveForecast()
 {
   var d = new Date();
   var filename=new Date(d - d.getTimezoneOffset()*60*1000).toISOString().substr(0, 13)+".json";
-  var data = {"title":title, "times":times, "raspDates":raspDates, "raspTimes":raspTimes, "sites":sites};
+  var data = {"title":title, "dates":dates, "times":times, "raspDates":raspDates, "raspTimes":raspTimes, "sites":sites};
   var run = "public/run/";
   try
   {
