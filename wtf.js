@@ -119,16 +119,16 @@ function processForecast()
     var minPGSpeed = site.minPGSpeed;
     var maxPGSpeed = site.maxPGSpeed;
 
-    for(d in site.forecast)
+    for(d in site.dates)
     {
-      var date = site.forecast[d];
+      var date = site.dates[d];
         
       for(t in times)
       {
         var time = times[t];
 
-        var cond = date[time];
-          
+        var cond = date.times[time];
+
         var dirStr = cond.dir;
         var kts = cond.kts;
 
@@ -163,12 +163,12 @@ function processForecast()
     {
       var date = new Date();
       date.setDate(date.getDate() + day);
-      cond = site.forecast[formatYYYYMMDD(date)];
 
       for(t in raspTimes)
       {
         var time = raspTimes[t];
 
+        var forecast = site.dates[formatYYYYMMDD(date)].times;
         var coords = raspCOORDs[site.state];
 
         var dlat = coords.blat - coords.tlat;
@@ -206,13 +206,12 @@ function processForecast()
 
         //if(day == 0) raspImages[site.state][day][time].write(site.state+"-"+day+"-"+time+".png");
 
-        if(!cond[time])
-          cond[time] = {};
+        if(!forecast[time])
+          forecast[time] = {};
 
-        cond[time].raspColour = "#"+
-                                Math.round(red/100).toString(16).padStart(2, '0')+
-                                Math.round(green/100).toString(16).padStart(2, '0')+
-                                Math.round(blue/100).toString(16).padStart(2, '0');
+        forecast[time].raspColour = "#"+Math.round(red/100).toString(16).padStart(2, '0')+
+                                        Math.round(green/100).toString(16).padStart(2, '0')+
+                                        Math.round(blue/100).toString(16).padStart(2, '0');
       }
     }
   }
@@ -253,7 +252,6 @@ function raspImageCB(s, d, t, image)
     }
     catch (err)
     {
-      console.log(err.stack);
       console.log("ERROR processing forcast:"+err);
     }
 
@@ -266,7 +264,6 @@ function mkRASPImageCB(s, d, t)
   var dd = "";
   if(d>0) dd = "+"+d;
 
-console.log("http://glidingforecast.on.net/RASP/"+states[s]+dd+"/FCST/wstar.curr"+dd+"."+raspTimes[t]+"00lst.d2.png");
   jimp.read("http://glidingforecast.on.net/RASP/"+states[s]+dd+"/FCST/wstar.curr"+dd+"."+raspTimes[t]+"00lst.d2.png", function(err, image)
   {
     if (err)
@@ -292,12 +289,12 @@ function getRASPImages()
 
   if(!raspDates)
   {
-    raspDates = {};
+    raspDates = [];
     for(day=0; day<RASP_DAYS; ++day)
     {
       var date = new Date();
       date.setDate(date.getDate() + day);
-      raspDates[formatYYYYMMDD(date)] = {};
+      raspDates.push(formatYYYYMMDD(date));
     }
   }
 
@@ -317,7 +314,7 @@ function getRASPImages()
 
 function forecast(site, date, window)
 {
-  var cond = site.forecast[date];
+  var cond = site.dates[date].times;
 
   var time = window.$("th");
   var dir = window.$("td[class^='wind_dir']");
@@ -341,9 +338,9 @@ function forecast(site, date, window)
     var t = times[i];
 
     if(i-offset >=0)
-      cond[t] = {"dir":dir[i-offset].innerHTML, "kts":kts[i-offset].attributes["data-kts"].nodeValue};
+      cond[t] = {"dir":dir[i-offset].innerHTML, "kts":parseInt(kts[i-offset].attributes["data-kts"].nodeValue)};
     else
-      cond[t] = {"dir":"", "kts":""};
+      cond[t] = {"dir":"", "kts":null};
   }
 }
 
@@ -474,9 +471,10 @@ function overview(s, site, window)
 
     var date = dates[d];
 
-    site.forecast[date] = {};
-    site.forecast[date].img = imgFilename;
-    site.forecast[date].imgTitle = imgTitle;
+    site.dates[date] = {};
+    site.dates[date].img = imgFilename;
+    site.dates[date].imgTitle = imgTitle;
+    site.dates[date].times = {};
   }
 
   mkForecastCB(s, site, 0, dates[0]);
@@ -484,7 +482,6 @@ function overview(s, site, window)
 
 function overviewCB(s, site, body)
 {
-console.log(site.name);
   jsdom.env
   ({
     html: body,
@@ -505,7 +502,7 @@ Note that we need to do this call in sub-function to get the closure to work.
 */
 function mkOverviewCB(s, site)
 {
-  site.forecast = {};
+  site.dates = {};
 
   request.post(
     {
@@ -562,6 +559,7 @@ function retrieveForecast()
   sites = data.sites;
 
   dates = null;
+  raspDates = null;
 
   jsdom.env
   ({

@@ -197,7 +197,7 @@ function addEntryRow(forecastTable, title, entry)
     var time = data.times[t];
     if(!hideExtremes || (t>1 && t<7))
     {
-      var cond = entry[time];
+      var cond = entry.times[time];
 
       var condElement = document.createElement("td");
 
@@ -232,7 +232,7 @@ function addRASPRow(forecastTable, title, entry)
   for(t in data.raspTimes)
   {
     var time = data.raspTimes[t];
-    var cond = entry[time];
+    var cond = entry.times[time];
 
     if(cond.colour)
       wtf = true;
@@ -292,15 +292,15 @@ function siteTitle(site)
   else
     conditions += " kts";
     
-  if(site.weather_url)
-    title += '<a href="'+site.weather_url+'"><font color="ForestGreen">'+conditions+'</font></a>';
+  if(site.weatherURL)
+    title += '<a href="'+site.weatherURL+'"><font color="ForestGreen">'+conditions+'</font></a>';
   else
     title += conditions;
 
   title += " ";
 
-  if(site.obs_url)
-    title += '<a href="'+site.obs_url+'"><font color="Red">Now</font></a>';
+  if(site.obsURL)
+    title += '<a href="'+site.obsURL+'"><font color="Red">Now</font></a>';
 
   return title;
 }
@@ -352,7 +352,7 @@ function showForecast()
   range.selectNodeContents(forecastTable);
   range.deleteContents();
 
-  var dates = data.sites[0].forecast;
+  var dates = data.dates;
   if(showRASP) dates = data.raspDates;
 
   if(sortBySite)
@@ -365,10 +365,10 @@ function showForecast()
       {
         addTitleRow(forecastTable, siteTitle(site));
 
-        for(date in dates)
+        for(d in dates)
         {
-          var entry = site.forecast[date];
-
+          var date = dates[d];
+          var entry = site.dates[date];
 
           if(showRASP)
           {
@@ -385,14 +385,15 @@ function showForecast()
   }
   else
   {
-    for(date in dates)
+    for(d in dates)
     {
+      var date = dates[d];
       addTitleRow(forecastTable, dateTitle(date));
 
       for(s in data.sites)
       {
         var site = data.sites[s];
-        var entry = site.forecast[date];
+        var entry = site.dates[date];
 
         if(showAllSites || site.show)
         {
