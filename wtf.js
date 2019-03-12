@@ -458,7 +458,7 @@ function overview(s, site, window)
     // a forecast.
 
     var imgSrc = null;
-    var imgTitle = null;
+    var imgTitle = "";
     var filename = null;
     if(img[d])
     {
