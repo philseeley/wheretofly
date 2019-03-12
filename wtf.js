@@ -186,6 +186,7 @@ function processForecast()
         var red   = 0;
         var green = 0;
         var blue  = 0;
+        var count = 0;
 
         if(raspImages[site.state][day][time])
           raspImages[site.state][day][time].scan(x+coords.xoff,y+coords.yoff,10,10, function(x, y, idx)
@@ -199,6 +200,7 @@ function processForecast()
             red   += r;
             green += g;
             blue  += b;
+            ++count;
             //this.bitmap.data[idx + 0] = 255;
             //this.bitmap.data[idx + 1] = 255;
             //this.bitmap.data[idx + 2] = 255;
@@ -209,9 +211,9 @@ function processForecast()
         if(!forecast[time])
           forecast[time] = {};
 
-        forecast[time].raspColour = "#"+Math.round(red/100).toString(16).padStart(2, '0')+
-                                        Math.round(green/100).toString(16).padStart(2, '0')+
-                                        Math.round(blue/100).toString(16).padStart(2, '0');
+        forecast[time].raspColour = "#"+Math.round(red/count).toString(16).padStart(2, '0')+
+                                        Math.round(green/count).toString(16).padStart(2, '0')+
+                                        Math.round(blue/count).toString(16).padStart(2, '0');
       }
     }
   }
