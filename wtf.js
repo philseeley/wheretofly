@@ -191,6 +191,7 @@ function processForecast()
         if(raspImages[site.state][day][time])
           raspImages[site.state][day][time].scan(x+coords.xoff,y+coords.yoff,10,10, function(x, y, idx)
           {
+            if(x < coords.tx || y < coords.ty || x > coords.bx || y > coords.by) return; // Outside of map
             var r = this.bitmap.data[idx + 0];
             var g = this.bitmap.data[idx + 1];
             var b = this.bitmap.data[idx + 2];
