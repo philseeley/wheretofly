@@ -192,9 +192,15 @@ function processForecast()
           raspImages[site.state][day][time].scan(x+coords.xoff,y+coords.yoff,10,10, function(x, y, idx)
           {
             if(x < coords.tx || y < coords.ty || x > coords.bx || y > coords.by) return; // Outside of map
+
             var r = this.bitmap.data[idx + 0];
             var g = this.bitmap.data[idx + 1];
             var b = this.bitmap.data[idx + 2];
+
+            //this.bitmap.data[idx + 0] = 255;
+            //this.bitmap.data[idx + 1] = 0;
+            //this.bitmap.data[idx + 2] = 0;
+
             if(r ==   0 && g ==   0 && b ==   0) return; // Gridline
             if(r == 255 && g == 255 && b == 255) return; // Text
 
@@ -202,19 +208,18 @@ function processForecast()
             green += g;
             blue  += b;
             ++count;
-            //this.bitmap.data[idx + 0] = 255;
-            //this.bitmap.data[idx + 1] = 255;
-            //this.bitmap.data[idx + 2] = 255;
           });
 
-        //if(day == 0) raspImages[site.state][day][time].write(site.state+"-"+day+"-"+time+".png");
+        //if(day == 0 && t == 0) raspImages[site.state][day][time].write(site.state+"-"+day+"-"+time+".png");
 
         if(!forecast[time])
           forecast[time] = {};
 
-        forecast[time].raspColour = "#"+Math.round(red/count).toString(16).padStart(2, '0')+
-                                        Math.round(green/count).toString(16).padStart(2, '0')+
-                                        Math.round(blue/count).toString(16).padStart(2, '0');
+        forecast[time].raspColour = "#FFFFFF";
+        if(count)
+          forecast[time].raspColour = "#"+Math.round(red/count).toString(16).padStart(2, '0')+
+                                          Math.round(green/count).toString(16).padStart(2, '0')+
+                                          Math.round(blue/count).toString(16).padStart(2, '0');
       }
     }
   }
