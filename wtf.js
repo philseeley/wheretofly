@@ -196,11 +196,11 @@ function processForecast()
             var r = this.bitmap.data[idx + 0];
             var g = this.bitmap.data[idx + 1];
             var b = this.bitmap.data[idx + 2];
-
-            //this.bitmap.data[idx + 0] = 255;
-            //this.bitmap.data[idx + 1] = 0;
-            //this.bitmap.data[idx + 2] = 0;
-
+/*
+            this.bitmap.data[idx + 0] = 255;
+            this.bitmap.data[idx + 1] = 0;
+            this.bitmap.data[idx + 2] = 0;
+*/
             if(r ==   0 && g ==   0 && b ==   0) return; // Gridline
             if(r == 255 && g == 255 && b == 255) return; // Text
 
@@ -209,8 +209,6 @@ function processForecast()
             blue  += b;
             ++count;
           });
-
-        //if(day == 0 && t == 0) raspImages[site.state][day][time].write(site.state+"-"+day+"-"+time+".png");
 
         if(!forecast[time])
           forecast[time] = {};
@@ -223,6 +221,13 @@ function processForecast()
       }
     }
   }
+/*
+  for(s in raspImages)
+  {
+    if(raspImages[s]['0']['08'])
+      raspImages[s]['0']['08'].write(s+".png");
+  }
+*/
 }
 
 function raspImageCB(s, d, t, image)
