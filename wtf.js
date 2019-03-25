@@ -213,7 +213,6 @@ function processForecast()
         if(!forecast[time])
           forecast[time] = {};
 
-        forecast[time].raspColour = "#FFFFFF";
         if(count)
           forecast[time].raspColour = "#"+Math.round(red/count).toString(16).padStart(2, '0')+
                                           Math.round(green/count).toString(16).padStart(2, '0')+

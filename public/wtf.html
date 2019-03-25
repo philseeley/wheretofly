@@ -241,7 +241,7 @@ function addRASPRow(forecastTable, title, entry)
     {
       var condElement = document.createElement("td");
 
-      condElement.setAttribute("bgcolor", cond.raspColour);
+      if(cond.raspColour) condElement.setAttribute("bgcolor", cond.raspColour);
       condElement.innerHTML = condStr(cond);
 
       entryElement.appendChild(condElement);
