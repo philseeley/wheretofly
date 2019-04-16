@@ -199,24 +199,26 @@ function addEntryRow(forecastTable, title, entry)
     {
       var cond = entry.times[time];
 
-      var condElement = document.createElement("td");
-
-      var colour = cond.colour;
-
-      if(colour)
+      if(cond)
       {
-        if(showPGValues)
-          condElement.setAttribute("bgcolor", cond.PGColour);
-        else
-          condElement.setAttribute("bgcolor", colour);
-        wtf = true;
-      }
+        var condElement = document.createElement("td");
 
-      condElement.innerHTML = condStr(cond);
+        var colour = cond.colour;
+
+        if(colour)
+        {
+          if(showPGValues)
+            condElement.setAttribute("bgcolor", cond.PGColour);
+          else
+            condElement.setAttribute("bgcolor", colour);
+          wtf = true;
+        }
+
+        condElement.innerHTML = condStr(cond);
     
-      entryElement.appendChild(condElement);
+        entryElement.appendChild(condElement);
+      }
     }
-  
   }
 
   if(showAllConditions || wtf)

@@ -129,32 +129,35 @@ function processForecast()
 
         var cond = date.times[time];
 
-        var dirStr = cond.dir;
-        var kts = cond.kts;
-
-        var dir = dirMap[dirStr];
-
-        if(minDir > maxDir)
+        if(cond)
         {
-          if(dir <= maxDir || dir >= minDir)
+          var dirStr = cond.dir;
+          var kts = cond.kts;
+
+          var dir = dirMap[dirStr];
+
+          if(minDir > maxDir)
+          {
+            if(dir <= maxDir || dir >= minDir)
+              cond.colour = cond.PGColour = "Yellow";
+          }
+          else if (minDir <= dir && dir <= maxDir)
             cond.colour = cond.PGColour = "Yellow";
-        }
-        else if (minDir <= dir && dir <= maxDir)
-          cond.colour = cond.PGColour = "Yellow";
 
-        if(cond.colour)
-        {
-          if(kts >= minSpeed)
-            cond.colour = "LightGreen";
+          if(cond.colour)
+          {
+            if(kts >= minSpeed)
+              cond.colour = "LightGreen";
 
-          if(kts > maxSpeed)
-            cond.colour = "Orange";
+            if(kts > maxSpeed)
+              cond.colour = "Orange";
 
-          if(kts >= minPGSpeed)
-            cond.PGColour = "LightGreen";
+            if(kts >= minPGSpeed)
+              cond.PGColour = "LightGreen";
 
-          if(kts > maxPGSpeed)
-            cond.PGColour = "Orange";
+            if(kts > maxPGSpeed)
+              cond.PGColour = "Orange";
+          }
         }
       }
     }
@@ -278,6 +281,7 @@ function mkRASPImageCB(s, d, t)
 
   jimp.read("http://glidingforecast.on.net/RASP/"+states[s]+dd+"/FCST/wstar.curr"+dd+"."+raspTimes[t]+"00lst.d2.png", function(err, image)
   {
+    // RASP images might not exist yet for all days/times, but we carry on to try and get the rest.
     if (err)
       console.log("ERROR mkRASPImageCB:"+err);
 
@@ -406,7 +410,14 @@ function mkForecastCB(s, site, d, date)
   },
   function (err, response, body)
   {
-    forecastCB(s, site, d, date, body);
+    if(err)
+    {
+      console.log("ERROR mkForecastCB:"+err);
+      // Retry...
+      mkForecastCB(s, site, d, date);
+    }
+    else
+      forecastCB(s, site, d, date, body);
   });
 }
 
