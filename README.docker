@@ -7,6 +7,7 @@ docker run -it -p 8080:8080 -p 8443:8443 \
   -v /home/phil/projects/wtf/run:/usr/src/app/run \
   --name wheretofly philseeley/wheretofly:v14
 docker exec -ti wheretofly bash
+docker stop wheretofly
 docker rm wheretofly
 docker rmi $(docker images --filter dangling=true -q)
 docker push philseeley/wheretofly:v14
