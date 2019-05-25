@@ -489,6 +489,7 @@
       "lon":147.21,
       "url":"http://www.vhpa.org.au/Sites/Mt%20Emu.html",
       "weatherURL":"http://wind.willyweather.com.au/vic/ovens--murray/tawonga.html",
+      "obsURL":"http://www.freeflightwx.com/emu/",
       "minDir": "NW",
       "maxDir": "NW",
       "dir": "NW",
