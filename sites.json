@@ -1279,6 +1279,66 @@
       "maxSpeed": 10,
       "minPGSpeed": 0,
       "maxPGSpeed": 10
+    },
+    {
+      "name":"murrells_beach",
+      "title":"Murrells Beach",
+      "state": "VIC",
+      "lat":-38.40,
+      "lon":141.53,
+      "weatherURL":"http://siteguide.org.au/Sites/Portland.html",
+      "minDir": "SW",
+      "maxDir": "WNW",
+      "dir": "SW",
+      "minSpeed": 10,
+      "maxSpeed": 20,
+      "minPGSpeed": 10,
+      "maxPGSpeed": 14
+    },
+    {
+      "name":"murrells_beach_nw",
+      "title":"Murrells Beach NW",
+      "state": "VIC",
+      "lat":-38.40,
+      "lon":141.53,
+      "weatherURL":"http://siteguide.org.au/Sites/Portland.html",
+      "minDir": "W",
+      "maxDir": "NW",
+      "dir": "WNW",
+      "minSpeed": 10,
+      "maxSpeed": 20,
+      "minPGSpeed": 10,
+      "maxPGSpeed": 14
+    },
+    {
+      "name":"amos_road",
+      "title":"Amos Road",
+      "state": "VIC",
+      "lat":-38.35,
+      "lon":141.39,
+      "weatherURL":"http://siteguide.org.au/Sites/Portland.html",
+      "minDir": "WNW",
+      "maxDir": "NNW",
+      "dir": "NW",
+      "minSpeed": 10,
+      "maxSpeed": 20,
+      "minPGSpeed": 10,
+      "maxPGSpeed": 14
+    },
+    {
+      "name":"discovery_bay",
+      "title":"Discovery Bay",
+      "state": "VIC",
+      "lat":-38.33,
+      "lon":141.40,
+      "weatherURL":"http://siteguide.org.au/Sites/Portland.html",
+      "minDir": "SW",
+      "maxDir": "SW",
+      "dir": "SW",
+      "minSpeed": 10,
+      "maxSpeed": 20,
+      "minPGSpeed": 10,
+      "maxPGSpeed": 14
     }
   ]
 }
