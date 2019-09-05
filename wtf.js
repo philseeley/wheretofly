@@ -5,25 +5,25 @@ var raspCOORDs =
 {
   VIC:
   {
-    tlat: -32.24, tlon: 140.60, ty: 183, tx: 92,
-    blat: -38.58, blon: 150.02, by: 880, bx: 930,
-    xoff: 15, yoff: -15
+    tlat: -34.31, tlon: 143.83, ty: 0, tx: 0,
+    blat: -39.15, blon: 150.00, by: 977, bx: 999,
+    xoff: -5, yoff: -5,
   },
   NSW:
   {
-    tlat: -28.40, tlon: 144.39, ty: 112, tx: 145,
-    blat: -36.06, blon: 152.32, by: 951, bx: 878,
-    xoff: 15, yoff: -15
+    tlat: -27.66, tlon: 145.81, ty: 0, tx: 0,
+    blat: -35.07, blon: 153.64, by: 999, bx: 891,
+    xoff: -5, yoff: -5,
   },
-  QLD:
+  SEQ:
   {
-    tlat: -23.09, tlon: 146.78, ty: 111, tx: 92,
-    blat: -29.80, blon: 154.25, by: 951, bx: 930,
-    xoff: 10, yoff: -10
+    tlat: -25.33, tlon: 149.67, ty: 0, tx: 0,
+    blat: -28.96, blon: 153.80, by: 989, bx: 999,
+    xoff: -5, yoff: -5,
   }
 }
 
-var RASP_DAYS = 3;
+var RASP_DAYS = 4;
 
 var fs = require("fs");
 var path = require("path");
@@ -192,6 +192,7 @@ function processForecast()
         var count = 0;
 
         if(raspImages[site.state][day][time])
+        {
           raspImages[site.state][day][time].scan(x+coords.xoff,y+coords.yoff,10,10, function(x, y, idx)
           {
             if(x < coords.tx || y < coords.ty || x > coords.bx || y > coords.by) return; // Outside of map
@@ -212,6 +213,7 @@ function processForecast()
             blue  += b;
             ++count;
           });
+        }
 
         if(!forecast[time])
           forecast[time] = {};
@@ -267,7 +269,7 @@ function raspImageCB(s, d, t, image)
     }
     catch (err)
     {
-      console.log("ERROR processing forcast:"+err);
+      console.log("ERROR processing forecast:"+err);
     }
 
     saveForecast();
@@ -279,7 +281,7 @@ function mkRASPImageCB(s, d, t)
   var dd = "";
   if(d>0) dd = "+"+d;
 
-  jimp.read("http://glidingforecast.on.net/RASP/"+states[s]+dd+"/FCST/wstar.curr"+dd+"."+raspTimes[t]+"00lst.d2.png", function(err, image)
+  jimp.read("http://ausrasp.com/"+states[s]+"/OUT+"+d+"/FCST/wstar_bsratio.curr."+raspTimes[t]+"00lst.d2.body.png", function(err, image)
   {
     // RASP images might not exist yet for all days/times, but we carry on to try and get the rest.
     if (err)
@@ -296,7 +298,7 @@ function getRASPImages()
   if(!raspTimes)
   {
     raspTimes = [];
-    for(t=8; t<=19; ++t)
+    for(t=8; t<=18; ++t)
     {
       var time = t.toString().padStart(2, "0");
       raspTimes.push(time);
