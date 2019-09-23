@@ -1445,6 +1445,23 @@
       "maxSpeed": 20,
       "minPGSpeed": 10,
       "maxPGSpeed": 16
+    },
+    {
+      "name":"rex",
+      "title":"Rex Lookout",
+      "state": "SEQ",
+      "lat":-16.65,
+      "lon":145.57,
+      "url":"http://siteguide.org.au/Sites/Rex%20Lookout.html",
+      "weatherURL":"https://www.willyweather.com.au/qld/far-north/wangetti-beach.html",
+      "obsURL":"http://www.cairnshangglidingclub.org/weather",
+      "minDir": "E",
+      "maxDir": "SE",
+      "dir": "E",
+      "minSpeed": 10,
+      "maxSpeed": 20,
+      "minPGSpeed": 10,
+      "maxPGSpeed": 16
     }
   ]
 }
