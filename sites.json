@@ -558,7 +558,7 @@
       "obsURL":"https://www.wunderground.com/personal-weather-station/dashboard?ID=IVICTORI308",
       "minDir": "E",
       "maxDir": "SE",
-      "dir": "SE",
+      "dir": "ESE",
       "minSpeed": 12,
       "maxSpeed": 18,
       "minPGSpeed": 12,
