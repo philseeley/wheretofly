@@ -136,7 +136,12 @@ function processForecast()
 
           var dir = dirMap[dirStr];
 
-          if(minDir > maxDir)
+          // Min and Max being N means all directions.
+          if(minDir === 0.0 && maxDir === 0.0)
+          {
+            cond.colour = cond.PGColour = "Yellow";
+          }
+          else if(minDir > maxDir)
           {
             if(dir <= maxDir || dir >= minDir)
               cond.colour = cond.PGColour = "Yellow";
@@ -281,11 +286,12 @@ function mkRASPImageCB(s, d, t)
   var dd = "";
   if(d>0) dd = "+"+d;
 
-  jimp.read("http://ausrasp.com/"+states[s]+"/OUT+"+d+"/FCST/wstar_bsratio.curr."+raspTimes[t]+"00lst.d2.body.png", function(err, image)
+  url = "http://ausrasp.com/"+states[s]+"/OUT+"+d+"/FCST/wstar_bsratio.curr."+raspTimes[t]+"00lst.d2.body.png";
+  jimp.read(url, function(err, image)
   {
     // RASP images might not exist yet for all days/times, but we carry on to try and get the rest.
     if (err)
-      console.log("ERROR mkRASPImageCB:"+err);
+      console.log("ERROR mkRASPImageCB:"+url+" "+err);
 
     raspImageCB(s, d, t, image);
   });
