@@ -136,8 +136,8 @@ function processForecast()
 
           var dir = dirMap[dirStr];
 
-          // Min and Max being N means all directions.
-          if(minDir === 0.0 && maxDir === 0.0)
+          // Min and Max being undefined means all directions.
+          if(site.minDir === undefined && kts !== null)
           {
             cond.colour = cond.PGColour = "Yellow";
           }
