@@ -1459,6 +1459,19 @@
       "maxSpeed": 20,
       "minPGSpeed": 10,
       "maxPGSpeed": 16
+    },
+    {
+      "name":"birchip",
+      "title":"Birchip",
+      "state": "VIC",
+      "lat":-35.81,
+      "lon":143.00,
+      "url":"https://siteguide.org.au/Sites/Birchip%20Tow%20Paddock.html",
+      "weatherURL":"https://wind.willyweather.com.au/vic/mallee/jil-jil.html",
+      "minSpeed": 0,
+      "maxSpeed": 15,
+      "minPGSpeed": 0,
+      "maxPGSpeed": 10
     }
   ]
 }
