@@ -1527,6 +1527,22 @@
       "maxSpeed": 15,
       "minPGSpeed": 0,
       "maxPGSpeed": 10
+    },
+    {
+      "name":"johanna",
+      "title":"Johanna",
+      "state": "VIC",
+      "lat":-38.76,
+      "lon":143.37,
+      "url":"http://siteguide.org.au/Sites/Johanna.html",
+      "weatherURL":"https://wind.willyweather.com.au/vic/barwon/johanna-beach.html",
+      "minDir": "S",
+      "maxDir": "SSW",
+      "dir": "SSW",
+      "minSpeed": 10,
+      "maxSpeed": 20,
+      "minPGSpeed": 10,
+      "maxPGSpeed": 16
     }
   ]
 }
