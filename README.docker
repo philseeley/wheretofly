@@ -1,10 +1,10 @@
 ====== Build ======
-docker pull docker.io/node:11-alpine
-docker build -t philseeley/wheretofly:v18 .
+docker pull docker.io/node:14-alpine
+docker build --network=host -t philseeley/wheretofly:v18 .
 
 ====== Run locally ======
-docker run -it -p 8080:8080 -p 8443:8443 --name wheretofly philseeley/wheretofly:v18
-docker run -it -p 8080:8080 -p 8443:8443 \
+docker run --network host -it -p 8080:8080 -p 8443:8443 --name wheretofly philseeley/wheretofly:v18
+docker run --network host -it -p 8080:8080 -p 8443:8443 \
   -v /home/phil/projects/wtf/public-run:/usr/src/app/public/run \
   -v /home/phil/projects/wtf/run:/usr/src/app/run \
   --name wheretofly philseeley/wheretofly:v18
