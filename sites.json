@@ -364,6 +364,20 @@
       "maxPGSpeed": 10
     },
     {
+      "name":"ozpghg",
+      "title":"Oz PG&HG Park",
+      "state": "SEQ",
+      "lat":-27.93,
+      "lon":153.11,
+      "url":"http://ozparaglidingandhanggliding.com.au/",
+      "weatherURL":"https://wind.willyweather.com.au/qld/gold-coast/mount-tamborine.html",
+      "obsURL":"http://freeflywindstation.com/sims-test-stn",
+      "minSpeed": 0,
+      "maxSpeed": 10,
+      "minPGSpeed": 0,
+      "maxPGSpeed": 10
+    },
+    {
       "name":"gundowring_savhill",
       "title":"Gundowring (Savhill)",
       "state": "VIC",
