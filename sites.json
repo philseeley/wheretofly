@@ -1043,7 +1043,7 @@
       "lon":153.18,
       "url":"https://siteguide.org.au/Sites/Mt.%20Tamborine.html",
       "weatherURL":"https://wind.willyweather.com.au/qld/gold-coast/mount-tamborine.html",
-      "obsURL":"http://freeflywindstation.com/test-station",
+      "obsURL":"http://freeflywindstation.com/sims-test-stn",
       "minDir": "WSW",
       "maxDir": "NW",
       "dir": "W",
