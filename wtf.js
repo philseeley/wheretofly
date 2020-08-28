@@ -139,15 +139,15 @@ function processForecast()
           // Min and Max being undefined means all directions.
           if(site.minDir === undefined && kts !== null)
           {
-            cond.colour = cond.PGColour = "Yellow";
+            cond.colour = cond.pgColour = "Yellow";
           }
           else if(minDir > maxDir)
           {
             if(dir <= maxDir || dir >= minDir)
-              cond.colour = cond.PGColour = "Yellow";
+              cond.colour = cond.pgColour = "Yellow";
           }
           else if (minDir <= dir && dir <= maxDir)
-            cond.colour = cond.PGColour = "Yellow";
+            cond.colour = cond.pgColour = "Yellow";
 
           if(cond.colour)
           {
@@ -158,10 +158,10 @@ function processForecast()
               cond.colour = "Orange";
 
             if(kts >= minPGSpeed)
-              cond.PGColour = "LightGreen";
+              cond.pgColour = "LightGreen";
 
             if(kts > maxPGSpeed)
-              cond.PGColour = "Orange";
+              cond.pgColour = "Orange";
           }
         }
       }
