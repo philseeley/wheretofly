@@ -20,19 +20,25 @@ The values for each `sites` entry are:
 * `title` - Name shown on the forecast.
 * `lat` - site's latitude in decimal to two significant figures.
 * `lon` - site's longitude in decimal to two significant figures.
-* `minSpeed` - minimum favourable speed.
-* `maxSpeed` - maximum favourable speed.
+* `minSpeed` - minimum favourable speed in knots. See note [4].
+* `maxSpeed` - maximum favourable speed in knots.
+* `minPGSpeed` - minimum favourable speed for Paragliders in knots.
+* `maxPGSpeed` - maximum favourable speed for Paragliders in knots.
+* `state` - the RASP state covering for the site.
 
 **Optional:**
 * `url` - Link to a description of the site.
 * `weather_url` - link to a specific forecast for the site.
 * `obs_url` - link to the site's current weather observations.
-* `minDir` - minimum favourable direction. See note [1].
-* `minDir` - maximum favourable direction. Must be clockwise from minDir. See note [2].
+* `minDir` - minimum wind favourable direction. See note [1].
+* `minDir` - maximum wind favourable direction. Must be clockwise from minDir. See note [2].
+* `dir` - best wind direction.
 
 Notes:
 1. Directions must be one of  "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW".
 2. If no directions are specified all directions are considered favourable.
+3. ACT sites are classed as VIC. See http://ausrasp.com.
+4. Where the forecast and the expected wind speeds o launch differ, the forecast speeds should be used. For example, you can expect about 10 kts more on launch at Lake George than the forecast. So a maxSpeed of 10 would be a good value for Hang Gliders, as you would expect 20 kts on launch.
 
 **Example `sites.json` file:**
 
@@ -85,5 +91,4 @@ Notes:
 1. If using [Let’s Encrypt](https://letsencrypt.org) certificates, include the cross signed CA certificate in the `cert.pem` file to ensure it's accepted by all browsers.
 
 # Current Limitations - TODO:
-* Wind speeds are in knots
 * The container timezone is fixed to AEDT.
