@@ -335,6 +335,23 @@
       "maxPGSpeed": 8
     },
     {
+      "name":"lanyon",
+      "title":"Lanyon",
+      "state": "ACT",
+      "url":"https://siteguide.org.au/Sites/Lanyon.html",
+      "weatherURL":"https://wind.willyweather.com.au/act/canberra/tharwa.html",
+      "obsURL":"https://www.freeflightwx.com/acthpa/lanyon/",
+      "lat":-35.48,
+      "lon":149.11,
+      "minDir": "SW",
+      "maxDir": "NW",
+      "dir": "WNW",
+      "minSpeed": 10,
+      "maxSpeed": 20,
+      "minPGSpeed": 6,
+      "maxPGSpeed": 12
+    },
+    {
       "name":"binalong",
       "title":"Binalong",
       "state": "VIC",
