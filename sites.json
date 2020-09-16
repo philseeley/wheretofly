@@ -252,7 +252,7 @@
     {
       "name":"lake_george",
       "title":"Lake George (South launch)",
-      "state": "NSW",
+      "state": "VIC",
       "url":"https://siteguide.org.au/Sites/Lake%20George%20(South%20Launch).html",
       "weatherURL":"https://wind.willyweather.com.au/nsw/southern-tablelands/lake-george.html",
       "obsURL":"https://www.freeflightwx.com/acthpa/lakegeorge/",
@@ -269,7 +269,7 @@
     {
       "name":"collector",
       "title":"Lake George (Collector)",
-      "state": "NSW",
+      "state": "VIC",
       "url":"https://siteguide.org.au/Sites/Lake%20George%20(Collector).html",
       "weatherURL":"https://wind.willyweather.com.au/nsw/southern-tablelands/collector.html",
       "obsURL":"https://www.freeflightwx.com/acthpa/lakegeorge/",
@@ -286,7 +286,7 @@
     {
       "name":"spring_hill",
       "title":"Spring Hill",
-      "state": "NSW",
+      "state": "VIC",
       "url":"https://siteguide.org.au/Sites/Spring%20Hill.html",
       "weatherURL":"https://wind.willyweather.com.au/nsw/southern-tablelands/nanima.html",
       "obsURL":"https://www.freeflightwx.com/acthpa/springhill/",
@@ -303,7 +303,7 @@
     {
       "name":"pig_hill_n",
       "title":"Pig Hill North",
-      "state": "ACT",
+      "state": "VIC",
       "url":"https://siteguide.org.au/Sites/Pig%20Hill.html",
       "weatherURL":"https://wind.willyweather.com.au/act/canberra/uriarra.html",
       "obsURL":"https://www.freeflightwx.com/acthpa/pighill/",
@@ -320,7 +320,7 @@
     {
       "name":"pig_hill_e",
       "title":"Pig Hill East",
-      "state": "ACT",
+      "state": "VIC",
       "url":"https://siteguide.org.au/Sites/Pig%20Hill.html",
       "weatherURL":"https://wind.willyweather.com.au/act/canberra/uriarra.html",
       "obsURL":"https://www.freeflightwx.com/acthpa/pighill/",
@@ -337,7 +337,7 @@
     {
       "name":"lanyon",
       "title":"Lanyon",
-      "state": "ACT",
+      "state": "VIC",
       "url":"https://siteguide.org.au/Sites/Lanyon.html",
       "weatherURL":"https://wind.willyweather.com.au/act/canberra/tharwa.html",
       "obsURL":"https://www.freeflightwx.com/acthpa/lanyon/",
@@ -354,7 +354,7 @@
     {
       "name":"binalong",
       "title":"Binalong",
-      "state": "NSW",
+      "state": "VIC",
       "lat":-34.64,
       "url":"https://maps.google.com.au/maps?q=-34.640178,148.589931",
       "weatherURL":"https://wind.willyweather.com.au/nsw/southern-tablelands/binalong.html",
