@@ -346,10 +346,10 @@
       "minDir": "SW",
       "maxDir": "NW",
       "dir": "WNW",
-      "minSpeed": 10,
-      "maxSpeed": 20,
-      "minPGSpeed": 6,
-      "maxPGSpeed": 12
+      "minSpeed": 5,
+      "maxSpeed": 10,
+      "minPGSpeed": 5,
+      "maxPGSpeed": 8
     },
     {
       "name":"binalong",
