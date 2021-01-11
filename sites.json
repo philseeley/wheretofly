@@ -1574,6 +1574,23 @@
       "maxSpeed": 20,
       "minPGSpeed": 10,
       "maxPGSpeed": 16
+    },
+    {
+      "name":"mt_elliot",
+      "title":"Mt Elliot",
+      "state": "VIC",
+      "lat":-36.19,
+      "lon":147.98,
+      "url":"https://siteguide.org.au/Sites/Mt%20Elliot.html",
+      "weatherURL":"https://wind.willyweather.com.au/vic/ovens--murray/corryong-airport.html",
+      "obsURL":"http://www.freeflightwx.com/acthpa/corryong",
+      "minDir": "WNW",
+      "maxDir": "NNW",
+      "dir": "NW",
+      "minSpeed": 5,
+      "maxSpeed": 10,
+      "minPGSpeed": 4,
+      "maxPGSpeed": 8
     }
   ]
 }
