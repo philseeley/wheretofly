@@ -595,6 +595,7 @@ function retrieveForecast()
   jsdom.env
   ({
     url: "http://www.bom.gov.au/australia/meteye/",
+    headers: {'User-Agent': "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"},
     src: [jquery],
     done: authCB
   });
