@@ -1,3 +1,15 @@
+userAgent = "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36";
+httpHeaders = {
+  'User-Agent': userAgent,
+  "X-Requested-With": "XMLHttpRequest",
+  "Origin": "http://www.bom.gov.au",
+  "Referer": "http://www.bom.gov.au/australia/meteye/",
+  "Connection": "keep-alive",
+  "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+  "Accept": "*/*",
+  "Accept-Language": "en-US,en;q=0.5"
+};
+
 var dirMap = {"N":  0.0, "NNE": 22.5, "NE": 45.0, "ENE": 67.5, "E": 90.0, "ESE":112.5, "SE":135.0, "SSE":157.5,
               "S":180.0, "SSW":202.5, "SW":225.0, "WSW":247.5, "W":270.0, "WNW":292.5, "NW":315.0, "NNW":337.5};
 
@@ -413,7 +425,7 @@ function mkForecastCB(s, site, d, date)
   request.post(
   {
     url: "http://www.bom.gov.au/australia/meteye/forecast.php?&lat="+site.lat+"&lon="+site.lon+"&date="+date,
-    headers: {'User-Agent': "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"},
+    headers: httpHeaders,
     body: '{"adate":"'+adate+'","auth":"'+auth+'"}'
   },
   function (err, response, body)
@@ -436,8 +448,8 @@ function imageCB(uri, filename)
     request(
       {
         url: uri,
-        headers: {'User-Agent': "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"},
-      }).pipe(fs.createWriteStream(filename));
+        headers: httpHeaders
+        }).pipe(fs.createWriteStream(filename));
   }
 }
 
@@ -538,7 +550,7 @@ function mkOverviewCB(s, site)
   request.post(
     {
       url: "http://www.bom.gov.au/australia/meteye/forecast.php?",
-      headers: {'User-Agent': "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"},
+      headers: httpHeaders,
       form: {lat:site.lat, lon:site.lon, adate:adate, auth:auth}
     },
     function (err, response, body)
@@ -595,7 +607,7 @@ function retrieveForecast()
   jsdom.env
   ({
     url: "http://www.bom.gov.au/australia/meteye/",
-    headers: {'User-Agent': "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"},
+    headers: {'User-Agent': userAgent},
     src: [jquery],
     done: authCB
   });
