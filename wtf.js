@@ -32,6 +32,12 @@ var raspCOORDs =
     tlat: -25.33, tlon: 149.67, ty: 0, tx: 0,
     blat: -28.96, blon: 153.80, by: 989, bx: 999,
     xoff: -5, yoff: -5,
+  },
+  WA:
+  {
+    tlat: 0, tlon: 0, ty: 0, tx: 0,
+    blat: 0, blon: 0, by: 0, bx: 0,
+    xoff: 0, yoff: 0,
   }
 }
 
