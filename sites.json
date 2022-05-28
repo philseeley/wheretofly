@@ -1769,6 +1769,7 @@
       "state": "VIC",
       "url":"https://siteguide.org.au/Sites/Red%20Bluff.html",
       "weatherURL":"http://wind.willyweather.com.au/vic/melbourne/sandringham.html",
+      "obsURL":"http://www.bom.gov.au/products/IDV60801/IDV60801.95872.shtml",
       "lat":-37.96,
       "lon":145.00,
       "minDir": "SSW",
