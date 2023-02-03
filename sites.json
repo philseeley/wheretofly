@@ -1779,6 +1779,22 @@
       "maxSpeed": 20,
       "minPGSpeed": 9,
       "maxPGSpeed": 15
+    },
+    {
+      "name":"craigie_rd",
+      "title":"Craigie Rd, Mt Martha",
+      "state": "VIC",
+      "url":"https://siteguide.org.au/Sites/Craigie%20Rd,%20Mt%20Martha.html",
+      "weatherURL":"https://www.willyweather.com.au/vic/mornington-peninsula/mount-martha-south-beach.html",
+      "lat":-38.25,
+      "lon":145.02,
+      "minDir": "WSW",
+      "maxDir": "WNW",
+      "dir": "WNW",
+      "minSpeed": 9,
+      "maxSpeed": 20,
+      "minPGSpeed": 9,
+      "maxPGSpeed": 15
     }
   ]
 }
