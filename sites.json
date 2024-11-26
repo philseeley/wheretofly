@@ -341,6 +341,7 @@
       "lon":145.35,
       "url":"https://maps.google.com.au/maps?q=-36.814536,145.346624",
       "weatherURL":"http://wind.willyweather.com.au/vic/goulburn/locksley.html",
+      "obsURL":"https://www.wunderground.com/dashboard/pws/ILOCKS1",
       "minSpeed": 0,
       "maxSpeed": 10,
       "minPGSpeed": 0,
