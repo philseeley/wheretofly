@@ -1795,6 +1795,22 @@
       "maxSpeed": 20,
       "minPGSpeed": 9,
       "maxPGSpeed": 15
+    },
+    {
+      "name":"gillies",
+      "title":"Gillies Lookout",
+      "state": "SEQ",
+      "lat":-17.20,
+      "lon":145.70,
+      "url":"https://siteguide.org.au/Sites/Gillies%20Lookout.html",
+      "weatherURL":"https://www.willyweather.com.au/qld/far-north/gadgarra.html",
+      "minDir": "NE",
+      "maxDir": "SE",
+      "dir": "E",
+      "minSpeed": 10,
+      "maxSpeed": 20,
+      "minPGSpeed": 10,
+      "maxPGSpeed": 16
     }
   ]
 }
