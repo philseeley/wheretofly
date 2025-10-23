@@ -2,8 +2,8 @@ userAgent = "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, 
 httpHeaders = {
   'User-Agent': userAgent,
   "X-Requested-With": "XMLHttpRequest",
-  "Origin": "http://www.bom.gov.au",
-  "Referer": "http://www.bom.gov.au/australia/meteye/",
+  "Origin": "https://www.bom.gov.au",
+  "Referer": "https://www.bom.gov.au/australia/meteye/",
   "Connection": "keep-alive",
   "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
   "Accept": "*/*",
@@ -420,7 +420,7 @@ function forecastCB(s, site, d, date, body)
 
 /*
 To get the wind forcaset for each day we need a query of the form:
-http://www.bom.gov.au/australia/meteye/forecast.php?&lat=-38.46&lon=144.06&date=2016-06-05
+https://www.bom.gov.au/australia/meteye/forecast.php?&lat=-38.46&lon=144.06&date=2016-06-05
 This produces forecast-example.html
 
 Note that we need to do this call in sub-function to get the closure to work.
@@ -430,7 +430,7 @@ function mkForecastCB(s, site, d, date)
 {
   request.post(
   {
-    url: "http://www.bom.gov.au/australia/meteye/forecast.php?&lat="+site.lat+"&lon="+site.lon+"&date="+date,
+    url: "https://www.bom.gov.au/australia/meteye/forecast.php?&lat="+site.lat+"&lon="+site.lon+"&date="+date,
     headers: httpHeaders,
     body: '{"adate":"'+adate+'","auth":"'+auth+'"}'
   },
@@ -512,7 +512,7 @@ function overview(s, site, window)
       imgSrc = img[d].attributes["src"].nodeValue;
       imgTitle = img[d].attributes["alt"].nodeValue;
 
-      var uri = "http://www.bom.gov.au"+imgSrc;
+      var uri = "https://www.bom.gov.au"+imgSrc;
       imgFilename = "run/images/"+path.basename(imgSrc);
       filename = "public/"+imgFilename;
       mkImageCB(uri, filename);
@@ -544,7 +544,7 @@ function overviewCB(s, site, body)
 
 /*
 For each site we retrieve the weeks overview with query of form:
-http://www.bom.gov.au/australia/meteye/forecast.php?&lat=-38.46&lon=144.06
+https://www.bom.gov.au/australia/meteye/forecast.php?&lat=-38.46&lon=144.06
 This produces overview-example.html
 
 Note that we need to do this call in sub-function to get the closure to work.
@@ -555,7 +555,7 @@ function mkOverviewCB(s, site)
 
   request.post(
     {
-      url: "http://www.bom.gov.au/australia/meteye/forecast.php?",
+      url: "https://www.bom.gov.au/australia/meteye/forecast.php?",
       headers: httpHeaders,
       form: {lat:site.lat, lon:site.lon, adate:adate, auth:auth}
     },
@@ -612,7 +612,7 @@ function retrieveForecast()
 
   jsdom.env
   ({
-    url: "http://www.bom.gov.au/australia/meteye/",
+    url: "https://www.bom.gov.au/australia/meteye/",
     headers: {'User-Agent': userAgent},
     src: [jquery],
     done: authCB
